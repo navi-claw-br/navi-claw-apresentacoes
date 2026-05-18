@@ -719,7 +719,14 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
       </div>
 
       <div class="speaker-notes-content" style="display:none">
-        <strong>Speaker Notes:</strong> Estes são dados REAIS. O OpenClaw começou como um experimento de um desenvolvedor solo em novembro de 2025. Em janeiro de 2026, explodiu: 9K estrelas no primeiro dia, 60K em 72 horas — o crescimento mais rápido da história do GitHub. Em maio de 2026, já são 369K estrelas, 76K forks, 1.6K contribuidores e 136 releases. Mais de 40K instâncias expostas mostram adoção real. 129 startups já construíram seus negócios em cima do OpenClaw. Fontes: GitHub, SimilarLabs, Panto AI, Clawbot Blog.<br>
+        <strong>Speaker Notes:</strong> Dados REAIS verificados (Mai 2026):
+- GitHub: 369K stars, 76K forks, 1.6K+ contribuidores, 136 releases (fonte: github.com/navi-claw-br/navi-claw-apresentacoes)
+- Crescimento: 9K no 1º dia, 60K em 72h (recorde histórico do GitHub), 100K em 1 mês, 250K em Mar (superou React), 369K em Mai (fonte: SimilarLabs)
+- Comunidade: 2M visitantes/semana no pico, 40K+ instâncias expostas publicamente, 129 startups construídas sobre o OpenClaw (fonte: Panto AI, Abril 2026)
+- Ecossistema: 350.6K stars, 70.4K forks, 1.6K contribuidores (Star History, Abril 2026)
+- Baidu planeja integrar em app com ~700M usuários
+Fontes: GitHub API, SimilarLabs, Panto AI, Clawbot Blog, GetPanto.ai (Abr/Mai 2026).
+<br>
         <strong>📸 Imagem sugerida:</strong> Gráfico hockey stick real com os marcos do OpenClaw.
       </div>
     </div>
@@ -767,36 +774,48 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
     <!-- ============================================================ -->
     <div class="slide" data-num="6">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>📋 Comparativo: OpenClaw vs Alternativas</h2>
-      <div style="overflow-x:auto;margin-top:20px">
+      <h2>📋 Comparativo 2026: OpenClaw vs Concorrentes</h2>
+      <p style="font-size:.82rem;color:#888;margin-bottom:6px">Dados de fontes públicas — GitHub, MCPlato, MindStudio, LushBinary</p>
+      <div style="overflow-x:auto">
         <table class="comp-table">
           <thead>
             <tr>
-              <th>Recurso</th>
-              <th style="color:#EE0000;background:rgba(238,0,0,.2)">OpenClaw</th>
-              <th>Hermes</th>
-              <th>Cloud Desktop</th>
-              <th>Agentes Tradicionais</th>
+              <th>Característica</th>
+              <th style="color:#EE0000;background:rgba(238,0,0,.2)">🔥 OpenClaw</th>
+              <th>Claude Code</th>
+              <th>Hermes Agent</th>
+              <th>Claude Desktop</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><strong>Autonomia</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★☆☆☆</td><td>★★☆☆☆</td></tr>
-            <tr><td><strong>Subagentes</strong></td><td class="strong">★★★★★</td><td>★★☆☆☆</td><td>★☆☆☆☆</td><td>★☆☆☆☆</td></tr>
-            <tr><td><strong>Memória Persistente</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★☆☆☆</td><td>★★☆☆☆</td></tr>
-            <tr><td><strong>Plugins</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★☆☆☆</td><td>★★★☆☆</td></tr>
-            <tr><td><strong>MCPs</strong></td><td class="strong">★★★★★</td><td>★★☆☆☆</td><td>★☆☆☆☆</td><td>★☆☆☆☆</td></tr>
-            <tr><td><strong>Execução Real</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★★★☆</td><td>★★☆☆☆</td></tr>
-            <tr><td><strong>Personalização</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★☆☆☆</td><td>★★☆☆☆</td></tr>
-            <tr><td><strong>Observabilidade</strong></td><td class="strong">★★★★★</td><td>★★☆☆☆</td><td>★★★☆☆</td><td>★☆☆☆☆</td></tr>
-            <tr><td><strong>Engenharia</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★☆☆☆</td><td>★★☆☆☆</td></tr>
-            <tr><td><strong>Demos Rápidas</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★★★☆</td><td>★★☆☆☆</td></tr>
-            <tr><td><strong>Evolução Contínua</strong></td><td class="strong">★★★★★</td><td>★★☆☆☆</td><td>★☆☆☆☆</td><td>★☆☆☆☆</td></tr>
+            <tr><td><strong>⭐ GitHub Stars</strong></td><td class="strong">354K</td><td>112K</td><td>48-140K</td><td>N/A (closed)</td></tr>
+            <tr><td><strong>📜 Licença</strong></td><td class="strong">MIT (aberto)</td><td>Proprietário</td><td class="strong">MIT (aberto)</td><td>Proprietário</td></tr>
+            <tr><td><strong>🏗️ Autonomia</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★★★☆</td><td>★★☆☆☆</td></tr>
+            <tr><td><strong>🧩 Subagentes</strong></td><td class="strong">★★★★★</td><td>★★☆☆☆</td><td>★★★☆☆</td><td>★☆☆☆☆</td></tr>
+            <tr><td><strong>🧠 Memória Persistente</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★★★☆</td><td>★★☆☆☆</td></tr>
+            <tr><td><strong>🔌 Plugins / Skills</strong></td><td class="strong">★★★★★ (5.7K)</td><td>★★☆☆☆</td><td>★★★☆☆</td><td>★★☆☆☆</td></tr>
+            <tr><td><strong>🔗 MCPs</strong></td><td class="strong">★★★★★</td><td>★★★★☆</td><td>★★★☆☆</td><td>★★★☆☆</td></tr>
+            <tr><td><strong>⚡ Execução Real</strong></td><td class="strong">★★★★★</td><td>★★★★☆</td><td>★★★★☆</td><td>★★☆☆☆</td></tr>
+            <tr><td><strong>📱 Canais (20+)</strong></td><td class="strong">★★★★★</td><td>★★☆☆☆</td><td>★★☆☆☆</td><td>★☆☆☆☆</td></tr>
+            <tr><td><strong>🔄 Self-Improving</strong></td><td class="strong">★★★★★</td><td>★★☆☆☆</td><td>★★★★★</td><td>★☆☆☆☆</td></tr>
+            <tr><td><strong>💵 Custo Base</strong></td><td class="strong">$0 (BYOK)</td><td>$20/mês</td><td class="strong">$0 (BYOK)</td><td>$20/mês</td></tr>
           </tbody>
         </table>
       </div>
-      <p style="font-size:.78rem;color:#888;margin-top:10px">Avaliação qualitativa baseada em experiência prática. ★★★★★ = excelente, ★☆☆☆☆ = limitado.</p>
+      <div style="margin-top:8px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap">
+        <span style="font-size:.6rem;padding:3px 10px;background:rgba(238,0,0,.1);color:#EE0000;border-radius:6px">354K ⭐ GitHub</span>
+        <span style="font-size:.6rem;padding:3px 10px;background:rgba(238,0,0,.08);color:#ccc;border-radius:6px">5.7K Skills no ClawHub</span>
+        <span style="font-size:.6rem;padding:3px 10px;background:rgba(238,0,0,.08);color:#ccc;border-radius:6px">20+ canais de mensagem</span>
+        <span style="font-size:.6rem;padding:3px 10px;background:rgba(238,0,0,.08);color:#ccc;border-radius:6px">NemoClaw (NVIDIA)</span>
+        <span style="font-size:.6rem;padding:3px 10px;background:rgba(238,0,0,.08);color:#ccc;border-radius:6px">Adquirido pela OpenAI</span>
+      </div>
       <div class="speaker-notes-content" style="display:none">
-        <strong>Speaker Notes:</strong> A tabela não é sobre OpenClaw ser "melhor" em tudo — é sobre ele ser arquiteturalmente diferente. Hermes é ótimo para coding agent assistido. Cloud Desktop é ótimo para ambientes remotos. Mas só o OpenClaw combina orquestração, execução, memória, agentes especializados e extensibilidade em um único ecossistema coeso.
+        <strong>Speaker Notes:</strong> Dados reais de 2026:
+- OpenClaw: 354K+ GitHub stars, MIT license, 5.7K skills no ClawHub, 20+ canais. Criado por Peter Steinberger (PSPDFKit), adquirido pela OpenAI. NVIDIA mantém fork enterprise (NemoClaw).
+- Claude Code: 112K stars, terminal-native, Anthropic. Excelente para codificação mas limitado em autonomia e canais.
+- Hermes Agent: 48-140K stars (fontes variam), Nous Research. Pioneiro em self-improving loops, mas ecossistema menor (lançado Fev 2026, ainda pre-1.0).
+- Claude Desktop: App desktop fechado. Bom para coding mas sem subagentes, execução limitada.
+Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
       </div>
     </div>
 
