@@ -102,6 +102,8 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
   padding:20px;transition:all .3s ease;backdrop-filter:blur(10px);
 }
 .card:hover{background:rgba(238,0,0,.08);border-color:rgba(238,0,0,.4);transform:translateY(-2px)}
+.clickable-card{cursor:pointer;transition:all .3s ease}
+.clickable-card:hover{background:rgba(238,0,0,.12);border-color:#EE0000;transform:translateY(-3px);box-shadow:0 4px 20px rgba(238,0,0,.15)}
 .card .icon{font-size:2rem;margin-bottom:8px;display:block}
 .card h4{font-size:.95rem;font-weight:600;color:#fff;margin-bottom:6px;letter-spacing:-.3px}
 .card p{font-size:.82rem;color:#999;line-height:1.5;margin:0}
@@ -289,6 +291,37 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
 .executive-mode .dots .dot.exec-dot{background:#444}
 .executive-mode .progress-bar{background:linear-gradient(90deg,#FFA500,#FFCC00)}
 
+/* ===== MODAL ===== */
+.modal-overlay{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,.85);z-index:9998;
+  display:none;justify-content:center;align-items:center;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+.modal-overlay.show{display:flex;animation:modalFade .3s ease}
+.modal-box{
+  position:relative;max-width:80vw;max-height:85vh;
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:16px;padding:24px;text-align:center;
+  animation:modalScale .3s ease;
+}
+.modal-box img{
+  max-width:100%;max-height:65vh;border-radius:10px;
+  display:block;margin:0 auto;
+}
+.modal-box h3{font-size:1.2rem;color:#EE0000;margin-bottom:8px}
+.modal-box p{font-size:.85rem;color:#999;margin-bottom:12px}
+.modal-close{
+  position:absolute;top:-12px;right:-12px;
+  width:32px;height:32px;border-radius:50%;
+  background:#EE0000;color:#fff;border:none;
+  font-size:1rem;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;
+}
+.modal-close:hover{transform:scale(1.15)}
+@keyframes modalFade{from{opacity:0}to{opacity:1}}
+@keyframes modalScale{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+
 /* ===== TEAM SLIDE BACKGROUND ===== */
 .slide-team{
   background: linear-gradient(135deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.25) 50%,rgba(10,10,10,.4) 100%),
@@ -370,32 +403,32 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
       <h2>⚠️ O Problema Atual</h2>
       <p>Ferramentas de IA ainda funcionam como <span class="highlight">copilotos isolados</span> — úteis, mas limitadas.</p>
       <div class="content-grid cols-3" style="margin-top:28px">
-        <div class="card">
+        <div class="card clickable-card" onclick="openModal('contexto','🎭 Falta de Contexto','Sessões isoladas sem memória de longo prazo ou entendimento do seu ecossistema. Cada interação recomeça do zero.')">
           <span class="icon">🎭</span>
           <h4>Falta de Contexto</h4>
           <p>Sessões isoladas sem memória de longo prazo ou entendimento do seu ecossistema. Cada interação recomeça do zero.</p>
         </div>
-        <div class="card">
+        <div class="card clickable-card" onclick="openModal('integracao','🔗 Sem Integração Real','Não acessam APIs, clusters, repositórios ou sistemas produtivos de forma nativa e segura.')">
           <span class="icon">🔗</span>
           <h4>Sem Integração Real</h4>
           <p>Não acessam APIs, clusters, repositórios ou sistemas produtivos de forma nativa e segura.</p>
         </div>
-        <div class="card">
+        <div class="card clickable-card" onclick="openModal('especializacao','🧩 Sem Especialização','Um único modelo tenta fazer tudo. Sem subagentes, sem delegação, sem times de especialistas coordenados.')">
           <span class="icon">🧩</span>
           <h4>Sem Especialização</h4>
           <p>Um único modelo tenta fazer tudo. Sem subagentes, sem delegação, sem times de especialistas coordenados.</p>
         </div>
-        <div class="card">
+        <div class="card clickable-card" onclick="openModal('fluxos','📋 Fluxos Curtos','Não sustentam tarefas longas com múltiplas etapas e decisões intermediárias.')">
           <span class="icon">📋</span>
           <h4>Fluxos Curtos</h4>
           <p>Não sustentam tarefas longas com múltiplas etapas e decisões intermediárias.</p>
         </div>
-        <div class="card">
+        <div class="card clickable-card" onclick="openModal('ferramentas','🧰 Ferramentas Limitadas','Plugin models pobres, sem ecossistema de extensão ou MCPs para conectar o mundo real.')">
           <span class="icon">🧰</span>
           <h4>Ferramentas Limitadas</h4>
           <p>Plugin models pobres, sem ecossistema de extensão ou MCPs para conectar o mundo real.</p>
         </div>
-        <div class="card">
+        <div class="card clickable-card" onclick="openModal('evolucao','🔄 Sem Evolução','Não aprendem com erros, não melhoram com o tempo, não incorporam feedback do usuário.')">
           <span class="icon">🔄</span>
           <h4>Sem Evolução</h4>
           <p>Não aprendem com erros, não melhoram com o tempo, não incorporam feedback do usuário.</p>
@@ -1458,6 +1491,16 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
 
   </div><!-- slides-container -->
 
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <img id="modalImage" src="" alt="">
+    </div>
+  </div>
+
   <!-- NAVIGATION -->
   <div class="nav-controls">
     <button class="nav-btn" id="prevBtn" onclick="navigate(-1)">◀</button>
@@ -1573,6 +1616,21 @@ function playAgent(name){
     };
   }).catch(()=>{});
 }
+
+// ===== MODAL =====
+function openModal(prob, title, desc){
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalDesc').textContent = desc;
+  document.getElementById('modalImage').src = 'imagens/problema-'+prob+'.png';
+  document.getElementById('modalOverlay').classList.add('show');
+}
+function closeModal(e){
+  if(e && e.target !== e.currentTarget) return;
+  document.getElementById('modalOverlay').classList.remove('show');
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeModal();
+});
 
 // ===== SPEAKER NOTES =====
 let notesVisible = false;
