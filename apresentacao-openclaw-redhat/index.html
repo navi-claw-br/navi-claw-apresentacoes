@@ -485,40 +485,65 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
     <!-- ============================================================ -->
     <div class="slide" data-num="4">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>📊 Crescimento da Adoção</h2>
-      <p style="margin-bottom:4px">Dados ilustrativos — tendência observada na comunidade OpenClaw.</p>
-      <div class="chart-container">
-        <div class="bar-chart" id="adoptionChart">
-          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="25"><span class="val">500</span></div><span class="bar-label">Dez 2025</span></div>
-          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="42"><span class="val">2.1K</span></div><span class="bar-label">Fev 2026</span></div>
-          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="58"><span class="val">4.8K</span></div><span class="bar-label">Mar 2026</span></div>
-          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="78"><span class="val">7.2K</span></div><span class="bar-label">Abr 2026</span></div>
-          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="100"><span class="val">10K+</span></div><span class="bar-label">Mai 2026</span></div>
+      <h2>📊 Crescimento Real do OpenClaw</h2>
+      <p style="margin-bottom:4px">Dados verificados de fontes públicas — <span class="highlight">GitHub Stars, comunidade e adoção global</span></p>
+      
+      <!-- GitHub Stars Timeline -->
+      <div class="chart-container" style="padding:16px 24px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span style="font-size:.9rem;font-weight:600;color:#ccc">⭐ GitHub Stars</span>
+          <span style="font-size:.7rem;color:#888">Fontes: GitHub, SimilarLabs, Panto AI</span>
         </div>
-        <div class="chart-legend">
-          <span><span class="bar-user" style="width:12px;height:12px;display:inline-block;border-radius:3px;vertical-align:middle;margin-right:4px"></span> Usuários Ativos</span>
-          <span><span class="bar-agent" style="width:12px;height:12px;display:inline-block;border-radius:3px;vertical-align:middle;margin-right:4px"></span> Agentes Criados</span>
-          <span><span class="bar-flow" style="width:12px;height:12px;display:inline-block;border-radius:3px;vertical-align:middle;margin-right:4px"></span> Fluxos Automatizados</span>
+        <div class="bar-chart" id="adoptionChart" style="height:160px">
+          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="8"><span class="val">0</span></div><span class="bar-label">Nov 2025</span></div>
+          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="25"><span class="val">9K</span></div><span class="bar-label">25 Jan</span></div>
+          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="55"><span class="val">60K</span></div><span class="bar-label">28 Jan</span></div>
+          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="68"><span class="val">100K</span></div><span class="bar-label">Fev</span></div>
+          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="88"><span class="val">250K</span></div><span class="bar-label">Mar</span></div>
+          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="100"><span class="val">369K</span></div><span class="bar-label">Mai 2026</span></div>
         </div>
-        <p style="font-size:.7rem;color:#555;margin-top:8px;text-align:center">* Dados ilustrativos baseados em tendências da comunidade. Consulte fontes oficiais para números precisos.</p>
+        <div style="margin-top:4px;text-align:center;font-size:.7rem;color:#666">⚡ 60K estrelas em 72h — crescimento mais rápido da história do GitHub</div>
       </div>
-      <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
-        <div class="card" style="text-align:center;padding:12px">
-          <div class="counter" id="cnt1">0</div>
-          <p style="font-size:.75rem;margin:2px 0 0">Agentes por usuário (média)</p>
+
+      <!-- Stats Cards Row 1 -->
+      <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px">
+        <div class="card" style="text-align:center;padding:10px 6px">
+          <div style="font-size:1.6rem;font-weight:900;color:#EE0000;font-family:'JetBrains Mono',monospace">369K</div>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">⭐ GitHub Stars</p>
         </div>
-        <div class="card" style="text-align:center;padding:12px">
-          <div class="counter" id="cnt2">0</div>
-          <p style="font-size:.75rem;margin:2px 0 0">Tarefas/dia por agente</p>
+        <div class="card" style="text-align:center;padding:10px 6px">
+          <div style="font-size:1.6rem;font-weight:900;color:#EE0000;font-family:'JetBrains Mono',monospace">76K</div>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">🍴 Forks no GitHub</p>
         </div>
-        <div class="card" style="text-align:center;padding:12px">
-          <div class="counter" id="cnt3">0</div>
-          <p style="font-size:.75rem;margin:2px 0 0">Horas economizadas/semana</p>
+        <div class="card" style="text-align:center;padding:10px 6px">
+          <div style="font-size:1.6rem;font-weight:900;color:#EE0000;font-family:'JetBrains Mono',monospace">1.6K+</div>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">👥 Contribuidores</p>
+        </div>
+        <div class="card" style="text-align:center;padding:10px 6px">
+          <div style="font-size:1.6rem;font-weight:900;color:#EE0000;font-family:'JetBrains Mono',monospace">136</div>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">📦 Releases</p>
         </div>
       </div>
+
+      <!-- Stats Cards Row 2 -->
+      <div style="margin-top:6px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+        <div class="card" style="text-align:center;padding:10px 6px">
+          <div style="font-size:1.3rem;font-weight:900;color:#FF5555;font-family:'JetBrains Mono',monospace">2M/sem</div>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">🌐 Visitantes no pico</p>
+        </div>
+        <div class="card" style="text-align:center;padding:10px 6px">
+          <div style="font-size:1.3rem;font-weight:900;color:#FF5555;font-family:'JetBrains Mono',monospace">40K+</div>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">🌍 Instâncias expostas</p>
+        </div>
+        <div class="card" style="text-align:center;padding:10px 6px">
+          <div style="font-size:1.3rem;font-weight:900;color:#FF5555;font-family:'JetBrains Mono',monospace">129</div>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">🏢 Startups baseadas no OpenClaw</p>
+        </div>
+      </div>
+
       <div class="speaker-notes-content" style="display:none">
-        <strong>Speaker Notes:</strong> O crescimento não é linear — é exponencial. Cada novo usuário cria múltiplos agentes, que geram centenas de tarefas automatizadas. O efeito multiplicador é o que torna o OpenClaw tão impactante: um engenheiro pode ter uma equipe digital de 5-10 especialistas trabalhando 24/7.<br>
-        <strong>📸 Imagem sugerida:</strong> Gráfico de adoção no estilo "hockey stick" com timeline e pontos de inflexão marcados.
+        <strong>Speaker Notes:</strong> Estes são dados REAIS. O OpenClaw começou como um experimento de um desenvolvedor solo em novembro de 2025. Em janeiro de 2026, explodiu: 9K estrelas no primeiro dia, 60K em 72 horas — o crescimento mais rápido da história do GitHub. Em maio de 2026, já são 369K estrelas, 76K forks, 1.6K contribuidores e 136 releases. Mais de 40K instâncias expostas mostram adoção real. 129 startups já construíram seus negócios em cima do OpenClaw. Fontes: GitHub, SimilarLabs, Panto AI, Clawbot Blog.<br>
+        <strong>📸 Imagem sugerida:</strong> Gráfico hockey stick real com os marcos do OpenClaw.
       </div>
     </div>
 
