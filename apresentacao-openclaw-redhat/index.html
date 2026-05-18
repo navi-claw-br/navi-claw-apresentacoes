@@ -494,15 +494,67 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
           <span style="font-size:.9rem;font-weight:600;color:#ccc">⭐ GitHub Stars</span>
           <span style="font-size:.7rem;color:#888">Fontes: GitHub, SimilarLabs, Panto AI</span>
         </div>
-        <div class="bar-chart" id="adoptionChart" style="height:160px">
-          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="8"><span class="val">0</span></div><span class="bar-label">Nov 2025</span></div>
-          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="25"><span class="val">9K</span></div><span class="bar-label">25 Jan</span></div>
-          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="55"><span class="val">60K</span></div><span class="bar-label">28 Jan</span></div>
-          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="68"><span class="val">100K</span></div><span class="bar-label">Fev</span></div>
-          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="88"><span class="val">250K</span></div><span class="bar-label">Mar</span></div>
-          <div class="bar-wrapper"><div class="bar bar-tech" style="height:0%" data-height="100"><span class="val">369K</span></div><span class="bar-label">Mai 2026</span></div>
+        <div class="line-chart" id="adoptionChart" style="position:relative;width:100%;height:170px">
+          <svg viewBox="0 0 600 150" preserveAspectRatio="xMidYMid meet" style="width:100%;height:140px">
+            <!-- Grid lines -->
+            <line x1="50" y1="132" x2="580" y2="132" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            <line x1="50" y1="99" x2="580" y2="99" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            <line x1="50" y1="66" x2="580" y2="66" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            <line x1="50" y1="33" x2="580" y2="33" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            <line x1="50" y1="0" x2="580" y2="0" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            <!-- Y-axis labels -->
+            <text x="44" y="136" fill="#555" font-size="8" text-anchor="end" font-family="JetBrains Mono">0</text>
+            <text x="44" y="103" fill="#555" font-size="8" text-anchor="end" font-family="JetBrains Mono">92K</text>
+            <text x="44" y="70" fill="#555" font-size="8" text-anchor="end" font-family="JetBrains Mono">184K</text>
+            <text x="44" y="37" fill="#555" font-size="8" text-anchor="end" font-family="JetBrains Mono">276K</text>
+            <text x="44" y="5" fill="#555" font-size="8" text-anchor="end" font-family="JetBrains Mono">369K</text>
+            <!-- Area fill under line -->
+            <path id="areaPath" d="M 75,132 L 75,132 L 182,129 L 290,110 L 398,96 L 489,43 L 560,0 L 560,132 Z" 
+                  fill="url(#areaGrad)" opacity="0">
+              <animate attributeName="opacity" from="0" to=".35" dur=".8s" fill="freeze" begin=".6s"/>
+            </path>
+            <!-- The line -->
+            <path id="linePath" d="M 75,132 L 182,129 L 290,110 L 398,96 L 489,43 L 560,0"
+                  fill="none" stroke="#EE0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-dasharray="1000" stroke-dashoffset="1000">
+              <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="1.2s" fill="freeze" begin="0s"/>
+            </path>
+            <!-- Glow line -->
+            <path d="M 75,132 L 182,129 L 290,110 L 398,96 L 489,43 L 560,0"
+                  fill="none" stroke="#EE0000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity=".15">
+              <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="1.2s" fill="freeze" begin="0s"/>
+            </path>
+            <!-- Data points (dots that appear after line draws) -->
+            <circle cx="75" cy="132" r="4" fill="#EE0000" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.2s"/></circle>
+            <circle cx="182" cy="129" r="4" fill="#EE0000" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.25s"/></circle>
+            <circle cx="290" cy="110" r="5" fill="#EE0000" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.3s"/></circle>
+            <circle cx="398" cy="96" r="5" fill="#EE0000" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.35s"/></circle>
+            <circle cx="489" cy="43" r="6" fill="#EE0000" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.4s"/></circle>
+            <circle cx="560" cy="0" r="7" fill="#EE0000" stroke="#fff" stroke-width="2" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.45s"/></circle>
+            <!-- Value labels above points -->
+            <text x="75" y="145" fill="#888" font-size="7" text-anchor="middle" font-family="JetBrains Mono" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.5s"/>0</text>
+            <text x="182" y="145" fill="#888" font-size="7" text-anchor="middle" font-family="JetBrains Mono" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.55s"/>9K</text>
+            <text x="290" y="122" fill="#EE0000" font-size="9" text-anchor="middle" font-weight="700" font-family="JetBrains Mono" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.6s"/>60K ⚡</text>
+            <text x="398" y="110" fill="#888" font-size="7" text-anchor="middle" font-family="JetBrains Mono" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.65s"/>100K</text>
+            <text x="489" y="55" fill="#EE0000" font-size="9" text-anchor="middle" font-weight="700" font-family="JetBrains Mono" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".3s" fill="freeze" begin="1.7s"/>250K 🚀</text>
+            <text x="560" y="-8" fill="#EE0000" font-size="11" text-anchor="middle" font-weight="800" font-family="JetBrains Mono" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".4s" fill="freeze" begin="1.8s"/>369K 🔥</text>
+            <!-- X-axis labels -->
+            <text x="75" y="156" fill="#666" font-size="7" text-anchor="middle" font-family="Inter, sans-serif">Nov</text>
+            <text x="182" y="156" fill="#666" font-size="7" text-anchor="middle" font-family="Inter, sans-serif">25 Jan</text>
+            <text x="290" y="156" fill="#666" font-size="7" text-anchor="middle" font-family="Inter, sans-serif">28 Jan</text>
+            <text x="398" y="156" fill="#666" font-size="7" text-anchor="middle" font-family="Inter, sans-serif">Fev</text>
+            <text x="489" y="156" fill="#666" font-size="7" text-anchor="middle" font-family="Inter, sans-serif">Mar</text>
+            <text x="560" y="156" fill="#EE0000" font-size="8" text-anchor="middle" font-weight="600" font-family="Inter, sans-serif">Mai 2026</text>
+            <!-- Gradient for area -->
+            <defs>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#EE0000"/>
+                <stop offset="100%" stop-color="#EE0000" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
-        <div style="margin-top:4px;text-align:center;font-size:.7rem;color:#666">⚡ 60K estrelas em 72h — crescimento mais rápido da história do GitHub</div>
+        <div style="margin-top:2px;text-align:center;font-size:.7rem;color:#666">⚡ 60K estrelas em 72h — crescimento mais rápido da história do GitHub</div>
       </div>
 
       <!-- Stats Cards Row 1 -->
@@ -1566,10 +1618,6 @@ function navigate(dir){
   slidesArr[currentSlide].classList.add('active');
   slidesArr[currentSlide].classList.remove('exit');
   updateSlide();
-  // Animate chart on slide 4
-  if(!isExecutiveMode && currentSlide === 3) animateChart();
-  // Animate counters on slide 4
-  if(!isExecutiveMode && currentSlide === 3) animateCounters();
 }
 
 function goToSlide(idx){
@@ -1582,7 +1630,6 @@ function goToSlide(idx){
   slidesArr[currentSlide].classList.add('active');
   slidesArr[currentSlide].classList.remove('exit');
   updateSlide();
-  if(!isExecutiveMode && currentSlide === 3){animateChart();animateCounters()}
 }
 
 function updateSlide(){
@@ -1684,33 +1731,6 @@ function toggleMode(){
   });
   currentSlide = 0;
   updateSlide();
-  if(!isExecutiveMode && currentSlide === 3){animateChart();animateCounters()}
-}
-
-// ===== CHART ANIMATION =====
-function animateChart(){
-  setTimeout(()=>{
-    document.querySelectorAll('#adoptionChart .bar').forEach(bar=>{
-      bar.style.height = bar.dataset.height+'%';
-    });
-  }, 300);
-}
-
-// ===== COUNTER ANIMATION =====
-function animateCounters(){
-  setTimeout(()=>{
-    const targets = [7, 42, 15];
-    document.querySelectorAll('.counter').forEach((el,i)=>{
-      let current = 0;
-      const target = targets[i];
-      const step = Math.ceil(target/30);
-      const interval = setInterval(()=>{
-        current += step;
-        if(current >= target){current=target;clearInterval(interval)}
-        el.textContent = current + (i===1?'/dia':'') + (i===2?'h/sem':'');
-      }, 40);
-    });
-  }, 500);
 }
 
 // ===== KEYBOARD =====
@@ -1721,10 +1741,7 @@ document.addEventListener('keydown', e=>{
 });
 
 // ===== AUTO-ANIMATE ON LOAD =====
-window.addEventListener('load', ()=>{
-  setTimeout(animateChart, 800);
-  setTimeout(animateCounters, 1000);
-});
+// SVG chart animates itself via <animate> elements - no JS needed
 
 // ===== INIT =====
 init();
