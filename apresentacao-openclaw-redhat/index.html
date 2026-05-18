@@ -288,6 +288,18 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
 .executive-mode .dots .dot.exec-dot.active{background:#FFA500;width:18px;border-radius:3px}
 .executive-mode .dots .dot.exec-dot{background:#444}
 .executive-mode .progress-bar{background:linear-gradient(90deg,#FFA500,#FFCC00)}
+
+/* ===== AUDIO PLAY BUTTONS ===== */
+.play-btn{
+  display:inline-block;width:22px;height:22px;line-height:20px;
+  background:rgba(238,0,0,.15);color:#EE0000;border:1px solid rgba(238,0,0,.3);
+  border-radius:50%;font-size:.65rem;cursor:pointer;text-align:center;
+  transition:all .2s;vertical-align:middle;margin-left:4px;
+}
+.play-btn:hover{background:rgba(238,0,0,.35);transform:scale(1.2)}
+.play-btn.playing{background:#EE0000;color:#fff;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(238,0,0,.4)}50%{box-shadow:0 0 0 6px rgba(238,0,0,.1)}}
+.agent-card:hover{border-color:#EE0000}
 .executive-mode .slide.executive h2{background:linear-gradient(135deg,#fff 40%,#FFA500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* ===== COUNTER ANIMATION ===== */
@@ -850,46 +862,55 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
       <h2>👥 Nossa Equipe de Agentes</h2>
       <p>Cada agente com <span class="highlight">personalidade, função e voz própria</span> — um time digital de especialistas.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px">
-        <div class="card" style="text-align:center;padding:14px 10px">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px">
+        <div class="card agent-card" data-agent="navi" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">🔮</span>
-          <h4 style="color:#EE0000;margin-top:4px">Navi</h4>
+          <h4 style="color:#EE0000;margin-top:4px">Navi <span class="play-btn" onclick="event.stopPropagation();playAgent('navi')">▶</span></h4>
           <p style="font-size:.72rem">🧠 Assistente geral · Coordenação<br>🗣️ <strong>Voz Keren</strong> (feminina)<br>🎯 Orquestradora do time</p>
           <span class="tag">Agente Principal</span>
         </div>
-        <div class="card" style="text-align:center;padding:14px 10px">
+        <div class="card agent-card" data-agent="link" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">⚔️</span>
-          <h4 style="color:#EE0000;margin-top:4px">Link</h4>
-          <p style="font-size:.72rem">🔧 Executor técnico · GitHub, deploys<br>🗣️ <strong>Voz Link</strong> (masculina)<br>🎯 Mão na massa — cria, comita, deploya</p>
+          <h4 style="color:#EE0000;margin-top:4px">Link <span class="play-btn" onclick="event.stopPropagation();playAgent('link')">▶</span></h4>
+          <p style="font-size:.72rem">🔧 Executor técnico · GitHub, deploys<br>🗣️ <strong>Voz Rachel</strong> (neutra)<br>🎯 Mão na massa — cria, comita, deploya</p>
           <span class="tag">Execução</span>
         </div>
-        <div class="card" style="text-align:center;padding:14px 10px">
+        <div class="card agent-card" data-agent="sheikah" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">🜁</span>
-          <h4 style="color:#EE0000;margin-top:4px">Sheikah</h4>
+          <h4 style="color:#EE0000;margin-top:4px">Sheikah <span class="play-btn" onclick="event.stopPropagation();playAgent('sheikah')">▶</span></h4>
           <p style="font-size:.72rem">🛡️ Segurança da Informação<br>🗣️ <strong>Voz Sheikah</strong> (masculina)<br>🎯 Hardening, análise de vulns, pentest</p>
           <span class="tag">Segurança</span>
         </div>
-        <div class="card" style="text-align:center;padding:14px 10px">
+        <div class="card agent-card" data-agent="goron" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">🗿</span>
-          <h4 style="color:#EE0000;margin-top:4px">Goron</h4>
+          <h4 style="color:#EE0000;margin-top:4px">Goron <span class="play-btn" onclick="event.stopPropagation();playAgent('goron')">▶</span></h4>
           <p style="font-size:.72rem">💪 Personal trainer & nutrição<br>🗣️ <strong>Voz Paulo Becker</strong> (masculina)<br>🎯 Treinos, dietas, motivação fitness</p>
           <span class="tag">Bem-Estar</span>
         </div>
-        <div class="card" style="text-align:center;padding:14px 10px">
+        <div class="card agent-card" data-agent="rito" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">📬</span>
-          <h4 style="color:#EE0000;margin-top:4px">Rito</h4>
-          <p style="font-size:.72rem">📧 Comunicação & e-mail<br>🗣️ <strong>Voz Rito</strong> (neutra)<br>🎯 Gmail, notificações, avisos</p>
+          <h4 style="color:#EE0000;margin-top:4px">Rito <span class="play-btn" onclick="event.stopPropagation();playAgent('rito')">▶</span></h4>
+          <p style="font-size:.72rem">📧 Comunicação & e-mail<br>🗣️ <strong>Voz Rachel</strong> (neutra)<br>🎯 Gmail, notificações, avisos</p>
           <span class="tag">Comunicação</span>
         </div>
-        <div class="card" style="text-align:center;padding:14px 10px">
+        <div class="card agent-card" data-agent="beedle" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">🛒</span>
-          <h4 style="color:#EE0000;margin-top:4px">Beedle</h4>
-          <p style="font-size:.72rem">💰 Compras inteligentes<br>🗣️ <strong>Voz Beedle</strong> (masculina)<br>🎯 Monitora preços, acha ofertas</p>
+          <h4 style="color:#EE0000;margin-top:4px">Beedle <span class="play-btn" onclick="event.stopPropagation();playAgent('beedle')">▶</span></h4>
+          <p style="font-size:.72rem">💰 Compras inteligentes<br>🗣️ <strong>Voz Karen</strong> (neutra)<br>🎯 Monitora preços, acha ofertas</p>
           <span class="tag">Economia</span>
         </div>
       </div>
-      <div style="margin-top:12px;padding:10px 16px;background:rgba(238,0,0,.06);border-radius:8px;text-align:center">
-        <p style="font-size:.8rem;color:#aaa;margin:0">🎙️ <strong>ElevenLabs</strong> — cada agente com voz distinta para demos, treinamentos e interações no dia a dia</p>
+      <div style="margin-top:10px;padding:8px 16px;background:rgba(238,0,0,.06);border-radius:8px;text-align:center">
+        <p style="font-size:.75rem;color:#aaa;margin:0">🎙️ <strong>ElevenLabs</strong> — clique no ▶ para ouvir cada agente se apresentar</p>
       </div>
+
+      <!-- Audio elements escondidos -->
+      <audio id="audio-navi" preload="none"><source src="imagens/navi-intro.ogg" type="audio/ogg"></audio>
+      <audio id="audio-link" preload="none"><source src="imagens/link-intro.ogg" type="audio/ogg"></audio>
+      <audio id="audio-sheikah" preload="none"><source src="imagens/sheikah-intro.ogg" type="audio/ogg"></audio>
+      <audio id="audio-goron" preload="none"><source src="imagens/goron-intro.ogg" type="audio/ogg"></audio>
+      <audio id="audio-rito" preload="none"><source src="imagens/rito-intro.ogg" type="audio/ogg"></audio>
+      <audio id="audio-beedle" preload="none"><source src="imagens/beedle-intro.ogg" type="audio/ogg"></audio>
       <div class="speaker-notes-content" style="display:none">
         <strong>Speaker Notes:</strong> Este é o time real do Luciano. Cada agente é um especialista com personalidade definida via SOUL.md e voz própria no ElevenLabs. A Navi coordena, o Link executa, o Sheikah protege, o Goron cuida da saúde, o Rito se comunica e o Beedle economiza. Uma equipe digital completa que trabalha 24/7.<br>
         <strong>📸 Imagem sugerida:</strong> Fotos/ícones de cada agente com seus nomes e especialidades — estilo card de time de startup.
@@ -1518,6 +1539,29 @@ function renderDots(){
     dot.onclick = ()=>{if(isExecutiveMode)goToSlide(i)};
     dotsContainer.appendChild(dot);
   });
+}
+
+// ===== AUDIO PLAYER =====
+let currentAudio = null;
+function playAgent(name){
+  if(currentAudio && !currentAudio.paused){
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    document.querySelectorAll('.play-btn').forEach(b=>b.classList.remove('playing'));
+    if(currentAudio.dataset.agent === name) return;
+  }
+  const audio = document.getElementById('audio-'+name);
+  if(!audio) return;
+  audio.dataset.agent = name;
+  audio.play().then(()=>{
+    const btn = document.querySelector(`[onclick*="${name}"]`);
+    if(btn) btn.classList.add('playing');
+    currentAudio = audio;
+    audio.onended = () => {
+      document.querySelectorAll('.play-btn').forEach(b=>b.classList.remove('playing'));
+      currentAudio = null;
+    };
+  }).catch(()=>{});
 }
 
 // ===== SPEAKER NOTES =====
