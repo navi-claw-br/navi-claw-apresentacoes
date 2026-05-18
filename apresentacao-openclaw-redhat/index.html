@@ -49,7 +49,17 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
 .logo-small{right:32px;width:100px;opacity:.7}
 
 /* ===== TITLE SLIDE ===== */
-.slide-title{text-align:center;background:radial-gradient(ellipse at center, rgba(238,0,0,.12) 0%, transparent 70%)}
+.slide-title{
+  text-align:center;
+  background:radial-gradient(ellipse at center, rgba(238,0,0,.12) 0%, transparent 70%),
+    linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
+  position:relative;overflow:hidden;
+}
+.slide-title .title-bg{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  object-fit:cover;opacity:.15;z-index:1;
+  pointer-events:none;
+}
 .slide-title h1{
   font-size:3.8rem;font-weight:900;letter-spacing:-2px;
   background:linear-gradient(135deg,#fff 30%,#EE0000 80%);
@@ -220,6 +230,19 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
 }
 .img-placeholder .icon{font-size:2rem;display:block;margin-bottom:4px}
 
+/* ===== IMAGES ===== */
+.slide-img{
+  max-width:100%;max-height:180px;border-radius:10px;
+  margin:8px auto;display:block;object-fit:cover;
+  border:1px solid rgba(238,0,0,.2);transition:all .3s;
+}
+.slide-img:hover{transform:scale(1.02);border-color:#EE0000}
+.slide-img.wide{max-height:140px;width:100%}
+.slide-img.small{max-height:100px;display:inline-block;margin:4px}
+
+.img-duo{display:flex;gap:12px;justify-content:center;margin:8px 0}
+.img-duo .slide-img{max-height:120px;flex:1}
+
 /* ===== QUOTE ===== */
 .quote-block{
   border-left:3px solid #EE0000;padding:12px 20px;margin:16px 0;
@@ -288,6 +311,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
     <!-- SLIDE 1 — TITLE                                               -->
     <!-- ============================================================ -->
     <div class="slide slide-title active" data-num="1" data-exec="1">
+      <img src="imagens/slide-title-bg.png" alt="" class="title-bg" loading="lazy">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-main">
       <div class="floating-agents">
         <span style="top:8%;left:5%;animation-delay:0s">🤖</span>
@@ -367,44 +391,33 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
       <p>Da ideia ao ecossistema — a evolução em tempo real.</p>
       <div class="timeline" style="margin-top:28px">
         <div class="timeline-item">
-          <div class="year">2024 · Q1</div>
+          <div class="year">Final 2025</div>
           <div class="text">💡 <strong>Surgimento da ideia</strong> — Agentes de IA precisam ser mais que chatbots. Primeiros experimentos com coding agents autônomos.</div>
         </div>
         <div class="timeline-item">
-          <div class="year">2024 · Q2</div>
-          <div class="text">🔨 <strong>Primeiros protótipos</strong> — Agentes conseguem ler/escrever arquivos, executar comandos e manter contexto de conversa.</div>
+          <div class="year">Jan 2026</div>
+          <div class="text">🔨 <strong>Primeiros protótipos</strong> — Agentes conseguem ler/escrever arquivos, executar comandos e manter contexto.</div>
         </div>
         <div class="timeline-item">
-          <div class="year">2024 · Q3</div>
-          <div class="text">🧠 <strong>Memória e Subagents</strong> — Memória persistente, subagentes especializados e primeiros plugins de integração.</div>
+          <div class="year">Fev 2026</div>
+          <div class="text">🧠 <strong>Memória e Subagents</strong> — Memória persistente, subagentes especializados e primeiros plugins.</div>
         </div>
         <div class="timeline-item">
-          <div class="year">2024 · Q4</div>
-          <div class="text">🛡️ <strong>SOUL e Segurança</strong> — Personalidade dos agentes via SOUL.md, memória de longo prazo e skill-vetter para segurança.</div>
+          <div class="year">Mar 2026</div>
+          <div class="text">🛡️ <strong>SOUL e Segurança</strong> — Personalidade via SOUL.md, skill-vetter para validação, memória de longo prazo.</div>
         </div>
         <div class="timeline-item">
-          <div class="year">2025 · Q1</div>
-          <div class="text">🔌 <strong>Ecossistema de Plugins</strong> — MCPs, plugins de automação, integração com GitHub, Telegram, ElevenLabs, WhatsApp.</div>
+          <div class="year">Abr 2026</div>
+          <div class="text">🔌 <strong>Ecossistema + TaskFlow</strong> — MCPs, GitHub, Telegram, ElevenLabs. Fluxos duráveis multi-etapa.</div>
         </div>
         <div class="timeline-item">
-          <div class="year">2025 · Q2</div>
-          <div class="text">📈 <strong>Adoção acelerada</strong> — Comunidade cresce, usuários avançados criam agentes complexos, OpenClaw vira plataforma.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="year">2025 · Q3</div>
-          <div class="text">⚡ <strong>TaskFlow e Orquestração</strong> — Fluxos duráveis, multi-etapa com waits, sub-agentes persistentes e orquestração avançada.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="year">2025 · Q4</div>
-          <div class="text">🤝 <strong>Aquisição OpenAI</strong> — OpenAI adquire OpenClaw. Expansão global, investimento massivo em agente-ecossistema.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="year">2026</div>
-          <div class="text">🚀 <strong>OpenClaw + Red Hat</strong> — Agentes gerenciam clusters OpenShift. Suporte enterprise. Zero-trust agents. Futuro.</div>
+          <div class="year">Mai 2026</div>
+          <div class="text">📈 <strong>Adoção acelerada</strong> — Comunidade cresce, OpenAI adquire OpenClaw. Integração com Red Hat.</div>
         </div>
       </div>
+      <img src="imagens/slide-title-bg.png" alt="Agentes de IA colaborando" class="slide-img wide" loading="lazy">
       <div class="speaker-notes-content" style="display:none">
-        <strong>Speaker Notes:</strong> Dois anos atrás, agentes de IA eram promessas. Hoje, o OpenClaw é uma plataforma madura que foi adquirida pela OpenAI e que está sendo integrada com ecossistemas enterprise como Red Hat. A timeline mostra que a evolução foi rápida porque o problema era real e a solução ressoou.<br>
+        <strong>Speaker Notes:</strong> Em apenas 6 meses, o OpenClaw saiu de uma ideia para uma plataforma com milhares de usuários, adquirida pela OpenAI e integrada com Red Hat. Essa velocidade mostra que o problema era real e a solução ressoou profundamente com a comunidade técnica.<br>
         <strong>📸 Imagem sugerida:</strong> Linha do tempo visual com ícones grandes e cores gradientes (vermelho Red Hat).
       </div>
     </div>
@@ -418,11 +431,11 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
       <p style="margin-bottom:4px">Dados ilustrativos — tendência observada na comunidade OpenClaw.</p>
       <div class="chart-container">
         <div class="bar-chart" id="adoptionChart">
-          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="35"><span class="val">3.5K</span></div><span class="bar-label">Q1 2025</span></div>
-          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="52"><span class="val">5.2K</span></div><span class="bar-label">Q2 2025</span></div>
-          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="68"><span class="val">6.8K</span></div><span class="bar-label">Q3 2025</span></div>
-          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="88"><span class="val">8.8K</span></div><span class="bar-label">Q4 2025</span></div>
-          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="100"><span class="val">10K+</span></div><span class="bar-label">2026</span></div>
+          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="25"><span class="val">500</span></div><span class="bar-label">Dez 2025</span></div>
+          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="42"><span class="val">2.1K</span></div><span class="bar-label">Fev 2026</span></div>
+          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="58"><span class="val">4.8K</span></div><span class="bar-label">Mar 2026</span></div>
+          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="78"><span class="val">7.2K</span></div><span class="bar-label">Abr 2026</span></div>
+          <div class="bar-wrapper"><div class="bar bar-user" style="height:0%" data-height="100"><span class="val">10K+</span></div><span class="bar-label">Mai 2026</span></div>
         </div>
         <div class="chart-legend">
           <span><span class="bar-user" style="width:12px;height:12px;display:inline-block;border-radius:3px;vertical-align:middle;margin-right:4px"></span> Usuários Ativos</span>
@@ -567,6 +580,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
           <div class="arch-box" style="font-size:.75rem">🔗 APIs</div>
         </div>
       </div>
+      <img src="imagens/slide-architecture.png" alt="Arquitetura de agentes interconectados" class="slide-img" loading="lazy">
       <div class="speaker-notes-content" style="display:none">
         <strong>Speaker Notes:</strong> A arquitetura é modular e extensível. O agente principal (Navi) recebe demandas do usuário e coordena subagentes especializados — como um tech lead que delega para o time. Cada subagente tem acesso a memória, SOUL, plugins e MCPs. Os providers LLM são intercambiáveis. As ferramentas externas são conectadas via MCPs, mantendo a segurança e o isolamento.<br>
         <strong>📸 Imagem sugerida:</strong> Diagrama de arquitetura com setas, camadas e conectores. Estilo "cloud native landscape".
@@ -768,6 +782,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
           <p>Analisa dados, gera relatórios, identifica padrões e insights.</p>
         </div>
       </div>
+      <img src="imagens/slide-agents-team.png" alt="Time de agentes especializados" class="slide-img" loading="lazy">
       <div class="speaker-notes-content" style="display:none">
         <strong>Speaker Notes:</strong> Subagentes são o verdadeiro diferencial. Cada agente tem sua própria SOUL, memória, ferramentas e personalidade. É como ter um time completo: o arquiteto pensa na estratégia, o dev implementa, o revisor valida, o segurança protege, o de OpenShift opera o cluster. E o agente principal coordena tudo — como um líder de squad.<br>
         <strong>📸 Imagem sugerida:</strong> Organograma visual com o agente principal no centro e subagentes ao redor, cada um com seu ícone e especialidade.
@@ -1152,6 +1167,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
           <span class="tag">Governança</span>
         </div>
       </div>
+      <img src="imagens/slide-security-shield.png" alt="Escudo de segurança digital" class="slide-img" loading="lazy">
       <div class="speaker-notes-content" style="display:none">
         <strong>Speaker Notes:</strong> Este slide é o mais importante da apresentação. Agentes autônomos são poderosos — e perigosos se mal configurados. Um token de admin no GitHub + acesso ao cluster de produção = desastre potencial. A regra de ouro: comece restritivo e expanda conforme ganha confiança. O OpenClaw tem ferramentas para segurança (Vetter, permissões, logs), mas a cultura de segurança começa com as pessoas.<br>
         <strong>📸 Imagem sugerida:</strong> Escudo com checkpoints de segurança ao redor, ou um semáforo vermelho/amarelo/verde para níveis de autonomia.
@@ -1181,7 +1197,30 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
           <span class="badge" style="font-size:.8rem;padding:6px 16px">#OpenClaw</span>
         </div>
         <div style="margin-top:32px">
-          <p style="font-size:.9rem;color:#555">Apresentação criada com OpenClaw · Red Hat · 2026</p>
+        <div class="timeline-item">
+          <div class="year">Final de 2025</div>
+          <div class="text">💡 <strong>Surgimento da ideia</strong> — Agentes de IA precisam ser mais que chatbots. Primeiros experimentos com coding agents autônomos.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">Jan 2026</div>
+          <div class="text">🔨 <strong>Primeiros protótipos</strong> — Agentes conseguem ler/escrever arquivos, executar comandos e manter contexto de conversa.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">Fev 2026</div>
+          <div class="text">🧠 <strong>Memória e Subagents</strong> — Memória persistente, subagentes especializados e primeiros plugins de integração.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">Mar 2026</div>
+          <div class="text">🛡️ <strong>SOUL e Segurança</strong> — Personalidade dos agentes via SOUL.md, skill-vetter, memória de longo prazo.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">Abr 2026</div>
+          <div class="text">🔌 <strong>Ecossistema de Plugins + TaskFlow</strong> — MCPs, GitHub, Telegram, ElevenLabs. Fluxos duráveis multi-etapa.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">Mai 2026</div>
+          <div class="text">📈 <strong>Adoção acelerada</strong> — Comunidade cresce, OpenAI adquire OpenClaw. Integração com Red Hat OpenShift.</div>
+        </div>
         </div>
       </div>
       <div class="speaker-notes-content" style="display:none">
