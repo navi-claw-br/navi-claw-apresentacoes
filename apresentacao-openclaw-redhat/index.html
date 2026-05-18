@@ -276,8 +276,10 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
 }
 
 /* ===== EXECUTIVE SUMMARY OVERLAY ===== */
-.executive-mode .slide{display:none}
-.executive-mode .slide.executive{display:flex;opacity:1;visibility:visible;position:relative}
+.executive-mode .slide{display:none !important}
+.executive-mode .slide.executive{display:none !important}
+.executive-mode .slide.executive.active{display:flex !important;opacity:1;visibility:visible;position:relative;z-index:2}
+.executive-mode .slide.executive.exit{display:none !important}
 .slide.executive{display:none}
 .executive-mode .slide:not(.executive){display:none}
 .executive-mode .dots .dot{display:none}
