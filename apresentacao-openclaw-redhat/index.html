@@ -290,15 +290,12 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
 .executive-mode .progress-bar{background:linear-gradient(90deg,#FFA500,#FFCC00)}
 
 /* ===== TEAM SLIDE BACKGROUND ===== */
-.slide-team .team-bg{
-  position:absolute;top:0;left:0;width:100%;height:100%;
-  object-fit:cover;z-index:1;pointer-events:none;
+.slide-team{
+  background: linear-gradient(135deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.25) 50%,rgba(10,10,10,.4) 100%),
+    url(imagens/slide-hyrule-field.png) center/cover no-repeat !important;
 }
-.slide-team .team-overlay{
-  position:absolute;top:0;left:0;width:100%;height:100%;
-  background:linear-gradient(135deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.35) 40%,rgba(10,10,10,.5) 100%);
-  z-index:2;pointer-events:none;
-}
+.slide-team .team-overlay{display:none}
+.slide-team .team-bg{display:none}
 .slide-team h2.team-title,.slide-team p.team-subtitle{position:relative;z-index:10}
 .slide-team .card{background:rgba(20,20,20,.65);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(238,0,0,.35)}
 .slide-team .card:hover{background:rgba(30,30,30,.75);border-color:#EE0000}
@@ -872,8 +869,6 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
     <!-- SLIDE 13 — NOSSA EQUIPE + VOZES ElevenLabs                   -->
     <!-- ============================================================ -->
     <div class="slide slide-team" data-num="13">
-      <img src="imagens/slide-hyrule-field.png" alt="" class="team-bg" style="opacity:.8">
-      <div class="team-overlay"></div>
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small" style="z-index:15">
       <h2 class="team-title">👥 Nossa Equipe de Agentes</h2>
       <p class="team-subtitle">Cada agente com <span class="highlight">personalidade, função e voz própria</span> — um time digital de especialistas.</p>
