@@ -1571,6 +1571,100 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
       </div>
     </div>
 
+    <!-- ============================================================ -->
+    <!-- SLIDE 22 — DEMO 1: MULTICLOUD HÍBRIDA                       -->
+    <!-- ============================================================ -->
+    <div class="slide" data-num="22">
+      <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
+      <h2>🌩️ Demo 1 · Multicloud Híbrida</h2>
+      <p style="color:var(--accent,#06b6d4);font-size:.85rem;margin-bottom:12px;letter-spacing:.08em;text-align:center">APLICAÇÃO MOVIDA ENTRE AWS E AZURE EM TEMPO REAL</p>
+      <div class="content-grid cols-2" style="margin-top:16px">
+        <div class="card">
+          <span class="icon">🌩️</span>
+          <h4>AWS → Azure</h4>
+          <ul style="list-style:none;padding:0;font-size:.9rem;color:#999">
+            <li style="padding:4px 0">▸ Cluster AWS com aplicação ativa</li>
+            <li style="padding:4px 0">▸ Navi com acesso total aos clusters K8s</li>
+            <li style="padding:4px 0">▸ Comando: <strong>"Move a aplicação para Azure"</strong></li>
+            <li style="padding:4px 0">▸ Deploy no cluster Azure em segundos</li>
+          </ul>
+          <span class="tag">Demonstração</span>
+        </div>
+        <div class="card">
+          <span class="icon">🧠</span>
+          <h4>Como Funcionou</h4>
+          <ul style="list-style:none;padding:0;font-size:.9rem;color:#999">
+            <li style="padding:4px 0">▸ Navi criou a apresentação da demo sozinha</li>
+            <li style="padding:4px 0">▸ Kubeconfig de ambos os clusters configurados</li>
+            <li style="padding:4px 0">▸ DNS Cloudflare atualizado automaticamente</li>
+            <li style="padding:4px 0">▸ Rollout progressivo + health check pós-migração</li>
+          </ul>
+          <span class="tag">Infraestrutura</span>
+        </div>
+      </div>
+      <p style="margin-top:18px;font-size:.95rem;color:#aaa;text-align:center">⚡ Agente inteligente + clusters multi-cloud + DNS programável = <strong style="color:#fff">nuvem portátil de verdade</strong></p>
+      <div class="speaker-notes-content" style="display:none">
+        <strong>Speaker Notes:</strong> Demo impressionante: uma única frase para a Navi — "Move a aplicação para Azure" — e ela executou todo o fluxo: deploy no cluster Azure, atualização do DNS na Cloudflare, dreno dos pods na AWS, health check. Transição transparente. A plateia viu a aplicação migrar sem downtime.<br>
+        <strong>📸 Imagem sugerida:</strong> Diagrama mostrando seta da AWS para Azure com Cloudflare DNS ao centro, e um agente (Navi) orquestrando tudo.
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 23 — DEMO 2: AGENTES VIA KAFKA                        -->
+    <!-- ============================================================ -->
+    <div class="slide" data-num="23">
+      <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
+      <h2>📨 Demo 2 · Agentes no Kafka</h2>
+      <p style="color:var(--accent,#06b6d4);font-size:.85rem;margin-bottom:8px;letter-spacing:.08em;text-align:center">4 AGENTES · KAFKA · CLUSTER K8S AUTÔNOMO</p>
+      <div class="content-grid cols-4" style="margin-top:12px">
+        <div class="card" style="text-align:center">
+          <span class="icon">📈</span>
+          <h4>Optimization</h4>
+          <p style="font-size:.78rem">Analisa padrões de recursos e otimiza custo/performance</p>
+        </div>
+        <div class="card" style="text-align:center">
+          <span class="icon">🛡️</span>
+          <h4>Security</h4>
+          <p style="font-size:.78rem">Monitora vulnerabilidades, acessos e compliance</p>
+        </div>
+        <div class="card" style="text-align:center">
+          <span class="icon">🔧</span>
+          <h4>Operations</h4>
+          <p style="font-size:.78rem">Self-healing: diagnostica incidentes e corrige</p>
+        </div>
+        <div class="card" style="text-align:center">
+          <span class="icon">😈</span>
+          <h4>Troublemaker</h4>
+          <p style="font-size:.78rem">Cria problemas controlados para testar resiliência</p>
+        </div>
+      </div>
+      <div class="content-grid cols-2" style="margin-top:12px">
+        <div class="card">
+          <span class="icon">📨</span>
+          <h4>Coordenação via Kafka</h4>
+          <ul style="list-style:none;padding:0;font-size:.85rem;color:#999">
+            <li style="padding:3px 0">▸ Tópicos: <code>cluster.metrics</code>, <code>alerts</code>, <code>commands</code></li>
+            <li style="padding:3px 0">▸ Agentes se coordenam sem orquestrador central</li>
+            <li style="padding:3px 0">▸ Decisões auditáveis — cada ação vira evento</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="icon">🎡</span>
+          <h4>A Roleta do Caos</h4>
+          <ul style="list-style:none;padding:0;font-size:.85rem;color:#999">
+            <li style="padding:3px 0">▸ Ao final, uma roleta escolhia o problema</li>
+            <li style="padding:3px 0">▸ Disparava o <strong>Troublemaker</strong> no cluster</li>
+            <li style="padding:3px 0">▸ Os outros 3 agentes reagiam em tempo real</li>
+            <li style="padding:3px 0">▸ Cluster se auto-curando — plateia via ao vivo!</li>
+          </ul>
+        </div>
+      </div>
+      <div class="speaker-notes-content" style="display:none">
+        <strong>Speaker Notes:</strong> A demo mais impactante. Mostramos 4 agentes especializados se comunicando via Kafka para gerenciar um cluster Kubernetes de forma autônoma. O Optimization Agent analisava right-sizing, o Security Agent escaneava vulnerabilidades, o Operations Agent fazia self-healing, e o Troublemaker causava caos controlado. No final, a plateia pedia para girar a roleta — e o cluster se curava sozinho!<br>
+        <strong>📸 Imagem sugerida:</strong> Quatro agentes conectados por um barramento Kafka central, com setas de eventos fluindo entre eles e um cluster K8s sendo gerenciado. Roleta ao lado.
+      </div>
+    </div>
+
     <!-- ===== EXECUTIVE SUMMARY SLIDES ===== -->
 
     <!-- EXEC SLIDE 1 -->
