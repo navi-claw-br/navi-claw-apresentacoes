@@ -225,6 +225,16 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
 .mode-toggle:hover{background:rgba(238,0,0,.25)}
 .mode-toggle .mode-label{color:#888;font-weight:400}
 
+/* ===== LANGUAGE TOGGLE ===== */
+.lang-toggle{
+  position:fixed;top:24px;right:68px;z-index:100;
+  background:rgba(255,255,255,.06);color:#ccc;border:1px solid rgba(255,255,255,.15);
+  padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.7rem;font-weight:600;
+  transition:all .2s;font-family:'Inter',sans-serif;text-transform:uppercase;
+}
+.lang-toggle:hover{background:rgba(255,255,255,.12);color:#fff}
+.lang-toggle.active{background:rgba(0,200,100,.15);color:#00cc66;border-color:rgba(0,200,100,.3)}
+
 /* ===== IMAGE PLACEHOLDER ===== */
 .img-placeholder{
   background:var(--card-bg);border:1px dashed rgba(238,0,0,.3);border-radius:12px;
@@ -506,13 +516,13 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
       </div>
       <div style="position:relative;z-index:5">
         <h1>OpenClaw:<br><span class="redhat-highlight">A Nova Fronteira</span><br>dos Agentes de IA</h1>
-        <p class="subtitle">Da automação assistida à colaboração com agentes especializados — um novo paradigma para times de tecnologia</p>
-        <p class="meta" style="margin-bottom:12px">Uma apresentação técnica-executiva · OpenClaw + Red Hat</p>
+        <p data-en="From assisted automation to collaboration with specialized agents — a new paradigm for tech teams" class="subtitle">Da automação assistida à colaboração com agentes especializados — um novo paradigma para times de tecnologia</p>
+        <p data-en="A technical-executive presentation · OpenClaw + Red Hat" class="meta" style="margin-bottom:12px">Uma apresentação técnica-executiva · OpenClaw + Red Hat</p>
         <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px">
-          <span class="badge">Arquitetura</span>
-          <span class="badge">Agentes</span>
-          <span class="badge">Automação</span>
-          <span class="badge">Cloud Native</span>
+          <span data-en="Architecture" class="badge">Arquitetura</span>
+          <span data-en="Agents" class="badge">Agentes</span>
+          <span data-en="Automation" class="badge">Automação</span>
+          <span data-en="Cloud Native" class="badge">Cloud Native</span>
         </div>
       </div>
       <div class="speaker-notes-content" style="display:none">
@@ -525,38 +535,38 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
     <!-- ============================================================ -->
     <div class="slide" data-num="2">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>⚠️ O Problema Atual</h2>
+      <h2 data-en="⚠️ The Current Problem">⚠️ O Problema Atual</h2>
       <p>Ferramentas de IA ainda funcionam como <span class="highlight">copilotos isolados</span> — úteis, mas limitadas.</p>
       <div class="content-grid cols-3" style="margin-top:28px">
         <div class="card clickable-card" onclick="openModal('contexto','🎭 Falta de Contexto','Sessões isoladas sem memória de longo prazo ou entendimento do seu ecossistema. Cada interação recomeça do zero.')">
           <span class="icon">🎭</span>
-          <h4>Falta de Contexto</h4>
-          <p>Sessões isoladas sem memória de longo prazo ou entendimento do seu ecossistema. Cada interação recomeça do zero.</p>
+          <h4 data-en="Lack of Context" data-en="Lack of Context">Falta de Contexto</h4>
+          <p data-en="Isolated sessions with no long-term memory or understanding of your ecosystem. Every interaction starts from scratch.">Sessões isoladas sem memória de longo prazo ou entendimento do seu ecossistema. Cada interação recomeça do zero.</p>
         </div>
         <div class="card clickable-card" onclick="openModal('integracao','🔗 Sem Integração Real','Não acessam APIs, clusters, repositórios ou sistemas produtivos de forma nativa e segura.')">
           <span class="icon">🔗</span>
-          <h4>Sem Integração Real</h4>
-          <p>Não acessam APIs, clusters, repositórios ou sistemas produtivos de forma nativa e segura.</p>
+          <h4 data-en="No Real Integration" data-en="No Real Integration">Sem Integração Real</h4>
+          <p data-en="They don&#39;t access APIs, clusters, repositories or production systems natively and securely.">Não acessam APIs, clusters, repositórios ou sistemas produtivos de forma nativa e segura.</p>
         </div>
         <div class="card clickable-card" onclick="openModal('especializacao','🧩 Sem Especialização','Um único modelo tenta fazer tudo. Sem subagentes, sem delegação, sem times de especialistas coordenados.')">
           <span class="icon">🧩</span>
-          <h4>Sem Especialização</h4>
-          <p>Um único modelo tenta fazer tudo. Sem subagentes, sem delegação, sem times de especialistas coordenados.</p>
+          <h4 data-en="No Specialization" data-en="No Specialization">Sem Especialização</h4>
+          <p data-en="A single model tries to do everything. No subagents, no delegation, no coordinated teams of specialists.">Um único modelo tenta fazer tudo. Sem subagentes, sem delegação, sem times de especialistas coordenados.</p>
         </div>
         <div class="card clickable-card" onclick="openModal('fluxos','📋 Fluxos Curtos','Não sustentam tarefas longas com múltiplas etapas e decisões intermediárias.')">
           <span class="icon">📋</span>
-          <h4>Fluxos Curtos</h4>
-          <p>Não sustentam tarefas longas com múltiplas etapas e decisões intermediárias.</p>
+          <h4 data-en="Short Flows" data-en="Short Flows">Fluxos Curtos</h4>
+          <p data-en="Can&#39;t sustain long tasks with multiple steps and intermediate decisions.">Não sustentam tarefas longas com múltiplas etapas e decisões intermediárias.</p>
         </div>
         <div class="card clickable-card" onclick="openModal('ferramentas','🧰 Ferramentas Limitadas','Plugin models pobres, sem ecossistema de extensão ou MCPs para conectar o mundo real.')">
           <span class="icon">🧰</span>
-          <h4>Ferramentas Limitadas</h4>
-          <p>Plugin models pobres, sem ecossistema de extensão ou MCPs para conectar o mundo real.</p>
+          <h4 data-en="Limited Tools" data-en="Limited Tools">Ferramentas Limitadas</h4>
+          <p data-en="Poor plugin models, no extension ecosystem or MCPs to connect to the real world.">Plugin models pobres, sem ecossistema de extensão ou MCPs para conectar o mundo real.</p>
         </div>
         <div class="card clickable-card" onclick="openModal('evolucao','🔄 Sem Evolução','Não aprendem com erros, não melhoram com o tempo, não incorporam feedback do usuário.')">
           <span class="icon">🔄</span>
-          <h4>Sem Evolução</h4>
-          <p>Não aprendem com erros, não melhoram com o tempo, não incorporam feedback do usuário.</p>
+          <h4 data-en="No Evolution" data-en="No Evolution">Sem Evolução</h4>
+          <p data-en="Don&#39;t learn from mistakes, don&#39;t improve over time, don&#39;t incorporate user feedback.">Não aprendem com erros, não melhoram com o tempo, não incorporam feedback do usuário.</p>
         </div>
       </div>
       <div class="speaker-notes-content" style="display:none">
@@ -570,8 +580,8 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
     <!-- ============================================================ -->
     <div class="slide" data-num="3">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>📜 Breve Histórico do OpenClaw</h2>
-      <p>Da ideia ao ecossistema — a evolução em tempo real.</p>
+      <h2 data-en="📜 Brief History of OpenClaw">📜 Breve Histórico do OpenClaw</h2>
+      <p data-en="From idea to ecosystem — real-time evolution.">Da ideia ao ecossistema — a evolução em tempo real.</p>
       <div class="timeline" style="margin-top:28px">
         <div class="timeline-item">
           <div class="year">Final 2025</div>
@@ -610,7 +620,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
     <!-- ============================================================ -->
     <div class="slide" data-num="4">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>📊 Crescimento Real do OpenClaw</h2>
+      <h2 data-en="📊 Real OpenClaw Growth">📊 Crescimento Real do OpenClaw</h2>
       <p style="margin-bottom:4px">Dados verificados de fontes públicas — <span class="highlight">GitHub Stars, comunidade e adoção global</span></p>
       
       <!-- GitHub Stars Timeline -->
@@ -690,15 +700,15 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
         </div>
         <div class="card" style="text-align:center;padding:10px 6px">
           <div style="font-size:1.6rem;font-weight:900;color:#EE0000;font-family:'JetBrains Mono',monospace">76K</div>
-          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">🍴 Forks no GitHub</p>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa" data-en="🍴 GitHub Forks">🍴 Forks no GitHub</p>
         </div>
         <div class="card" style="text-align:center;padding:10px 6px">
           <div style="font-size:1.6rem;font-weight:900;color:#EE0000;font-family:'JetBrains Mono',monospace">1.6K+</div>
-          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">👥 Contribuidores</p>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa" data-en="👥 Contributors">👥 Contribuidores</p>
         </div>
         <div class="card" style="text-align:center;padding:10px 6px">
           <div style="font-size:1.6rem;font-weight:900;color:#EE0000;font-family:'JetBrains Mono',monospace">136</div>
-          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">📦 Releases</p>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa" data-en="📦 Releases">📦 Releases</p>
         </div>
       </div>
 
@@ -706,15 +716,15 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidde
       <div style="margin-top:6px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
         <div class="card" style="text-align:center;padding:10px 6px">
           <div style="font-size:1.3rem;font-weight:900;color:#FF5555;font-family:'JetBrains Mono',monospace">2M/sem</div>
-          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">🌐 Visitantes no pico</p>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa" data-en="🌐 Peak Visitors">🌐 Visitantes no pico</p>
         </div>
         <div class="card" style="text-align:center;padding:10px 6px">
           <div style="font-size:1.3rem;font-weight:900;color:#FF5555;font-family:'JetBrains Mono',monospace">40K+</div>
-          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">🌍 Instâncias expostas</p>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa" data-en="🌍 Exposed Instances">🌍 Instâncias expostas</p>
         </div>
         <div class="card" style="text-align:center;padding:10px 6px">
           <div style="font-size:1.3rem;font-weight:900;color:#FF5555;font-family:'JetBrains Mono',monospace">129</div>
-          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa">🏢 Startups baseadas no OpenClaw</p>
+          <p style="font-size:.62rem;margin:2px 0 0;color:#aaa" data-en="🏢 Startups built on OpenClaw">🏢 Startups baseadas no OpenClaw</p>
         </div>
       </div>
 
@@ -736,20 +746,20 @@ Fontes: GitHub API, SimilarLabs, Panto AI, Clawbot Blog, GetPanto.ai (Abr/Mai 20
     <!-- ============================================================ -->
     <div class="slide" data-num="5">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>💎 Por que o OpenClaw é Diferente?</h2>
+      <h2 data-en="💎 Why is OpenClaw Different?">💎 Por que o OpenClaw é Diferente?</h2>
       <div class="content-grid cols-2" style="margin-top:24px">
         <div class="card">
-          <h4 style="font-size:1rem;color:#EE0000">❌ O que NÃO é</h4>
+          <h4 style="font-size:1rem;color:#EE0000" data-en="❌ What it is NOT" data-en="❌ What it is NOT">❌ O que NÃO é</h4>
           <ul style="list-style:none;margin-top:10px">
             <li style="padding:4px 0;color:#888;font-size:.85rem">✗ Apenas um chat com IA</li>
-            <li style="padding:4px 0;color:#888;font-size:.85rem">✗ Apenas desktop remoto</li>
-            <li style="padding:4px 0;color:#888;font-size:.85rem">✗ Apenas automação RPA</li>
-            <li style="padding:4px 0;color:#888;font-size:.85rem">✗ Apenas um agente único</li>
-            <li style="padding:4px 0;color:#888;font-size:.85rem">✗ Apenas uma CLI melhorada</li>
+            <li style="padding:4px 0;color:#888;font-size:.85rem" data-en="✗ Just a remote desktop">✗ Apenas desktop remoto</li>
+            <li style="padding:4px 0;color:#888;font-size:.85rem" data-en="✗ Just RPA automation">✗ Apenas automação RPA</li>
+            <li style="padding:4px 0;color:#888;font-size:.85rem" data-en="✗ Just a single agent">✗ Apenas um agente único</li>
+            <li style="padding:4px 0;color:#888;font-size:.85rem" data-en="✗ Just a better CLI">✗ Apenas uma CLI melhorada</li>
           </ul>
         </div>
         <div class="card clickable-card" onclick="openModalAnim()" style="border-color:rgba(0,204,102,.3)">
-          <h4 style="font-size:1rem;color:#00CC66">✅ O que REALMENTE é</h4>
+          <h4 style="font-size:1rem;color:#00CC66" data-en="✅ What it REALLY is" data-en="✅ What it REALLY is">✅ O que REALMENTE é</h4>
           <ul style="list-style:none;margin-top:10px">
             <li style="padding:4px 0;color:#ccc;font-size:.85rem">✓ Ambiente de <strong>execução e coordenação</strong> de agentes</li>
             <li style="padding:4px 0;color:#ccc;font-size:.85rem">✓ Subagentes <strong>especializados</strong> com papéis definidos</li>
@@ -761,7 +771,7 @@ Fontes: GitHub API, SimilarLabs, Panto AI, Clawbot Blog, GetPanto.ai (Abr/Mai 20
         </div>
       </div>
       <div class="quote-block" style="margin-top:16px">
-        <p>"O OpenClaw não é uma ferramenta. É um ambiente onde agentes vivem, trabalham e evoluem."</p>
+        <p data-en="&quot;OpenClaw is not a tool. It&#39;s an environment where agents live, work and evolve.&quot;">"O OpenClaw não é uma ferramenta. É um ambiente onde agentes vivem, trabalham e evoluem."</p>
       </div>
       <div class="speaker-notes-content" style="display:none">
         <strong>Speaker Notes:</strong> A diferença fundamental é arquitetural. Enquanto outros produtos são interfaces para um modelo, o OpenClaw é um runtime para agentes. Ele fornece o sistema operacional — memória, identidade, ferramentas, coordenação. Os modelos de IA são apenas os processadores; o OpenClaw é a placa-mãe que conecta tudo.<br>
@@ -774,8 +784,8 @@ Fontes: GitHub API, SimilarLabs, Panto AI, Clawbot Blog, GetPanto.ai (Abr/Mai 20
     <!-- ============================================================ -->
     <div class="slide" data-num="6">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>📋 Comparativo 2026: OpenClaw vs Concorrentes</h2>
-      <p style="font-size:.82rem;color:#888;margin-bottom:6px">Dados de fontes públicas — GitHub, MCPlato, MindStudio, LushBinary</p>
+      <h2 data-en="📋 2026 Comparison: OpenClaw vs Competitors">📋 Comparativo 2026: OpenClaw vs Concorrentes</h2>
+      <p style="font-size:.82rem;color:#888;margin-bottom:6px" data-en="Data from public sources — GitHub, MCPlato, MindStudio, LushBinary">Dados de fontes públicas — GitHub, MCPlato, MindStudio, LushBinary</p>
       <div style="overflow-x:auto">
         <table class="comp-table">
           <thead>
@@ -788,18 +798,18 @@ Fontes: GitHub API, SimilarLabs, Panto AI, Clawbot Blog, GetPanto.ai (Abr/Mai 20
             </tr>
           </thead>
           <tbody>
-            <tr><td><strong>⭐ GitHub Stars</strong></td><td class="strong">354K</td><td>112K</td><td>48-140K</td><td>N/A (closed)</td></tr>
-            <tr><td><strong>📜 Licença</strong></td><td class="strong">MIT (aberto)</td><td>Proprietário</td><td class="strong">MIT (aberto)</td><td>Proprietário</td></tr>
-            <tr><td><strong>💻 Desenvolvimento</strong></td><td class="strong">★★★★★</td><td class="strong">★★★★★</td><td>★★★★☆</td><td class="strong">★★★★★</td></tr>
-            <tr><td><strong>🏗️ Autonomia</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★★★☆</td><td>★★☆☆☆</td></tr>
-            <tr><td><strong>🧩 Subagentes</strong></td><td class="strong">★★★★★</td><td>★★☆☆☆</td><td>★★★☆☆</td><td>★☆☆☆☆</td></tr>
-            <tr><td><strong>🧠 Memória Persistente</strong></td><td class="strong">★★★★★</td><td>★★★☆☆</td><td>★★★★☆</td><td>★★☆☆☆</td></tr>
-            <tr><td><strong>🔌 Plugins / Skills</strong></td><td class="strong">★★★★★ (5.7K)</td><td>★★☆☆☆</td><td>★★★☆☆</td><td>★★☆☆☆</td></tr>
-            <tr><td><strong>🔗 MCPs</strong></td><td class="strong">★★★★★</td><td>★★★★☆</td><td>★★★☆☆</td><td>★★★☆☆</td></tr>
-            <tr><td><strong>⚡ Execução Real</strong></td><td class="strong">★★★★★</td><td>★★★★☆</td><td>★★★★☆</td><td>★★☆☆☆</td></tr>
-            <tr><td><strong>📱 Canais (20+)</strong></td><td class="strong">★★★★★</td><td>★★☆☆☆</td><td>★★☆☆☆</td><td>★☆☆☆☆</td></tr>
-            <tr><td><strong>🔄 Self-Improving</strong></td><td class="strong">★★★★★</td><td>★★☆☆☆</td><td>★★★★★</td><td>★☆☆☆☆</td></tr>
-            <tr><td><strong>💵 Custo Base</strong></td><td class="strong">$0 (BYOK)</td><td>$20/mês</td><td class="strong">$0 (BYOK)</td><td>$20/mês</td></tr>
+            <tr><td><strong>⭐ GitHub Stars</strong></td><td data-en="354K" class="strong">354K</td><td data-en="112K">112K</td><td data-en="48-140K">48-140K</td><td data-en="N/A (closed)">N/A (closed)</td></tr>
+            <tr><td><strong>📜 Licença</strong></td><td data-en="MIT (open)" class="strong">MIT (aberto)</td><td data-en="Proprietary">Proprietário</td><td data-en="MIT (open)" class="strong">MIT (aberto)</td><td data-en="Proprietary">Proprietário</td></tr>
+            <tr><td><strong>💻 Desenvolvimento</strong></td><td data-en="★★★★★" class="strong">★★★★★</td><td data-en="★★★★★" class="strong">★★★★★</td><td data-en="★★★★☆">★★★★☆</td><td data-en="★★★★★" class="strong">★★★★★</td></tr>
+            <tr><td><strong>🏗️ Autonomia</strong></td><td data-en="★★★★★" class="strong">★★★★★</td><td data-en="★★★☆☆">★★★☆☆</td><td data-en="★★★★☆">★★★★☆</td><td data-en="★★☆☆☆">★★☆☆☆</td></tr>
+            <tr><td><strong>🧩 Subagentes</strong></td><td data-en="★★★★★" class="strong">★★★★★</td><td data-en="★★☆☆☆">★★☆☆☆</td><td data-en="★★★☆☆">★★★☆☆</td><td data-en="★☆☆☆☆">★☆☆☆☆</td></tr>
+            <tr><td><strong>🧠 Memória Persistente</strong></td><td data-en="★★★★★" class="strong">★★★★★</td><td data-en="★★★☆☆">★★★☆☆</td><td data-en="★★★★☆">★★★★☆</td><td data-en="★★☆☆☆">★★☆☆☆</td></tr>
+            <tr><td><strong>🔌 Plugins / Skills</strong></td><td data-en="★★★★★ (5.7K)" class="strong">★★★★★ (5.7K)</td><td data-en="★★☆☆☆">★★☆☆☆</td><td data-en="★★★☆☆">★★★☆☆</td><td data-en="★★☆☆☆">★★☆☆☆</td></tr>
+            <tr><td><strong>🔗 MCPs</strong></td><td data-en="★★★★★" class="strong">★★★★★</td><td data-en="★★★★☆">★★★★☆</td><td data-en="★★★☆☆">★★★☆☆</td><td data-en="★★★☆☆">★★★☆☆</td></tr>
+            <tr><td><strong>⚡ Execução Real</strong></td><td data-en="★★★★★" class="strong">★★★★★</td><td data-en="★★★★☆">★★★★☆</td><td data-en="★★★★☆">★★★★☆</td><td data-en="★★☆☆☆">★★☆☆☆</td></tr>
+            <tr><td><strong>📱 Canais (20+)</strong></td><td data-en="★★★★★" class="strong">★★★★★</td><td data-en="★★☆☆☆">★★☆☆☆</td><td data-en="★★☆☆☆">★★☆☆☆</td><td data-en="★☆☆☆☆">★☆☆☆☆</td></tr>
+            <tr><td><strong>🔄 Self-Improving</strong></td><td data-en="★★★★★" class="strong">★★★★★</td><td data-en="★★☆☆☆">★★☆☆☆</td><td data-en="★★★★★">★★★★★</td><td data-en="★☆☆☆☆">★☆☆☆☆</td></tr>
+            <tr><td><strong>💵 Custo Base</strong></td><td data-en="$0 (BYOK)" class="strong">$0 (BYOK)</td><td data-en="$20/month">$20/mês</td><td data-en="$0 (BYOK)" class="strong">$0 (BYOK)</td><td data-en="$20/month">$20/mês</td></tr>
           </tbody>
         </table>
       </div>
@@ -825,7 +835,7 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="7">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🏗️ Arquitetura Conceitual</h2>
+      <h2 data-en="🏗️ Conceptual Architecture">🏗️ Arquitetura Conceitual</h2>
       <div class="arch-diagram">
         <!-- User -->
         <div class="arch-row"><div class="arch-box highlight" style="font-size:.9rem;padding:12px 24px">👤 Usuário</div></div>
@@ -872,41 +882,41 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="8">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🛠️ Passo a Passo: Instalação</h2>
+      <h2 data-en="🛠️ Step by Step: Installation">🛠️ Passo a Passo: Instalação</h2>
       <div class="content-grid cols-2" style="margin-top:20px">
         <div class="card">
           <span class="icon">1️⃣</span>
-          <h4>Preparar Ambiente</h4>
-          <p>Linux (ou macOS). Node.js 20+. Git. Um diretório dedicado.</p>
+          <h4 data-en="Prepare Environment" data-en="Prepare Environment">Preparar Ambiente</h4>
+          <p data-en="Linux (or macOS). Node.js 20+. Git. A dedicated directory.">Linux (ou macOS). Node.js 20+. Git. Um diretório dedicado.</p>
         </div>
         <div class="card">
           <span class="icon">2️⃣</span>
-          <h4>Contas Separadas</h4>
-          <p>Email, GitHub e Telegram dedicados para o OpenClaw. Isolamento de segurança.</p>
+          <h4 data-en="Separate Accounts" data-en="Separate Accounts">Contas Separadas</h4>
+          <p data-en="Dedicated email, GitHub and Telegram for OpenClaw. Security isolation.">Email, GitHub e Telegram dedicados para o OpenClaw. Isolamento de segurança.</p>
         </div>
         <div class="card">
           <span class="icon">3️⃣</span>
-          <h4>Configurar Providers</h4>
-          <p>DeepSeek, OpenAI, ou Claude como providers. Defina agente principal com o modelo mais forte.</p>
+          <h4 data-en="Configure Providers" data-en="Configure Providers">Configurar Providers</h4>
+          <p data-en="DeepSeek, OpenAI, or Claude as providers. Set the main agent with the strongest model.">DeepSeek, OpenAI, ou Claude como providers. Defina agente principal com o modelo mais forte.</p>
         </div>
         <div class="card">
           <span class="icon">4️⃣</span>
           <h4>Instalar Plugins</h4>
-          <p>Plugins essenciais: self-improving, vetter, browser-automation, taskflow.</p>
+          <p data-en="Essential plugins: self-improving, vetter, browser-automation, taskflow.">Plugins essenciais: self-improving, vetter, browser-automation, taskflow.</p>
         </div>
         <div class="card">
           <span class="icon">5️⃣</span>
-          <h4>Configurar MCPs</h4>
-          <p>GitHub, filesystem, Kubernetes (opcional). Tokens com permissões mínimas.</p>
+          <h4 data-en="Configure MCPs" data-en="Configure MCPs">Configurar MCPs</h4>
+          <p data-en="GitHub, filesystem, Kubernetes (optional). Tokens with minimum permissions.">GitHub, filesystem, Kubernetes (opcional). Tokens com permissões mínimas.</p>
         </div>
         <div class="card">
           <span class="icon">6️⃣</span>
-          <h4>Criar Primeiro Agente</h4>
-          <p>Defina SOUL.md, memória inicial, ferramentas disponíveis. Teste um fluxo simples.</p>
+          <h4 data-en="Create First Agent" data-en="Create First Agent">Criar Primeiro Agente</h4>
+          <p data-en="Define SOUL.md, initial memory, available tools. Test a simple flow.">Defina SOUL.md, memória inicial, ferramentas disponíveis. Teste um fluxo simples.</p>
         </div>
       </div>
       <div class="quote-block" style="margin-top:8px">
-        <p>"O setup inicial leva 20 minutos. O primeiro 'uau' acontece nos primeiros 5."</p>
+        <p data-en="&quot;Initial setup takes 20 minutes. The first &#39;wow&#39; happens in the first 5.&quot;">"O setup inicial leva 20 minutos. O primeiro 'uau' acontece nos primeiros 5."</p>
       </div>
       <div class="speaker-notes-content" style="display:none">
         <strong>Speaker Notes:</strong> A instalação é surpreendentemente simples para o poder que oferece. O conselho mais importante: use contas separadas. Um email @openclaw, um GitHub para automações, um Telegram só para o agente. Isso reduz riscos e mantém o ambiente limpo. Comece simples — um agente, um canal, uma tarefa. Depois expanda.<br>
@@ -919,43 +929,43 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="9">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>✅ Boas Práticas Iniciais</h2>
+      <h2 data-en="✅ Initial Best Practices">✅ Boas Práticas Iniciais</h2>
       <div class="content-grid cols-2" style="margin-top:24px">
         <div class="card">
           <span class="icon">📱</span>
           <h4>Comece pelo Telegram</h4>
           <p>Melhor canal para primeiras interações — rápido, notificações em tempo real, e a assincronicidade do agente fica natural.</p>
-          <span class="tag">Recomendado</span>
+          <span data-en="Recommended" class="tag">Recomendado</span>
         </div>
         <div class="card">
           <span class="icon">🔐</span>
-          <h4>Contas Exclusivas</h4>
-          <p>Crie e-mail, GitHub e Telegram dedicados. Reduz drasticamente riscos de segurança e mantém tudo organizado.</p>
-          <span class="tag">Segurança</span>
+          <h4 data-en="Exclusive Accounts" data-en="Exclusive Accounts">Contas Exclusivas</h4>
+          <p data-en="Create dedicated email, GitHub and Telegram. Drastically reduces security risks and keeps everything organized.">Crie e-mail, GitHub e Telegram dedicados. Reduz drasticamente riscos de segurança e mantém tudo organizado.</p>
+          <span data-en="Security" class="tag">Segurança</span>
         </div>
         <div class="card">
           <span class="icon">🪙</span>
-          <h4>Tokens com Permissões Mínimas</h4>
-          <p>GitHub token só com escopos necessários. Chaves de API com limites de uso. Nunca use credenciais pessoais.</p>
-          <span class="tag">Crítico</span>
+          <h4 data-en="Tokens with Minimum Permissions" data-en="Tokens with Minimum Permissions">Tokens com Permissões Mínimas</h4>
+          <p data-en="GitHub token with only needed scopes. API keys with usage limits. Never use personal credentials.">GitHub token só com escopos necessários. Chaves de API com limites de uso. Nunca use credenciais pessoais.</p>
+          <span data-en="Critical" class="tag">Crítico</span>
         </div>
         <div class="card">
           <span class="icon">🧪</span>
-          <h4>Separe Ambientes</h4>
-          <p>Dev/test antes de produção. Um agente em sandbox pode quebrar coisas de forma segura. Aprenda com os erros.</p>
+          <h4 data-en="Separate Environments" data-en="Separate Environments">Separe Ambientes</h4>
+          <p data-en="Dev/test before production. A sandbox agent can break things safely. Learn from mistakes.">Dev/test antes de produção. Um agente em sandbox pode quebrar coisas de forma segura. Aprenda com os erros.</p>
           <span class="tag">Prática</span>
         </div>
         <div class="card">
           <span class="icon">🐢</span>
-          <h4>Vá com Calma</h4>
-          <p>Não conecte tudo de uma vez. Adicione ferramentas gradualmente. Cada integração nova precisa ser validada.</p>
-          <span class="tag">Paciência</span>
+          <h4 data-en="Take It Slow" data-en="Take It Slow">Vá com Calma</h4>
+          <p data-en="Don&#39;t connect everything at once. Add tools gradually. Each new integration needs validation.">Não conecte tudo de uma vez. Adicione ferramentas gradualmente. Cada integração nova precisa ser validada.</p>
+          <span data-en="Patience" class="tag">Paciência</span>
         </div>
         <div class="card">
           <span class="icon">📋</span>
-          <h4>Mantenha Logs e Auditoria</h4>
-          <p>Ative logging. Revise ações dos agentes periodicamente. A observabilidade é sua melhor aliada.</p>
-          <span class="tag">Governança</span>
+          <h4 data-en="Maintain Logs and Audit" data-en="Maintain Logs and Audit">Mantenha Logs e Auditoria</h4>
+          <p data-en="Enable logging. Review agent actions periodically. Observability is your best ally.">Ative logging. Revise ações dos agentes periodicamente. A observabilidade é sua melhor aliada.</p>
+          <span data-en="Governance" class="tag">Governança</span>
         </div>
       </div>
       <div class="speaker-notes-content" style="display:none">
@@ -969,37 +979,37 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="10">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🎯 Providers Recomendados</h2>
+      <h2 data-en="🎯 Recommended Providers">🎯 Providers Recomendados</h2>
       <div class="content-grid cols-2" style="margin-top:24px">
         <div class="card" style="border-color:rgba(238,0,0,.3)">
           <h4>🧠 Agente Principal</h4>
           <p style="font-size:.85rem;color:#ccc;margin:6px 0"><strong>DeepSeek v4</strong> — melhor custo-benefício para coordenação geral, raciocínio e tomada de decisão.</p>
-          <span class="tag">Principal</span>
+          <span data-en="Primary" class="tag">Principal</span>
         </div>
         <div class="card">
-          <h4>⚡ Rápidos e Baratos</h4>
+          <h4 data-en="⚡ Fast and Cheap" data-en="⚡ Fast and Cheap">⚡ Rápidos e Baratos</h4>
           <p style="font-size:.85rem;color:#ccc;margin:6px 0"><strong>DeepSeek Flash, GPT-4o Mini</strong> — tarefas simples, respostas rápidas e consumo econômico.</p>
-          <span class="tag">Rotina</span>
+          <span data-en="Routine" class="tag">Rotina</span>
         </div>
         <div class="card">
-          <h4>💪 Raciocínio Complexo</h4>
+          <h4 data-en="💪 Complex Reasoning" data-en="💪 Complex Reasoning">💪 Raciocínio Complexo</h4>
           <p style="font-size:.85rem;color:#ccc;margin:6px 0"><strong>o3, Claude Sonnet</strong> — para problemas que exigem cadeias longas de raciocínio e análise profunda.</p>
-          <span class="tag">Profundo</span>
+          <span data-en="Deep" class="tag">Profundo</span>
         </div>
         <div class="card">
           <h4>💻 Coding</h4>
           <p style="font-size:.85rem;color:#ccc;margin:6px 0"><strong>Claude Sonnet, GPT-5.1 Codex</strong> — modelos especializados com geração e revisão de código superiores.</p>
-          <span class="tag">Código</span>
+          <span data-en="Code" class="tag">Código</span>
         </div>
         <div class="card">
           <h4>🎙️ Voz</h4>
           <p style="font-size:.85rem;color:#ccc;margin:6px 0"><strong>ElevenLabs</strong> — vozes realistas para demos, treinamentos e experiências interativas.</p>
-          <span class="tag">Áudio</span>
+          <span data-en="Audio" class="tag">Áudio</span>
         </div>
         <div class="card">
-          <h4>🔒 Locais / Privacidade</h4>
+          <h4 data-en="🔒 Local / Privacy" data-en="🔒 Local / Privacy">🔒 Locais / Privacidade</h4>
           <p style="font-size:.85rem;color:#ccc;margin:6px 0"><strong>Ollama, vLLM</strong> — modelos locais quando dados sensíveis não podem sair do ambiente.</p>
-          <span class="tag">Privacidade</span>
+          <span data-en="Privacy" class="tag">Privacidade</span>
         </div>
       </div>
       <div class="speaker-notes-content" style="display:none">
@@ -1013,18 +1023,18 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="11">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🤝 O Poder dos Subagentes</h2>
+      <h2 data-en="🤝 The Power of Subagents">🤝 O Poder dos Subagentes</h2>
       <p>O agente principal não precisa saber tudo. Ele precisa <span class="highlight">saber delegar</span>.</p>
       <div class="content-grid cols-3" style="margin-top:20px">
         <div class="card">
           <span class="icon">📐</span>
           <h4>Arquiteto</h4>
-          <p>Projeta soluções, avalia trade-offs, define estratégias técnicas.</p>
+          <p data-en="Designs solutions, evaluates trade-offs, defines technical strategies.">Projeta soluções, avalia trade-offs, define estratégias técnicas.</p>
         </div>
         <div class="card">
           <span class="icon">💻</span>
-          <h4>Desenvolvedor</h4>
-          <p>Escreve código, refatora, implementa features, gera testes.</p>
+          <h4 data-en="Developer" data-en="Developer">Desenvolvedor</h4>
+          <p data-en="Writes code, refactors, implements features, generates tests.">Escreve código, refatora, implementa features, gera testes.</p>
         </div>
         <div class="card">
           <span class="icon">🔍</span>
@@ -1033,7 +1043,7 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
         </div>
         <div class="card">
           <span class="icon">🛡️</span>
-          <h4>Segurança</h4>
+          <h4 data-en="Security" data-en="Security">Segurança</h4>
           <p>Varredura de vulnerabilidades, análise de permissões, compliance.</p>
         </div>
         <div class="card">
@@ -1043,17 +1053,17 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
         </div>
         <div class="card">
           <span class="icon">📝</span>
-          <h4>Documentação</h4>
-          <p>Cria docs, runbooks, READMEs, wikis e apresentações.</p>
+          <h4 data-en="Documentation" data-en="Documentation">Documentação</h4>
+          <p data-en="Creates docs, runbooks, READMEs, wikis and presentations.">Cria docs, runbooks, READMEs, wikis e apresentações.</p>
         </div>
         <div class="card">
           <span class="icon">🎬</span>
-          <h4>Demo</h4>
-          <p>Prepara ambientes, roteiros, scripts e narrativas para demos.</p>
+          <h4 data-en="Demo" data-en="Demo">Demo</h4>
+          <p data-en="Prepares environments, scripts, and narratives for demos.">Prepara ambientes, roteiros, scripts e narrativas para demos.</p>
         </div>
         <div class="card">
           <span class="icon">🎧</span>
-          <h4>Suporte</h4>
+          <h4 data-en="Support" data-en="Support">Suporte</h4>
           <p>Responde dúvidas, investiga problemas, orienta usuários.</p>
         </div>
         <div class="card">
@@ -1074,44 +1084,44 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="12">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🎙️ Vozes Diferentes com ElevenLabs</h2>
-      <p>Cada agente com sua própria identidade vocal — um toque de personalidade que transforma a experiência.</p>
+      <h2 data-en="🎙️ Different Voices with ElevenLabs">🎙️ Vozes Diferentes com ElevenLabs</h2>
+      <p data-en="Each agent with its own vocal identity — a touch of personality that transforms the experience.">Cada agente com sua própria identidade vocal — um toque de personalidade que transforma a experiência.</p>
       <div class="content-grid cols-2" style="margin-top:20px">
         <div class="card">
           <span class="icon">🧠</span>
-          <h4>Agente Principal (Navi)</h4>
-          <p>Voz clara, amigável e confiante. Tom de assistente que guia sem ser intrusiva.</p>
-          <span class="tag">Principal</span>
+          <h4 data-en="Main Agent (Navi)" data-en="Main Agent (Navi)">Agente Principal (Navi)</h4>
+          <p data-en="Clear, friendly and confident voice. Assistant tone that guides without being intrusive.">Voz clara, amigável e confiante. Tom de assistente que guia sem ser intrusiva.</p>
+          <span data-en="Primary" class="tag">Principal</span>
         </div>
         <div class="card">
           <span class="icon">📐</span>
-          <h4>Arquiteto Técnico</h4>
-          <p>Voz séria, precisa e analítica. Tom de consultor experiente explicando decisões.</p>
+          <h4 data-en="Technical Architect" data-en="Technical Architect">Arquiteto Técnico</h4>
+          <p data-en="Serious, precise and analytical voice. Experienced consultant tone explaining decisions.">Voz séria, precisa e analítica. Tom de consultor experiente explicando decisões.</p>
           <span class="tag">Técnico</span>
         </div>
         <div class="card">
           <span class="icon">🛡️</span>
-          <h4>Segurança</h4>
-          <p>Voz firme e direta. Transmite autoridade quando alerta sobre riscos.</p>
-          <span class="tag">Segurança</span>
+          <h4 data-en="Security" data-en="Security">Segurança</h4>
+          <p data-en="Firm and direct voice. Conveys authority when alerting about risks.">Voz firme e direta. Transmite autoridade quando alerta sobre riscos.</p>
+          <span data-en="Security" class="tag">Segurança</span>
         </div>
         <div class="card">
           <span class="icon">🎬</span>
-          <h4>Narrador de Demos</h4>
-          <p>Voz envolvente e dinâmica. Ideal para apresentações e storytelling.</p>
+          <h4 data-en="Demo Narrator" data-en="Demo Narrator">Narrador de Demos</h4>
+          <p data-en="Engaging and dynamic voice. Ideal for presentations and storytelling.">Voz envolvente e dinâmica. Ideal para apresentações e storytelling.</p>
           <span class="tag">Demos</span>
         </div>
         <div class="card">
           <span class="icon">🎧</span>
-          <h4>Suporte</h4>
-          <p>Voz calma e paciente. Tom acolhedor para orientar usuários.</p>
-          <span class="tag">Suporte</span>
+          <h4 data-en="Support" data-en="Support">Suporte</h4>
+          <p data-en="Calm and patient voice. Warm tone to guide users.">Voz calma e paciente. Tom acolhedor para orientar usuários.</p>
+          <span data-en="Support" class="tag">Suporte</span>
         </div>
         <div class="card">
           <span class="icon">⚡</span>
           <h4>Operações / SRE</h4>
-          <p>Voz enérgica e objetiva. Tom de comando em situações de incidente.</p>
-          <span class="tag">Operações</span>
+          <p data-en="Energetic and objective voice. Command tone in incident situations.">Voz enérgica e objetiva. Tom de comando em situações de incidente.</p>
+          <span data-en="Operations" class="tag">Operações</span>
         </div>
       </div>
       <div class="speaker-notes-content" style="display:none">
@@ -1125,44 +1135,44 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide slide-team" data-num="13">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small" style="z-index:15">
-      <h2 class="team-title">👥 Nossa Equipe de Agentes</h2>
+      <h2 data-en="👥 Our Agent Team" class="team-title">👥 Nossa Equipe de Agentes</h2>
       <p class="team-subtitle">Cada agente com <span class="highlight">personalidade, função e voz própria</span> — um time digital de especialistas.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px;position:relative;z-index:10">
         <div class="card agent-card" data-agent="navi" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">🔮</span>
           <h4 style="color:#EE0000;margin-top:4px">Navi <span class="play-btn" onclick="event.stopPropagation();playAgent('navi')">▶</span></h4>
           <p style="font-size:.72rem">🧠 Assistente geral · Coordenação<br>🗣️ <strong>Voz Keren</strong> (feminina)<br>🎯 Orquestradora do time</p>
-          <span class="tag">Agente Principal</span>
+          <span data-en="Main Agent" class="tag">Agente Principal</span>
         </div>
         <div class="card agent-card" data-agent="link" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">⚔️</span>
           <h4 style="color:#EE0000;margin-top:4px">Link <span class="play-btn" onclick="event.stopPropagation();playAgent('link')">▶</span></h4>
           <p style="font-size:.72rem">🔧 Executor técnico · GitHub, deploys<br>🗣️ <strong>Voz Rachel</strong> (neutra)<br>🎯 Mão na massa — cria, comita, deploya</p>
-          <span class="tag">Execução</span>
+          <span data-en="Execution" class="tag">Execução</span>
         </div>
         <div class="card agent-card" data-agent="sheikah" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">🜁</span>
           <h4 style="color:#EE0000;margin-top:4px">Sheikah <span class="play-btn" onclick="event.stopPropagation();playAgent('sheikah')">▶</span></h4>
           <p style="font-size:.72rem">🛡️ Segurança da Informação<br>🗣️ <strong>Voz Sheikah</strong> (masculina)<br>🎯 Hardening, análise de vulns, pentest</p>
-          <span class="tag">Segurança</span>
+          <span data-en="Security" class="tag">Segurança</span>
         </div>
         <div class="card agent-card" data-agent="goron" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">🗿</span>
           <h4 style="color:#EE0000;margin-top:4px">Goron <span class="play-btn" onclick="event.stopPropagation();playAgent('goron')">▶</span></h4>
           <p style="font-size:.72rem">💪 Personal trainer & nutrição<br>🗣️ <strong>Voz Paulo Becker</strong> (masculina)<br>🎯 Treinos, dietas, motivação fitness</p>
-          <span class="tag">Bem-Estar</span>
+          <span data-en="Wellness" class="tag">Bem-Estar</span>
         </div>
         <div class="card agent-card" data-agent="rito" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">📬</span>
           <h4 style="color:#EE0000;margin-top:4px">Rito <span class="play-btn" onclick="event.stopPropagation();playAgent('rito')">▶</span></h4>
           <p style="font-size:.72rem">📧 Comunicação & e-mail<br>🗣️ <strong>Voz Rachel</strong> (neutra)<br>🎯 Gmail, notificações, avisos</p>
-          <span class="tag">Comunicação</span>
+          <span data-en="Communication" class="tag">Comunicação</span>
         </div>
         <div class="card agent-card" data-agent="beedle" style="text-align:center;padding:14px 10px;cursor:pointer">
           <span style="font-size:2.2rem">🛒</span>
           <h4 style="color:#EE0000;margin-top:4px">Beedle <span class="play-btn" onclick="event.stopPropagation();playAgent('beedle')">▶</span></h4>
           <p style="font-size:.72rem">💰 Compras inteligentes<br>🗣️ <strong>Voz Karen</strong> (neutra)<br>🎯 Monitora preços, acha ofertas</p>
-          <span class="tag">Economia</span>
+          <span data-en="Economy" class="tag">Economia</span>
         </div>
       </div>
       <div style="margin-top:10px;padding:8px 16px;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-radius:8px;text-align:center;position:relative;z-index:10;border:1px solid rgba(238,0,0,.15)">
@@ -1187,8 +1197,8 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="14">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>⚙️ Exemplo: Agente "Arquiteto OpenShift"</h2>
-      <p>Uma configuração real de agente especializado em clusters OpenShift.</p>
+      <h2 data-en="⚙️ Example: &quot;OpenShift Architect&quot; Agent">⚙️ Exemplo: Agente "Arquiteto OpenShift"</h2>
+      <p data-en="A real configuration of a specialized agent for OpenShift clusters.">Uma configuração real de agente especializado em clusters OpenShift.</p>
       <div class="config-grid" style="margin-top:16px">
         <div class="config-item"><span class="label">Nome do Agente</span><span class="value">Arquiteto OpenShift</span></div>
         <div class="config-item"><span class="label">Papel</span><span class="value">Arquiteto de soluções Red Hat</span></div>
@@ -1215,11 +1225,11 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="15">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🧬 SOUL + Memória: A Identidade do Agente</h2>
+      <h2 data-en="🧬 SOUL + Memory: The Agent&#39;s Identity">🧬 SOUL + Memória: A Identidade do Agente</h2>
       <div class="content-grid cols-2" style="margin-top:24px">
         <div class="card" style="border-color:rgba(238,0,0,.3)">
           <span class="icon">📜</span>
-          <h4 style="color:#EE0000">SOUL.md — A Alma</h4>
+          <h4 style="color:#EE0000" data-en="SOUL.md — The Soul" data-en="SOUL.md — The Soul">SOUL.md — A Alma</h4>
           <ul style="list-style:none;margin-top:10px">
             <li style="padding:4px 0;color:#ccc;font-size:.85rem">✓ Define <strong>identidade</strong> — quem o agente é</li>
             <li style="padding:4px 0;color:#ccc;font-size:.85rem">✓ Define <strong>comportamento</strong> — como ele age</li>
@@ -1230,7 +1240,7 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
         </div>
         <div class="card" style="border-color:rgba(0,204,102,.3)">
           <span class="icon">🧠</span>
-          <h4 style="color:#00CC66">MEMORY.md — A Continuidade</h4>
+          <h4 style="color:#00CC66" data-en="MEMORY.md — Continuity" data-en="MEMORY.md — Continuity">MEMORY.md — A Continuidade</h4>
           <ul style="list-style:none;margin-top:10px">
             <li style="padding:4px 0;color:#ccc;font-size:.85rem">✓ Fatos, preferências e decisões do usuário</li>
             <li style="padding:4px 0;color:#ccc;font-size:.85rem">✓ Contexto de projetos e configurações</li>
@@ -1241,7 +1251,7 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
         </div>
       </div>
       <div class="quote-block">
-        <p>"SOUL + Memória = um agente que ontem aprendeu e hoje é melhor do que era."</p>
+        <p data-en="&quot;SOUL + Memory = an agent that learned yesterday and is better today than it was.&quot;">"SOUL + Memória = um agente que ontem aprendeu e hoje é melhor do que era."</p>
       </div>
       <div class="speaker-notes-content" style="display:none">
         <strong>Speaker Notes:</strong> SOUL e memória são o que separam agentes de scripts. Um script faz a mesma coisa toda vez. Um agente com SOUL tem personalidade e limites. Um agente com memória aprende e evolui. Juntos, criam um assistente que ontem entendeu sua preferência e hoje já age de acordo. É o início de agentes que realmente nos entendem.<br>
@@ -1254,62 +1264,62 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="16">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🔌 Principais Plugins</h2>
-      <p>O ecossistema de plugins estende o OpenClaw para qualquer necessidade.</p>
+      <h2 data-en="🔌 Main Plugins">🔌 Principais Plugins</h2>
+      <p data-en="The plugin ecosystem extends OpenClaw to any need.">O ecossistema de plugins estende o OpenClaw para qualquer necessidade.</p>
       <div class="content-grid cols-3" style="margin-top:20px">
         <div class="card">
           <span class="icon">🛡️</span>
-          <h4>Vetter</h4>
-          <p>Revisão de segurança, validação de comandos e checagem de riscos antes da execução.</p>
-          <span class="tag">Segurança</span>
+          <h4 data-en="Vetter" data-en="Vetter">Vetter</h4>
+          <p data-en="Security review, command validation and risk checking before execution.">Revisão de segurança, validação de comandos e checagem de riscos antes da execução.</p>
+          <span data-en="Security" class="tag">Segurança</span>
         </div>
         <div class="card">
           <span class="icon">📈</span>
-          <h4>Self-Improving</h4>
-          <p>Melhoria contínua do comportamento do agente baseada em correções e feedback.</p>
+          <h4 data-en="Self-Improving" data-en="Self-Improving">Self-Improving</h4>
+          <p data-en="Continuous improvement of agent behavior based on corrections and feedback.">Melhoria contínua do comportamento do agente baseada em correções e feedback.</p>
           <span class="tag">Evolução</span>
         </div>
         <div class="card">
           <span class="icon">🌐</span>
-          <h4>Browser Automation</h4>
-          <p>Controle de navegador para testes, scraping e automação web.</p>
-          <span class="tag">Automação</span>
+          <h4 data-en="Browser Automation" data-en="Browser Automation">Browser Automation</h4>
+          <p data-en="Browser control for testing, scraping and web automation.">Controle de navegador para testes, scraping e automação web.</p>
+          <span data-en="Automation" class="tag">Automação</span>
         </div>
         <div class="card">
           <span class="icon">📋</span>
-          <h4>TaskFlow</h4>
-          <p>Orquestração de fluxos multi-etapa com waits, sub-tasks e estados duráveis.</p>
-          <span class="tag">Orquestração</span>
+          <h4 data-en="TaskFlow" data-en="TaskFlow">TaskFlow</h4>
+          <p data-en="Multi-step flow orchestration with waits, sub-tasks and durable states.">Orquestração de fluxos multi-etapa com waits, sub-tasks e estados duráveis.</p>
+          <span data-en="Orchestration" class="tag">Orquestração</span>
         </div>
         <div class="card">
           <span class="icon">📧</span>
-          <h4>Rito's Mail</h4>
-          <p>Integração Gmail via IMAP/SMTP para ler, buscar e enviar e-mails.</p>
-          <span class="tag">Comunicação</span>
+          <h4 data-en="Rito&#39;s Mail" data-en="Rito&#39;s Mail">Rito's Mail</h4>
+          <p data-en="Gmail integration via IMAP/SMTP to read, search and send emails.">Integração Gmail via IMAP/SMTP para ler, buscar e enviar e-mails.</p>
+          <span data-en="Communication" class="tag">Comunicação</span>
         </div>
         <div class="card">
           <span class="icon">☁️</span>
           <h4>Cloud Connect</h4>
           <p>Conexão com OpenShift, Kubernetes e provedores cloud.</p>
-          <span class="tag">Infra</span>
+          <span data-en="Infrastructure" class="tag">Infra</span>
         </div>
         <div class="card">
           <span class="icon">🎙️</span>
           <h4>ElevenLabs TTS</h4>
-          <p>Voz realista para cada agente. Essencial para demos e treinamentos.</p>
-          <span class="tag">Áudio</span>
+          <p data-en="Realistic voice for each agent. Essential for demos and training.">Voz realista para cada agente. Essencial para demos e treinamentos.</p>
+          <span data-en="Audio" class="tag">Áudio</span>
         </div>
         <div class="card">
           <span class="icon">🔎</span>
-          <h4>Web Search</h4>
-          <p>Busca e navegação web para pesquisa de informações atualizadas.</p>
-          <span class="tag">Pesquisa</span>
+          <h4 data-en="Web Search" data-en="Web Search">Web Search</h4>
+          <p data-en="Web search and browsing for up-to-date information.">Busca e navegação web para pesquisa de informações atualizadas.</p>
+          <span data-en="Research" class="tag">Pesquisa</span>
         </div>
         <div class="card">
           <span class="icon">📊</span>
-          <h4>Observabilidade</h4>
+          <h4 data-en="Observability" data-en="Observability">Observabilidade</h4>
           <p>Métricas, logs e tracing de ações dos agentes para auditoria.</p>
-          <span class="tag">Monitoria</span>
+          <span data-en="Monitoring" class="tag">Monitoria</span>
         </div>
       </div>
       <div class="speaker-notes-content" style="display:none">
@@ -1323,47 +1333,47 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="17">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🔗 MCPs: A Ponte para o Mundo Real</h2>
-      <p>Model Context Protocol — a camada de integração que conecta agentes a sistemas, APIs e ambientes.</p>
+      <h2 data-en="🔗 MCPs: The Bridge to the Real World">🔗 MCPs: A Ponte para o Mundo Real</h2>
+      <p data-en="Model Context Protocol — the integration layer connecting agents to systems, APIs and environments.">Model Context Protocol — a camada de integração que conecta agentes a sistemas, APIs e ambientes.</p>
       <div class="content-grid cols-2" style="margin-top:20px">
         <div class="card">
           <span class="icon">🐙</span>
-          <h4>GitHub MCP</h4>
-          <p>Cria repositórios, faz commits, abre PRs, gerencia issues, revisa código. Automação completa de fluxos Git.</p>
-          <span class="tag">Desenvolvimento</span>
+          <h4 data-en="GitHub MCP" data-en="GitHub MCP">GitHub MCP</h4>
+          <p data-en="Creates repos, makes commits, opens PRs, manages issues, reviews code. Complete Git flow automation.">Cria repositórios, faz commits, abre PRs, gerencia issues, revisa código. Automação completa de fluxos Git.</p>
+          <span data-en="Development" class="tag">Desenvolvimento</span>
         </div>
         <div class="card">
           <span class="icon">📂</span>
-          <h4>Filesystem MCP</h4>
-          <p>Leitura e escrita de arquivos, organização de diretórios, manipulação de conteúdo.</p>
-          <span class="tag">Sistema</span>
+          <h4 data-en="Filesystem MCP" data-en="Filesystem MCP">Filesystem MCP</h4>
+          <p data-en="File reading and writing, directory organization, content manipulation.">Leitura e escrita de arquivos, organização de diretórios, manipulação de conteúdo.</p>
+          <span data-en="System" class="tag">Sistema</span>
         </div>
         <div class="card">
           <span class="icon">☸️</span>
-          <h4>Kubernetes / OpenShift MCP</h4>
-          <p>Opera em clusters: diagnósticos, deploys, análise de logs, troubleshooting.</p>
-          <span class="tag">Infraestrutura</span>
+          <h4 data-en="Kubernetes / OpenShift MCP" data-en="Kubernetes / OpenShift MCP">Kubernetes / OpenShift MCP</h4>
+          <p data-en="Operates on clusters: diagnostics, deploys, log analysis, troubleshooting.">Opera em clusters: diagnósticos, deploys, análise de logs, troubleshooting.</p>
+          <span data-en="Infrastructure" class="tag">Infraestrutura</span>
         </div>
         <div class="card">
           <span class="icon">🗄️</span>
-          <h4>Banco de Dados MCP</h4>
-          <p>Consultas SQL, schemas, migrações e análises em bancos relacionais.</p>
-          <span class="tag">Dados</span>
+          <h4 data-en="Database MCP" data-en="Database MCP">Banco de Dados MCP</h4>
+          <p data-en="SQL queries, schemas, migrations and analysis on relational databases.">Consultas SQL, schemas, migrações e análises em bancos relacionais.</p>
+          <span data-en="Data" class="tag">Dados</span>
         </div>
         <div class="card">
           <span class="icon">📖</span>
-          <h4>Documentação MCP</h4>
-          <p>Consulta a wikis, bases de conhecimento e documentação técnica.</p>
-          <span class="tag">Conhecimento</span>
+          <h4 data-en="Documentation MCP" data-en="Documentation MCP">Documentação MCP</h4>
+          <p data-en="Query wikis, knowledge bases and technical documentation.">Consulta a wikis, bases de conhecimento e documentação técnica.</p>
+          <span data-en="Knowledge" class="tag">Conhecimento</span>
         </div>
         <div class="card">
           <span class="icon">🌐</span>
-          <h4>Browser MCP</h4>
-          <p>Navegação web automatizada, scraping e interação com interfaces web.</p>
-          <span class="tag">Web</span>
+          <h4 data-en="Browser MCP" data-en="Browser MCP">Browser MCP</h4>
+          <p data-en="Automated web navigation, scraping and interaction with web interfaces.">Navegação web automatizada, scraping e interação com interfaces web.</p>
+          <span data-en="Web" class="tag">Web</span>
         </div>
       </div>
-      <p style="font-size:.82rem;color:#888;margin-top:8px">MCPs seguem o princípio de permissão mínima. Cada conexão tem escopo, limite e auditoria.</p>
+      <p style="font-size:.82rem;color:#888;margin-top:8px" data-en="MCPs follow the principle of least privilege. Each connection has scope, limits and auditing.">MCPs seguem o princípio de permissão mínima. Cada conexão tem escopo, limite e auditoria.</p>
       <div class="speaker-notes-content" style="display:none">
         <strong>Speaker Notes:</strong> MCPs são o que tornam o OpenClaw um sistema operacional para agentes, não apenas um brinquedo. Com MCPs, o agente não "fala sobre" fazer coisas — ele realmente faz. Cria repositórios, opera clusters, consulta bancos, navega na web. E cada MCP pode ser configurado com permissões mínimas, garantindo segurança mesmo com autonomia.<br>
         <strong>📸 Imagem sugerida:</strong> Ilustração de um hub central (OpenClaw) com cabos conectando a vários serviços (GitHub, Kubernetes, DB, Docs).
@@ -1375,43 +1385,43 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="18">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🎯 Casos de Uso Principais</h2>
+      <h2 data-en="🎯 Main Use Cases">🎯 Casos de Uso Principais</h2>
       <div class="content-grid cols-2" style="margin-top:20px">
         <div class="card">
           <span class="icon">🎬</span>
-          <h4>Demos Rápidas</h4>
-          <p>Crie narrativa, gere código, imagens, documentação e roteiro em minutos. Prepare ambientes completos para apresentações impactantes.</p>
+          <h4 data-en="Quick Demos" data-en="Quick Demos">Demos Rápidas</h4>
+          <p data-en="Create narrative, generate code, images, documentation and scripts in minutes. Prepare complete environments for impactful presentations.">Crie narrativa, gere código, imagens, documentação e roteiro em minutos. Prepare ambientes completos para apresentações impactantes.</p>
           <span class="tag">Demonstrações</span>
         </div>
         <div class="card">
           <span class="icon">☸️</span>
-          <h4>Manutenção OpenShift</h4>
-          <p>Diagnóstico de problemas, análise de logs, sugestão de comandos, geração de manifests e troubleshooting completo.</p>
-          <span class="tag">Operações</span>
+          <h4 data-en="OpenShift Maintenance" data-en="OpenShift Maintenance">Manutenção OpenShift</h4>
+          <p data-en="Problem diagnosis, log analysis, command suggestions, manifest generation and complete troubleshooting.">Diagnóstico de problemas, análise de logs, sugestão de comandos, geração de manifests e troubleshooting completo.</p>
+          <span data-en="Operations" class="tag">Operações</span>
         </div>
         <div class="card">
           <span class="icon">🔗</span>
-          <h4>Integração com MCPs</h4>
-          <p>GitHub, APIs, bancos, documentação. Automação de tarefas em ambientes reais com segurança e auditabilidade.</p>
-          <span class="tag">Automação</span>
+          <h4 data-en="MCP Integration" data-en="MCP Integration">Integração com MCPs</h4>
+          <p data-en="GitHub, APIs, databases, documentation. Task automation in real environments with security and auditability.">GitHub, APIs, bancos, documentação. Automação de tarefas em ambientes reais com segurança e auditabilidade.</p>
+          <span data-en="Automation" class="tag">Automação</span>
         </div>
         <div class="card">
           <span class="icon">💻</span>
-          <h4>Desenvolvimento Assistido</h4>
-          <p>Criar apps, refatorar código, revisar PRs, gerar testes, documentar APIs. Time de desenvolvimento digital.</p>
-          <span class="tag">Engenharia</span>
+          <h4 data-en="Assisted Development" data-en="Assisted Development">Desenvolvimento Assistido</h4>
+          <p data-en="Create apps, refactor code, review PRs, generate tests, document APIs. A digital development team.">Criar apps, refatorar código, revisar PRs, gerar testes, documentar APIs. Time de desenvolvimento digital.</p>
+          <span data-en="Engineering" class="tag">Engenharia</span>
         </div>
         <div class="card">
           <span class="icon">🚨</span>
-          <h4>SRE & Incidentes</h4>
-          <p>Investigar incidentes, criar runbooks, automatizar respostas, explicar alertas, sugerir melhorias contínuas.</p>
-          <span class="tag">Confiabilidade</span>
+          <h4 data-en="SRE &amp; Incidents" data-en="SRE &amp; Incidents">SRE & Incidentes</h4>
+          <p data-en="Investigate incidents, create runbooks, automate responses, explain alerts, suggest continuous improvements.">Investigar incidentes, criar runbooks, automatizar respostas, explicar alertas, sugerir melhorias contínuas.</p>
+          <span data-en="Reliability" class="tag">Confiabilidade</span>
         </div>
         <div class="card">
           <span class="icon">🎓</span>
-          <h4>Treinamento & Mentoria</h4>
-          <p>Agente tutor que explica conceitos, guia exercícios, revisa código e acelera aprendizado de novos membros.</p>
-          <span class="tag">Educação</span>
+          <h4 data-en="Training &amp; Mentoring" data-en="Training &amp; Mentoring">Treinamento & Mentoria</h4>
+          <p data-en="Tutor agent that explains concepts, guides exercises, reviews code and accelerates new members&#39; learning.">Agente tutor que explica conceitos, guia exercícios, revisa código e acelera aprendizado de novos membros.</p>
+          <span data-en="Education" class="tag">Educação</span>
         </div>
       </div>
       <div class="speaker-notes-content" style="display:none">
@@ -1425,39 +1435,39 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="19">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🚀 Exemplo Prático: Demo OpenShift + IA</h2>
+      <h2 data-en="🚀 Practical Example: OpenShift + AI Demo">🚀 Exemplo Prático: Demo OpenShift + IA</h2>
       <p><em>"Preciso criar uma demo de OpenShift com IA em 2 horas"</em></p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
         <div>
           <div class="card" style="padding:12px;margin-bottom:8px">
             <span style="color:#EE0000;font-weight:700;font-size:.8rem">① Entender Objetivo</span>
-            <p style="font-size:.78rem">Agente principal entende o pedido, esclarece requisitos, define escopo.</p>
+            <p style="font-size:.78rem" data-en="Main agent understands the request, clarifies requirements, defines scope.">Agente principal entende o pedido, esclarece requisitos, define escopo.</p>
           </div>
           <div class="card" style="padding:12px;margin-bottom:8px">
             <span style="color:#EE0000;font-weight:700;font-size:.8rem">② Dividir Tarefas</span>
-            <p style="font-size:.78rem">Delega para subagentes: arquiteto, dev, documentação, demo.</p>
+            <p style="font-size:.78rem" data-en="Delegates to subagents: architect, dev, documentation, demo.">Delega para subagentes: arquiteto, dev, documentação, demo.</p>
           </div>
           <div class="card" style="padding:12px;margin-bottom:8px">
             <span style="color:#EE0000;font-weight:700;font-size:.8rem">③ Execução Paralela</span>
-            <p style="font-size:.78rem">Subagentes trabalham simultaneamente: código, infra, roteiro.</p>
+            <p style="font-size:.78rem" data-en="Subagents work simultaneously: code, infra, script.">Subagentes trabalham simultaneamente: código, infra, roteiro.</p>
           </div>
         </div>
         <div>
           <div class="card" style="padding:12px;margin-bottom:8px">
             <span style="color:#EE0000;font-weight:700;font-size:.8rem">④ Criação e Revisão</span>
-            <p style="font-size:.78rem">Cria repositório, gera código + documentação + roteiro.</p>
+            <p style="font-size:.78rem" data-en="Creates repo, generates code + documentation + script.">Cria repositório, gera código + documentação + roteiro.</p>
           </div>
           <div class="card" style="padding:12px;margin-bottom:8px">
             <span style="color:#EE0000;font-weight:700;font-size:.8rem">⑤ Preparar Apresentação</span>
-            <p style="font-size:.78rem">Agente de demo cria slides, roteiro falado, prepara ambiente.</p>
+            <p style="font-size:.78rem" data-en="Demo agent creates slides, spoken script, prepares the environment.">Agente de demo cria slides, roteiro falado, prepara ambiente.</p>
           </div>
           <div class="card" style="padding:12px;margin-bottom:8px">
             <span style="color:#00CC66;font-weight:700;font-size:.8rem">✅ Resultado em ~90 min</span>
-            <p style="font-size:.78rem">Demo completa: repositório, código funcional, slides, roteiro.</p>
+            <p style="font-size:.78rem" data-en="Complete demo: repo, working code, slides, script.">Demo completa: repositório, código funcional, slides, roteiro.</p>
           </div>
         </div>
       </div>
-      <p style="font-size:.85rem;color:#888;margin-top:8px">O que levaria dias para uma pessoa, o time de agentes faz em horas — com qualidade, consistência e revisão integrada.</p>
+      <p style="font-size:.85rem;color:#888;margin-top:8px" data-en="What would take a person days, the agent team does in hours — with quality, consistency and integrated review.">O que levaria dias para uma pessoa, o time de agentes faz em horas — com qualidade, consistência e revisão integrada.</p>
       <div class="speaker-notes-content" style="display:none">
         <strong>Speaker Notes:</strong> Este exemplo é real. Um arquiteto que quer demonstrar OpenShift + IA para um cliente pode usar o time de agentes para preparar tudo. Enquanto um agente prepara o cluster, outro escreve o código da demo, outro cria os slides, outro prepara o roteiro. Em 90 minutos, tudo está pronto — algo que levaria um dia ou mais de trabalho manual.<br>
         <strong>📸 Imagem sugerida:</strong> Fluxograma mostrando a sequência de tarefas com ícones de cada subagente.
@@ -1469,44 +1479,44 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="20">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🛡️ Riscos e Cuidados</h2>
-      <p>Poder sem responsabilidade leva a incidentes. Estas são as salvaguardas essenciais.</p>
+      <h2 data-en="🛡️ Risks and Care">🛡️ Riscos e Cuidados</h2>
+      <p data-en="Power without responsibility leads to incidents. These are the essential safeguards.">Poder sem responsabilidade leva a incidentes. Estas são as salvaguardas essenciais.</p>
       <div class="content-grid cols-2" style="margin-top:20px">
         <div class="card" style="border-color:rgba(238,0,0,.4)">
           <span class="icon">🔑</span>
-          <h4>Segurança de Credenciais</h4>
-          <p>Nunca compartilhe tokens. Use variáveis de ambiente. Rotacione regularmente. Nunca hardcode.</p>
-          <span class="tag">Crítico</span>
+          <h4 data-en="Credential Security" data-en="Credential Security">Segurança de Credenciais</h4>
+          <p data-en="Never share tokens. Use environment variables. Rotate regularly. Never hardcode.">Nunca compartilhe tokens. Use variáveis de ambiente. Rotacione regularmente. Nunca hardcode.</p>
+          <span data-en="Critical" class="tag">Crítico</span>
         </div>
         <div class="card" style="border-color:rgba(238,0,0,.3)">
           <span class="icon">🎯</span>
-          <h4>Permissões Mínimas</h4>
-          <p>Cada token, cada MCP, cada plugin com o mínimo necessário. Read-only quando possível.</p>
-          <span class="tag">Essencial</span>
+          <h4 data-en="Minimum Permissions" data-en="Minimum Permissions">Permissões Mínimas</h4>
+          <p data-en="Each token, each MCP, each plugin with the minimum needed. Read-only when possible.">Cada token, cada MCP, cada plugin com o mínimo necessário. Read-only quando possível.</p>
+          <span data-en="Essential" class="tag">Essencial</span>
         </div>
         <div class="card" style="border-color:rgba(238,0,0,.3)">
           <span class="icon">🧪</span>
-          <h4>Ambientes Sandbox</h4>
+          <h4 data-en="Sandbox Environments" data-en="Sandbox Environments">Ambientes Sandbox</h4>
           <p>Teste em ambientes isolados antes de produção. Um erro em sandbox é aprendizado; em produção é incidente.</p>
           <span class="tag">Prática</span>
         </div>
         <div class="card" style="border-color:rgba(238,0,0,.3)">
           <span class="icon">👁️</span>
-          <h4>Revisão Humana</h4>
-          <p>Nunca dê autonomia total — especialmente em operações destrutivas. Sempre revise ações críticas.</p>
-          <span class="tag">Governança</span>
+          <h4 data-en="Human Review" data-en="Human Review">Revisão Humana</h4>
+          <p data-en="Never give full autonomy — especially in destructive operations. Always review critical actions.">Nunca dê autonomia total — especialmente em operações destrutivas. Sempre revise ações críticas.</p>
+          <span data-en="Governance" class="tag">Governança</span>
         </div>
         <div class="card">
           <span class="icon">📝</span>
-          <h4>Logs e Auditoria</h4>
-          <p>Ative logging de todas as ações. Revise periodicamente. Mantenha trilha de auditoria.</p>
-          <span class="tag">Monitoria</span>
+          <h4 data-en="Logs and Audit" data-en="Logs and Audit">Logs e Auditoria</h4>
+          <p data-en="Enable logging of all actions. Review periodically. Maintain an audit trail.">Ative logging de todas as ações. Revise periodicamente. Mantenha trilha de auditoria.</p>
+          <span data-en="Monitoring" class="tag">Monitoria</span>
         </div>
         <div class="card">
           <span class="icon">⛔</span>
-          <h4>Limites de Autonomia</h4>
-          <p>Defina o que o agente pode fazer sem aprovação vs o que precisa de confirmação humana.</p>
-          <span class="tag">Governança</span>
+          <h4 data-en="Autonomy Limits" data-en="Autonomy Limits">Limites de Autonomia</h4>
+          <p data-en="Define what the agent can do without approval vs what needs human confirmation.">Defina o que o agente pode fazer sem aprovação vs o que precisa de confirmação humana.</p>
+          <span data-en="Governance" class="tag">Governança</span>
         </div>
       </div>
       <img src="imagens/slide-security-shield.png" alt="Escudo de segurança digital" class="slide-img" loading="lazy">
@@ -1523,20 +1533,20 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small" style="opacity:.5">
       <div style="text-align:center;max-width:800px;margin:0 auto">
         <h2 style="font-size:3rem;text-align:center;background:linear-gradient(135deg,#fff 30%,#EE0000 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">🌅</h2>
-        <h2 style="font-size:3rem;text-align:center;background:linear-gradient(135deg,#fff 30%,#EE0000 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:10px">O Futuro é uma Equipe</h2>
+        <h2 style="font-size:3rem;text-align:center;background:linear-gradient(135deg,#fff 30%,#EE0000 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:10px" data-en="The Future is a Team">O Futuro é uma Equipe</h2>
         <p style="font-size:1.2rem;color:#ccc;line-height:1.8;margin:24px 0">
           O OpenClaw não é apenas mais uma interface para IA.<br>
           Ele é um ambiente onde agentes podem <span class="highlight">colaborar, aprender, executar, se especializar</span><br>
           e ajudar pessoas a <span class="highlight">produzir muito mais</span>.
         </p>
         <div class="quote-block" style="margin:28px auto;max-width:600px">
-          <p>"Não estamos apenas usando IA. Estamos começando a montar equipes digitais."</p>
-          <p class="author">— OpenClaw, o ambiente onde agentes viram colegas de time</p>
+          <p data-en="&quot;We&#39;re not just using AI. We&#39;re starting to build digital teams.&quot;">"Não estamos apenas usando IA. Estamos começando a montar equipes digitais."</p>
+          <p data-en="— OpenClaw, the environment where agents become team members" class="author">— OpenClaw, o ambiente onde agentes viram colegas de time</p>
         </div>
         <div style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-          <span class="badge" style="font-size:.8rem;padding:6px 16px">openclaw.ai</span>
-          <span class="badge" style="font-size:.8rem;padding:6px 16px">github.com/openclaw</span>
-          <span class="badge" style="font-size:.8rem;padding:6px 16px">#OpenClaw</span>
+          <span data-en="openclaw.ai" class="badge" style="font-size:.8rem;padding:6px 16px">openclaw.ai</span>
+          <span data-en="github.com/openclaw" class="badge" style="font-size:.8rem;padding:6px 16px">github.com/openclaw</span>
+          <span data-en="#OpenClaw" class="badge" style="font-size:.8rem;padding:6px 16px">#OpenClaw</span>
         </div>
         <div style="margin-top:32px">
         <div class="timeline-item">
@@ -1576,30 +1586,30 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="22">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>🌩️ Demo 1 · Multicloud Híbrida</h2>
-      <p style="color:var(--accent,#06b6d4);font-size:.85rem;margin-bottom:12px;letter-spacing:.08em;text-align:center">APLICAÇÃO MOVIDA ENTRE AWS E AZURE EM TEMPO REAL</p>
+      <h2 data-en="🌩️ Demo 1 · Hybrid Multicloud">🌩️ Demo 1 · Multicloud Híbrida</h2>
+      <p style="color:var(--accent,#06b6d4);font-size:.85rem;margin-bottom:12px;letter-spacing:.08em;text-align:center" data-en="APPLICATION MOVED BETWEEN AWS AND AZURE IN REAL TIME">APLICAÇÃO MOVIDA ENTRE AWS E AZURE EM TEMPO REAL</p>
       <div class="content-grid cols-2" style="margin-top:16px">
         <div class="card">
           <span class="icon">🌩️</span>
-          <h4>AWS → Azure</h4>
+          <h4 data-en="AWS → Azure" data-en="AWS → Azure">AWS → Azure</h4>
           <ul style="list-style:none;padding:0;font-size:.9rem;color:#999">
-            <li style="padding:4px 0">▸ Cluster AWS com aplicação ativa</li>
-            <li style="padding:4px 0">▸ Navi com acesso total aos clusters K8s</li>
+            <li style="padding:4px 0" data-en="▸ AWS cluster with active application">▸ Cluster AWS com aplicação ativa</li>
+            <li style="padding:4px 0" data-en="▸ Navi with full access to K8s clusters">▸ Navi com acesso total aos clusters K8s</li>
             <li style="padding:4px 0">▸ Comando: <strong>"Move a aplicação para Azure"</strong></li>
-            <li style="padding:4px 0">▸ Deploy no cluster Azure em segundos</li>
+            <li style="padding:4px 0" data-en="▸ Deploy to Azure cluster in seconds">▸ Deploy no cluster Azure em segundos</li>
           </ul>
-          <span class="tag">Demonstração</span>
+          <span data-en="Demonstration" class="tag">Demonstração</span>
         </div>
         <div class="card">
           <span class="icon">🧠</span>
-          <h4>Como Funcionou</h4>
+          <h4 data-en="How It Worked" data-en="How It Worked">Como Funcionou</h4>
           <ul style="list-style:none;padding:0;font-size:.9rem;color:#999">
-            <li style="padding:4px 0">▸ Navi criou a apresentação da demo sozinha</li>
-            <li style="padding:4px 0">▸ Kubeconfig de ambos os clusters configurados</li>
-            <li style="padding:4px 0">▸ DNS Cloudflare atualizado automaticamente</li>
-            <li style="padding:4px 0">▸ Rollout progressivo + health check pós-migração</li>
+            <li style="padding:4px 0" data-en="▸ Navi created the demo presentation by herself">▸ Navi criou a apresentação da demo sozinha</li>
+            <li style="padding:4px 0" data-en="▸ Kubeconfig for both clusters configured">▸ Kubeconfig de ambos os clusters configurados</li>
+            <li style="padding:4px 0" data-en="▸ Cloudflare DNS updated automatically">▸ DNS Cloudflare atualizado automaticamente</li>
+            <li style="padding:4px 0" data-en="▸ Progressive rollout + post-migration health check">▸ Rollout progressivo + health check pós-migração</li>
           </ul>
-          <span class="tag">Infraestrutura</span>
+          <span data-en="Infrastructure" class="tag">Infraestrutura</span>
         </div>
       </div>
       <p style="margin-top:18px;font-size:.95rem;color:#aaa;text-align:center">⚡ Agente inteligente + clusters multi-cloud + DNS programável = <strong style="color:#fff">nuvem portátil de verdade</strong></p>
@@ -1614,48 +1624,48 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- ============================================================ -->
     <div class="slide" data-num="23">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2>📨 Demo 2 · Agentes no Kafka</h2>
-      <p style="color:var(--accent,#06b6d4);font-size:.85rem;margin-bottom:8px;letter-spacing:.08em;text-align:center">4 AGENTES · KAFKA · CLUSTER K8S AUTÔNOMO</p>
+      <h2 data-en="📨 Demo 2 · Kafka Agents">📨 Demo 2 · Agentes no Kafka</h2>
+      <p style="color:var(--accent,#06b6d4);font-size:.85rem;margin-bottom:8px;letter-spacing:.08em;text-align:center" data-en="4 AGENTS · KAFKA · AUTONOMOUS K8S CLUSTER">4 AGENTES · KAFKA · CLUSTER K8S AUTÔNOMO</p>
       <div class="content-grid cols-4" style="margin-top:12px">
         <div class="card" style="text-align:center">
           <span class="icon">📈</span>
-          <h4>Optimization</h4>
-          <p style="font-size:.78rem">Analisa padrões de recursos e otimiza custo/performance</p>
+          <h4 data-en="Optimization" data-en="Optimization">Optimization</h4>
+          <p style="font-size:.78rem" data-en="Analyzes resource patterns and optimizes cost/performance">Analisa padrões de recursos e otimiza custo/performance</p>
         </div>
         <div class="card" style="text-align:center">
           <span class="icon">🛡️</span>
-          <h4>Security</h4>
-          <p style="font-size:.78rem">Monitora vulnerabilidades, acessos e compliance</p>
+          <h4 data-en="Security" data-en="Security">Security</h4>
+          <p style="font-size:.78rem" data-en="Monitors vulnerabilities, access and compliance">Monitora vulnerabilidades, acessos e compliance</p>
         </div>
         <div class="card" style="text-align:center">
           <span class="icon">🔧</span>
-          <h4>Operations</h4>
-          <p style="font-size:.78rem">Self-healing: diagnostica incidentes e corrige</p>
+          <h4 data-en="Operations" data-en="Operations">Operations</h4>
+          <p style="font-size:.78rem" data-en="Self-healing: diagnoses incidents and fixes them">Self-healing: diagnostica incidentes e corrige</p>
         </div>
         <div class="card" style="text-align:center">
           <span class="icon">😈</span>
-          <h4>Troublemaker</h4>
-          <p style="font-size:.78rem">Cria problemas controlados para testar resiliência</p>
+          <h4 data-en="Troublemaker" data-en="Troublemaker">Troublemaker</h4>
+          <p style="font-size:.78rem" data-en="Creates controlled problems to test resilience">Cria problemas controlados para testar resiliência</p>
         </div>
       </div>
       <div class="content-grid cols-2" style="margin-top:12px">
         <div class="card">
           <span class="icon">📨</span>
-          <h4>Coordenação via Kafka</h4>
+          <h4 data-en="Coordination via Kafka" data-en="Coordination via Kafka">Coordenação via Kafka</h4>
           <ul style="list-style:none;padding:0;font-size:.85rem;color:#999">
             <li style="padding:3px 0">▸ Tópicos: <code>cluster.metrics</code>, <code>alerts</code>, <code>commands</code></li>
-            <li style="padding:3px 0">▸ Agentes se coordenam sem orquestrador central</li>
-            <li style="padding:3px 0">▸ Decisões auditáveis — cada ação vira evento</li>
+            <li style="padding:3px 0" data-en="▸ Agents coordinate without a central orchestrator">▸ Agentes se coordenam sem orquestrador central</li>
+            <li style="padding:3px 0" data-en="▸ Auditable decisions — every action becomes an event">▸ Decisões auditáveis — cada ação vira evento</li>
           </ul>
         </div>
         <div class="card">
           <span class="icon">🎡</span>
-          <h4>A Roleta do Caos</h4>
+          <h4 data-en="The Chaos Wheel" data-en="The Chaos Wheel">A Roleta do Caos</h4>
           <ul style="list-style:none;padding:0;font-size:.85rem;color:#999">
-            <li style="padding:3px 0">▸ Ao final, uma roleta escolhia o problema</li>
+            <li style="padding:3px 0" data-en="▸ At the end, a wheel chose the problem">▸ Ao final, uma roleta escolhia o problema</li>
             <li style="padding:3px 0">▸ Disparava o <strong>Troublemaker</strong> no cluster</li>
-            <li style="padding:3px 0">▸ Os outros 3 agentes reagiam em tempo real</li>
-            <li style="padding:3px 0">▸ Cluster se auto-curando — plateia via ao vivo!</li>
+            <li style="padding:3px 0" data-en="▸ The other 3 agents reacted in real time">▸ Os outros 3 agentes reagiam em tempo real</li>
+            <li style="padding:3px 0" data-en="▸ Cluster self-healing — audience watching live!">▸ Cluster se auto-curando — plateia via ao vivo!</li>
           </ul>
         </div>
       </div>
@@ -1670,23 +1680,23 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- EXEC SLIDE 1 -->
     <div class="slide executive" data-num="E1" data-exec="1">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2 style="font-size:2rem">📊 OpenClaw: Resumo Executivo</h2>
+      <h2 style="font-size:2rem" data-en="📊 OpenClaw: Executive Summary">📊 OpenClaw: Resumo Executivo</h2>
       <p style="font-size:1.1rem">O OpenClaw é um <span class="highlight">ambiente de execução e coordenação de agentes de IA</span> que vai além de chatbots e copilotos tradicionais.</p>
       <div class="content-grid cols-3" style="margin-top:20px">
         <div class="card" style="text-align:center;padding:16px">
           <span class="icon" style="font-size:2.5rem">🤖</span>
-          <h4>Múltiplos Agentes</h4>
-          <p>Não é um único modelo — é um time de especialistas que colaboram.</p>
+          <h4 data-en="Multiple Agents" data-en="Multiple Agents">Múltiplos Agentes</h4>
+          <p data-en="It&#39;s not a single model — it&#39;s a team of specialists that collaborate.">Não é um único modelo — é um time de especialistas que colaboram.</p>
         </div>
         <div class="card" style="text-align:center;padding:16px">
           <span class="icon" style="font-size:2.5rem">🔧</span>
           <h4>Execução Real</h4>
-          <p>Acessa APIs, clusters, repositórios. Não apenas conversa — faz.</p>
+          <p data-en="Accesses APIs, clusters, repositories. Doesn&#39;t just talk — it does.">Acessa APIs, clusters, repositórios. Não apenas conversa — faz.</p>
         </div>
         <div class="card" style="text-align:center;padding:16px">
           <span class="icon" style="font-size:2.5rem">🧬</span>
-          <h4>Evolução Contínua</h4>
-          <p>Memória + SOUL + Self-Improving. Cada interação melhora o agente.</p>
+          <h4 data-en="Continuous Evolution" data-en="Continuous Evolution">Evolução Contínua</h4>
+          <p data-en="Memory + SOUL + Self-Improving. Each interaction improves the agent.">Memória + SOUL + Self-Improving. Cada interação melhora o agente.</p>
         </div>
       </div>
     </div>
@@ -1694,19 +1704,19 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- EXEC SLIDE 2 -->
     <div class="slide executive" data-num="E2" data-exec="2">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2 style="font-size:2rem">🎯 O Problema & a Oportunidade</h2>
+      <h2 style="font-size:2rem" data-en="🎯 The Problem &amp; Opportunity">🎯 O Problema & a Oportunidade</h2>
       <div class="content-grid cols-2" style="margin-top:16px">
         <div>
-          <p style="color:#EE0000;font-weight:700;margin-bottom:8px">⚠️ Problema</p>
+          <p style="color:#EE0000;font-weight:700;margin-bottom:8px" data-en="⚠️ Problem">⚠️ Problema</p>
           <ul style="list-style:none">
             <li style="padding:4px 0;color:#999;font-size:.9rem">✗ Ferramentas atuais são <strong>copilotos isolados</strong></li>
-            <li style="padding:4px 0;color:#999;font-size:.9rem">✗ Sem contexto, memória ou coordenação entre especialidades</li>
-            <li style="padding:4px 0;color:#999;font-size:.9rem">✗ Não integram ferramentas reais de forma nativa</li>
-            <li style="padding:4px 0;color:#999;font-size:.9rem">✗ Fluxos curtos, sem autonomia sustentada</li>
+            <li style="padding:4px 0;color:#999;font-size:.9rem" data-en="✗ No context, memory or coordination between specialties">✗ Sem contexto, memória ou coordenação entre especialidades</li>
+            <li style="padding:4px 0;color:#999;font-size:.9rem" data-en="✗ Don&#39;t integrate real tools natively">✗ Não integram ferramentas reais de forma nativa</li>
+            <li style="padding:4px 0;color:#999;font-size:.9rem" data-en="✗ Short flows, without sustained autonomy">✗ Fluxos curtos, sem autonomia sustentada</li>
           </ul>
         </div>
         <div>
-          <p style="color:#00CC66;font-weight:700;margin-bottom:8px">✅ Oportunidade</p>
+          <p style="color:#00CC66;font-weight:700;margin-bottom:8px" data-en="✅ Opportunity">✅ Oportunidade</p>
           <ul style="list-style:none">
             <li style="padding:4px 0;color:#ccc;font-size:.9rem">✓ Ambiente multi-agente com <strong>subagentes especializados</strong></li>
             <li style="padding:4px 0;color:#ccc;font-size:.9rem">✓ <strong>Memória persistente</strong> e identidade via SOUL</li>
@@ -1721,7 +1731,7 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- EXEC SLIDE 3 -->
     <div class="slide executive" data-num="E3" data-exec="3">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2 style="font-size:2rem">🏗️ Arquitetura Modular</h2>
+      <h2 style="font-size:2rem" data-en="🏗️ Modular Architecture">🏗️ Arquitetura Modular</h2>
       <div class="arch-diagram" style="margin-top:8px">
         <div class="arch-row"><div class="arch-box highlight" style="padding:8px 20px;font-size:.8rem">👤 Usuário ↔ 🧠 Agente Principal</div></div>
         <div class="arch-row">
@@ -1742,33 +1752,33 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
           <span class="arch-box">🔗 APIs</span>
         </div>
       </div>
-      <p style="font-size:.82rem;color:#888;margin-top:8px">Agentes especializados, memória persistente, identidade via SOUL, integração com o mundo real via MCPs.</p>
+      <p style="font-size:.82rem;color:#888;margin-top:8px" data-en="Specialized agents, persistent memory, identity via SOUL, real-world integration via MCPs.">Agentes especializados, memória persistente, identidade via SOUL, integração com o mundo real via MCPs.</p>
     </div>
 
     <!-- EXEC SLIDE 4 -->
     <div class="slide executive" data-num="E4" data-exec="4">
       <img src="https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-hero_image_3.svg" alt="Red Hat" class="logo logo-small">
-      <h2 style="font-size:2rem">⚡ Impacto Prático</h2>
+      <h2 style="font-size:2rem" data-en="⚡ Practical Impact">⚡ Impacto Prático</h2>
       <div class="content-grid cols-2" style="margin-top:16px">
         <div class="card">
           <span class="icon">🎬</span>
-          <h4>Demos em Horas, não Dias</h4>
-          <p>Crie demos completas com código, slides e roteiro. Agentes preparam tudo em paralelo.</p>
+          <h4 data-en="Demos in Hours, not Days" data-en="Demos in Hours, not Days">Demos em Horas, não Dias</h4>
+          <p data-en="Create complete demos with code, slides and script. Agents prepare everything in parallel.">Crie demos completas com código, slides e roteiro. Agentes preparam tudo em paralelo.</p>
         </div>
         <div class="card">
           <span class="icon">☸️</span>
-          <h4>OpenShift Intelligence</h4>
-          <p>Diagnóstico, troubleshooting, geração de manifests — um especialista OpenShift 24/7.</p>
+          <h4 data-en="OpenShift Intelligence" data-en="OpenShift Intelligence">OpenShift Intelligence</h4>
+          <p data-en="Diagnosis, troubleshooting, manifest generation — an OpenShift specialist 24/7.">Diagnóstico, troubleshooting, geração de manifests — um especialista OpenShift 24/7.</p>
         </div>
         <div class="card">
           <span class="icon">💻</span>
-          <h4>Desenvolvimento Acelerado</h4>
-          <p>Pair programming contínuo. Revisão de PRs. Geração de testes. Refatoração assistida.</p>
+          <h4 data-en="Accelerated Development" data-en="Accelerated Development">Desenvolvimento Acelerado</h4>
+          <p data-en="Continuous pair programming. PR reviews. Test generation. Assisted refactoring.">Pair programming contínuo. Revisão de PRs. Geração de testes. Refatoração assistida.</p>
         </div>
         <div class="card">
           <span class="icon">🚨</span>
-          <h4>SRE Autônomo</h4>
-          <p>Investiga incidentes, cria runbooks, automatiza respostas. Time de SRE que nunca dorme.</p>
+          <h4 data-en="Autonomous SRE" data-en="Autonomous SRE">SRE Autônomo</h4>
+          <p data-en="Investigates incidents, creates runbooks, automates responses. An SRE team that never sleeps.">Investiga incidentes, cria runbooks, automatiza respostas. Time de SRE que nunca dorme.</p>
         </div>
       </div>
     </div>
@@ -1776,31 +1786,31 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <!-- EXEC SLIDE 5 -->
     <div class="slide executive" data-num="E5" data-exec="5">
       <div style="text-align:center;max-width:700px;margin:0 auto">
-        <h2 style="font-size:2.4rem;text-align:center;margin-bottom:16px">🚀 Próximos Passos</h2>
+        <h2 style="font-size:2.4rem;text-align:center;margin-bottom:16px" data-en="🚀 Next Steps">🚀 Próximos Passos</h2>
         <div class="content-grid cols-2" style="margin-top:24px">
           <div class="card" style="text-align:center;padding:20px">
             <span class="icon" style="font-size:2rem">1️⃣</span>
-            <h4>Instalar</h4>
-            <p>Node.js + OpenClaw. Setup em 20 minutos.</p>
+            <h4 data-en="Install" data-en="Install">Instalar</h4>
+            <p data-en="Node.js + OpenClaw. Setup in 20 minutes.">Node.js + OpenClaw. Setup em 20 minutos.</p>
           </div>
           <div class="card" style="text-align:center;padding:20px">
             <span class="icon" style="font-size:2rem">2️⃣</span>
-            <h4>Configurar Agente</h4>
-            <p>Defina SOUL, memória, ferramentas e providers.</p>
+            <h4 data-en="Configure Agent" data-en="Configure Agent">Configurar Agente</h4>
+            <p data-en="Define SOUL, memory, tools and providers.">Defina SOUL, memória, ferramentas e providers.</p>
           </div>
           <div class="card" style="text-align:center;padding:20px">
             <span class="icon" style="font-size:2rem">3️⃣</span>
             <h4>Conectar MCPs</h4>
-            <p>GitHub, OpenShift, Telegram, ElevenLabs.</p>
+            <p data-en="GitHub, OpenShift, Telegram, ElevenLabs.">GitHub, OpenShift, Telegram, ElevenLabs.</p>
           </div>
           <div class="card" style="text-align:center;padding:20px">
             <span class="icon" style="font-size:2rem">4️⃣</span>
-            <h4>Primeira Tarefa</h4>
-            <p>Teste um fluxo real. Comece pequeno, depois escale.</p>
+            <h4 data-en="First Task" data-en="First Task">Primeira Tarefa</h4>
+            <p data-en="Test a real flow. Start small, then scale.">Teste um fluxo real. Comece pequeno, depois escale.</p>
           </div>
         </div>
         <div class="quote-block" style="margin:24px auto 0;max-width:500px">
-          <p>"O OpenClaw não é o futuro. É o presente que podemos começar a construir hoje."</p>
+          <p data-en="&quot;OpenClaw is not the future. It&#39;s the present we can start building today.&quot;">"O OpenClaw não é o futuro. É o presente que podemos começar a construir hoje."</p>
         </div>
       </div>
     </div>
@@ -1885,6 +1895,7 @@ Fontes: GitHub, MCPlato.io, MindStudio.ai, LushBinary, Panto AI (Abr/Mai 2026).
     <button class="nav-btn" id="homeBtn" onclick="goToSlide(0)" title="Início">⌂</button>
     <span class="page-indicator" id="pageIndicator">1 / 21</span>
     <button class="nav-btn" id="nextBtn" onclick="navigate(1)">▶</button>
+    <button class="lang-toggle" id="langBtn" onclick="toggleLang()" title="Switch language">🇺🇸 EN</button>
   </div>
   <div class="dots" id="dots"></div>
   <button class="notes-toggle" onclick="toggleNotes()">S Notas</button>
@@ -2053,8 +2064,35 @@ document.addEventListener('keydown', e=>{
 // ===== AUTO-ANIMATE ON LOAD =====
 // SVG chart animates itself via <animate> elements - no JS needed
 
+// ===== LANGUAGE TOGGLE =====
+let currentLang = localStorage.getItem('presLang') || 'pt';
+function applyLang(lang, save){
+  currentLang = lang;
+  document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+  if(save !== false) localStorage.setItem('presLang', lang);
+  const btn = document.getElementById('langBtn');
+  btn.textContent = lang === 'en' ? '🇧🇷 PT-BR' : '🇺🇸 EN';
+  btn.classList.toggle('active', lang === 'en');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if(lang === 'en'){
+      if(!el._origHTML) el._origHTML = el.innerHTML;
+      el.innerHTML = el.getAttribute('data-en');
+    } else if(el._origHTML){
+      el.innerHTML = el._origHTML;
+    }
+  });
+  document.getElementById('homeBtn').title = lang === 'en' ? 'Home' : 'Início';
+  document.getElementById('prevBtn').title = lang === 'en' ? 'Previous' : 'Anterior';
+  document.getElementById('nextBtn').title = lang === 'en' ? 'Next' : 'Próximo';
+  if(notesVisible) loadNotes();
+}
+function toggleLang(){
+  applyLang(currentLang === 'pt' ? 'en' : 'pt');
+}
+
 // ===== INIT =====
 init();
+if(currentLang === 'en') applyLang('en', false);
 </script>
 
 </body>
