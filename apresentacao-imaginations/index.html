@@ -551,81 +551,127 @@
   }
   .callout strong { color: var(--gold-light); }
 
-  /* ── Hero concept: portal orb + concept cards ── */
-  .hero-concept {
-    display: flex; align-items: center; justify-content: center;
-    gap: 2.5rem; width: 100%; max-width: 1000px;
-    margin-top: .5rem; flex-wrap: wrap;
+  /* ── Hero panel (Imaginations landing style) ── */
+  .hero-panel {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 2rem;
+    width: 100%; max-width: 1000px;
+    margin-top: .5rem;
+    background: rgba(255,255,255,.02);
+    border: 1px solid rgba(232,168,56,.1);
+    border-radius: 2rem;
+    padding: 2.5rem 3rem;
+    backdrop-filter: blur(12px);
   }
-  .hero-concept .portal-orb {
-    width: 220px; height: 220px; flex-shrink: 0;
+  .hero-panel .hero-copy {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-panel .hero-copy .eyebrow {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .6rem;
+  }
+  .hero-panel .hero-copy .hero-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -.04em;
+    margin: 0 0 .8rem;
+  }
+  .hero-panel .hero-copy .hero-title .highlight {
+    color: var(--gold-light);
+    display: block;
+    text-shadow: 0 0 28px rgba(253,185,39,.35);
+  }
+  .hero-panel .hero-copy .hero-desc {
+    font-size: .92rem;
+    color: rgba(232,224,240,.55);
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: .8rem;
+  }
+  .concept-pills {
+    display: flex; gap: .5rem; flex-wrap: wrap;
+  }
+  .concept-pill {
+    display: inline-flex; align-items: center; gap: .3rem;
+    background: rgba(232,168,56,.06);
+    border: 1px solid rgba(232,168,56,.1);
+    border-radius: 20px;
+    padding: .3rem .75rem;
+    font-size: .68rem;
+    color: var(--gold-light);
+    font-weight: 500;
+  }
+  .concept-pill .pill-icon { font-size: .8rem; }
+  .hero-panel .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 300px;
+  }
+  .hero-panel .portal-core {
+    width: min(18rem, 100%);
+    aspect-ratio: 1;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #fdb927f2 0%, #7d3cb5cc 22%, #1a1026e6 45%, #0e052038 70%, transparent 72%),
-                conic-gradient(from 90deg, rgba(253,185,39,.5), rgba(85,37,131,.85), rgba(253,185,39,.5));
-    box-shadow: 0 0 50px rgba(85,37,131,.4), 0 0 100px rgba(253,185,39,.15);
-    animation: portalPulse 6s ease-in-out infinite;
+    background: radial-gradient(circle at 35% 35%, #fdb927ee 0%, #7d3cb5bf 22%, #1a1026e6 45%, #0e052038 70%, transparent 72%),
+                conic-gradient(from 90deg, rgba(253,185,39,.45), rgba(85,37,131,.8), rgba(253,185,39,.45));
+    box-shadow: 0 0 50px rgba(85,37,131,.35), 0 0 100px rgba(253,185,39,.12);
+    animation: portalSpin 7s ease-in-out infinite;
     position: relative;
   }
-  @keyframes portalPulse {
+  @keyframes portalSpin {
     0%, 100% { transform: scale(.97) rotate(0deg); }
-    50% { transform: scale(1.04) rotate(10deg); }
+    50% { transform: scale(1.03) rotate(12deg); }
   }
-  .hero-concept .orb-label {
+  .hero-panel .portal-label {
     position: absolute;
     background: rgba(14,5,32,.85);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(253,185,39,.15);
-    border-radius: 12px;
-    padding: .5rem .8rem;
-    font-size: .72rem;
+    border: 1px solid rgba(253,185,39,.12);
+    border-radius: 10px;
+    padding: .4rem .7rem;
+    font-size: .65rem;
     font-weight: 700;
-    letter-spacing: .12em;
+    letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--gold-light);
     pointer-events: none;
     z-index: 3;
   }
-  .hero-concept .orb-label.top {
-    top: 10px; left: -40px;
+  .hero-panel .portal-label.label-real {
+    top: .5rem; left: -.5rem;
   }
-  .hero-concept .orb-label.bottom {
-    bottom: 30px; right: -50px;
+  .hero-panel .portal-label.label-virtual {
+    bottom: 1.5rem; right: -1rem;
   }
-  .hero-concept .concept-text {
-    flex: 1; min-width: 280px;
+  @media (max-width:768px) {
+    .hero-panel {
+      grid-template-columns: 1fr;
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+    .hero-panel .hero-visual {
+      min-height: 200px;
+    }
+    .hero-panel .portal-core {
+      width: min(12rem, 80%);
+    }
+    .hero-panel .portal-label.label-real {
+      top: -.2rem; left: 1rem;
+    }
+    .hero-panel .portal-label.label-virtual {
+      bottom: .5rem; right: 1rem;
+    }
   }
-  .hero-concept .concept-text .hero-line {
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: .8rem;
-    letter-spacing: -.5px;
-  }
-  .hero-concept .concept-text .hero-line span {
-    color: var(--gold-light);
-    text-shadow: 0 0 30px rgba(253,185,39,.3);
-  }
-  .hero-concept .concept-text p {
-    font-size: .9rem;
-    color: rgba(232,224,240,.55);
-    text-align: left;
-    line-height: 1.6;
-    margin-bottom: .6rem;
-  }
-  .concept-pills {
-    display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .6rem;
-  }
-  .concept-pill {
-    display: inline-flex; align-items: center; gap: .35rem;
-    background: rgba(232,168,56,.06);
-    border: 1px solid rgba(232,168,56,.12);
-    border-radius: 20px;
-    padding: .35rem .85rem;
-    font-size: .72rem;
-    color: var(--gold-light);
-    font-weight: 500;
-  }
-  .concept-pill .pill-icon { font-size: .85rem; }
 
   /* ── Glow line separator ── */
   .sep {
@@ -800,25 +846,25 @@
 
   <!-- ═══ SLIDE 7 — IMAGINATIONS CONCEPT (warm) ═══ -->
   <section class="slide warm" data-index="6">
-    <h2 class="slide-up" style="margin-bottom:.3rem;">🌍 O Mundo que Você Conhece</h2>
-    <p class="subtitle slide-up-d1" style="margin-bottom:0;">é só</p>
-    <div class="hero-concept slide-up-d2">
-      <div class="concept-text">
-        <div class="hero-line">
-          <span>metade do mapa.</span>
-        </div>
-        <p>Imaginations é um RPG onde o mundo real e um mundo virtual oculto ocupam a mesma geografia ao mesmo tempo. <strong style="color:var(--gold-light);">Sua cidade é o campo de batalha.</strong></p>
+    <div class="hero-panel slide-up-d1">
+      <div class="hero-copy">
+        <div class="eyebrow">🌍 Imaginations</div>
+        <h1 class="hero-title" style="background:none;-webkit-text-fill-color:var(--text);all:unset;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-.04em;margin:0 0 .8rem;display:block;text-align:left;">
+          O mundo que você conhece<br>é só <span class="highlight" style="color:var(--gold-light);text-shadow:0 0 28px rgba(253,185,39,.35);">metade do mapa.</span>
+        </h1>
+        <p class="hero-desc">
+          Imaginations é um RPG onde o mundo real e um mundo virtual oculto ocupam a mesma geografia ao mesmo tempo. <strong style="color:var(--gold-light);">Sua cidade é o campo de batalha.</strong>
+        </p>
         <div class="concept-pills">
           <span class="concept-pill"><span class="pill-icon">🗺️</span> Sobreposição Geográfica</span>
           <span class="concept-pill"><span class="pill-icon">🔄</span> Alternância em Tempo Real</span>
           <span class="concept-pill"><span class="pill-icon">⚡</span> Causa &amp; Consequência</span>
         </div>
-        <p style="margin-top:.8rem;font-size:.82rem;">Cada rua pode virar uma linha de missão. Cada esquina, um portal. Bairros, prédios e rotas viram a geometria da sua aventura.</p>
       </div>
-      <div style="position:relative;display:flex;align-items:center;justify-content:center;">
-        <div class="portal-orb"></div>
-        <span class="orb-label top">🌆 Real</span>
-        <span class="orb-label bottom">✨ Virtual</span>
+      <div class="hero-visual">
+        <div class="portal-core"></div>
+        <span class="portal-label label-real">🌆 REAL</span>
+        <span class="portal-label label-virtual">✨ VIRTUAL</span>
       </div>
     </div>
     <div class="slide-number">07</div>
