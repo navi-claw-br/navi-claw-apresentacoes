@@ -11,45 +11,42 @@
   html { scroll-behavior:smooth; }
 
   :root {
-    /* Primary palette - warm, magical, optimistic */
-    --gold: #E8A838;
-    --gold-light: #F5C259;
-    --gold-dark: #C4881A;
-    --amber: #F59E0B;
-    --purple-deep: #1A0A2E;
-    --purple-dark: #2D1B4E;
-    --purple-mid: #4A2D7A;
-    --purple-light: #7C5CBF;
-    --teal: #14B8A6;
-    --teal-light: #5EEAD4;
-    --coral: #F472B6;
-    --coral-light: #F9A8D4;
-    --cream: #FFF8F0;
-    --cream-dark: #F5EDE3;
-    --warm-gray: #6B625A;
-    --light: #FFFFFF;
-    --dark: #0D0415;
-    --text-on-dark: #E8E0F0;
-    --text-on-cream: #1A0A2E;
-    --card-dark: rgba(255,255,255,0.04);
-    --card-cream: rgba(26,10,46,0.04);
-    --border-dark: rgba(232,168,56,0.2);
-    --border-cream: rgba(26,10,46,0.08);
-    --gradient-gold: linear-gradient(135deg, #E8A838, #F59E0B, #F472B6);
-    --gradient-purple: linear-gradient(135deg, #1A0A2E, #2D1B4E);
-    --gradient-warm: linear-gradient(135deg, #E8A838, #F472B6);
+    /* 🎨 Paleta principal — harmonia roxo profundo + dourado + âmbar */
+    --gold:      #E8A838;
+    --gold-light:#F5C259;
+    --gold-dark: #B87D1E;
+    --amber:     #F59E0B;
+    --coral:     #E8756A;
+    --coral-light:#F49B8F;
+
+    --deep:      #0E0520;   /* roxo profundo — base escura */
+    --deep2:     #1A0D30;   /* roxo levemente mais claro */
+    --warm:      #1A0A05;   /* marrom-âmbar escuro — quente */
+    --warm2:     #2A1508;   /* quente mais claro */
+
+    --surface-dark: rgba(255,255,255,0.04);
+    --surface-warm: rgba(232,168,56,0.04);
+    --border-dark:  rgba(232,168,56,0.15);
+    --border-warm:  rgba(232,168,56,0.12);
+    --text:         #E8E0F0;
+    --text-dim:     rgba(232,224,240,0.55);
+    --text-muted:   rgba(232,224,240,0.35);
+
+    --gradient-gold:   linear-gradient(135deg, #E8A838, #F59E0B, #E8756A);
+    --gradient-warm:   linear-gradient(135deg, #E8A838, #C4881A);
+    --gradient-coral:  linear-gradient(135deg, #E8756A, #F49B8F);
   }
 
   body {
     font-family: 'Inter', sans-serif;
-    background: var(--purple-deep);
-    color: var(--text-on-dark);
+    background: var(--deep);
+    color: var(--text);
     overflow: hidden;
     height: 100vh;
     width: 100vw;
   }
 
-  /* ── Slides Container (horizontal scroll) ── */
+  /* ── Slides Container ── */
   .slides {
     display: flex;
     transition: transform .65s cubic-bezier(.22,1,.36,1);
@@ -66,66 +63,66 @@
     padding: 3rem 5rem;
     position: relative;
     overflow-y: auto;
+    z-index: 0;
   }
 
-  /* ── Light/dark slide backgrounds ── */
-  .slide.dark {
-    background: var(--purple-deep);
-    color: var(--text-on-dark);
-  }
-  .slide.dark::before {
+  /* ── Fundos harmônicos ── */
+  .slide::before {
     content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 30%, rgba(232,168,56,.06) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 70%, rgba(116,92,191,.05) 0%, transparent 60%);
-    pointer-events: none;
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 0;
   }
-  .slide.dark::after {
+  .slide::after {
     content: '';
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background-image:
       linear-gradient(rgba(232,168,56,.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(232,168,56,.02) 1px, transparent 1px);
     background-size: 50px 50px;
-    pointer-events: none;
+    pointer-events: none; z-index: 0;
   }
 
-  .slide.light {
-    background: var(--cream);
-    color: var(--text-on-cream);
+  /* deep — tom roxo frio */
+  .slide.deep {
+    background: var(--deep);
   }
-  .slide.light::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+  .slide.deep::before {
     background:
-      radial-gradient(ellipse at 30% 40%, rgba(232,168,56,.04) 0%, transparent 60%),
-      radial-gradient(ellipse at 70% 60%, rgba(244,114,182,.03) 0%, transparent 60%);
-    pointer-events: none;
+      radial-gradient(ellipse at 20% 30%, rgba(232,168,56,.05) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 70%, rgba(116,92,191,.03) 0%, transparent 55%);
   }
 
-  .slide > *:not(#particles) { position: relative; z-index: 2; }
+  /* warm — tom âmbar quente (otimismo!) */
+  .slide.warm {
+    background: var(--warm);
+  }
+  .slide.warm::before {
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(232,168,56,.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 70% 80%, rgba(232,92,50,.03) 0%, transparent 55%);
+  }
 
-  /* ── Slide numbering ── */
+  .slide, .slide h1, .slide h2, .slide h3, .slide p, .slide li,
+  .card, .card h4, .card p, .arch-box, .timeline-item .text, .quote-block,
+  .tech-card, .tech-card .tech-name, .tech-card .tech-desc {
+    transition: all .3s ease;
+  }
+
+  .slide > *:not(.bg-only) { position: relative; z-index: 2; }
+
+  /* ── Slide number ── */
   .slide-number {
     position: absolute;
-    bottom: 5rem;
-    right: 2.5rem;
-    font-size: .75rem;
-    color: rgba(232,168,56,.3);
+    bottom: 5rem; right: 2.5rem;
+    font-size: .7rem;
+    color: rgba(232,168,56,.15);
     font-weight: 600;
-    letter-spacing: .05em;
+    letter-spacing: .08em;
     font-family: 'JetBrains Mono', monospace;
     z-index: 2;
   }
-  .slide.light .slide-number {
-    color: rgba(26,10,46,.15);
-  }
 
-  /* ── Content ── */
+  /* ── Typography ── */
   h1 {
     font-size: clamp(2.8rem, 5.5vw, 5rem);
     font-weight: 900;
@@ -142,7 +139,7 @@
     font-size: clamp(2rem, 3.8vw, 3.2rem);
     font-weight: 800;
     line-height: 1.15;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     background: var(--gradient-gold);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -150,30 +147,18 @@
     text-align: center;
     letter-spacing: -.5px;
   }
-  h2.cream-title {
-    background: linear-gradient(135deg, #1A0A2E, #4A2D7A);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: var(--gold);
-    margin-bottom: .8rem;
-  }
-  .slide.light h3 {
-    color: var(--purple-mid);
+    color: var(--gold-light);
+    margin-bottom: .6rem;
   }
   p, li {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-on-dark);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--text);
     max-width: 780px;
     text-align: center;
-  }
-  .slide.light p, .slide.light li {
-    color: rgba(26,10,46,.75);
   }
   .slide:not(.title-slide):not(.cover) p,
   .slide:not(.title-slide):not(.cover) li {
@@ -181,57 +166,35 @@
   }
 
   .subtitle {
-    font-size: 1.2rem;
-    color: rgba(232,168,56,.8);
+    font-size: 1.15rem;
+    color: rgba(232,224,240,.65);
     font-weight: 400;
-    margin-top: .25rem;
+    margin-top: .2rem;
     text-align: center;
   }
-  .slide.light .subtitle {
-    color: rgba(74,45,122,.7);
-  }
-  .subtitle strong {
-    color: var(--gold);
-    font-weight: 600;
-  }
-  .slide.light .subtitle strong {
-    color: var(--purple-mid);
-  }
+  .subtitle strong { color: var(--gold-light); }
 
-  /* ── Tag badges ── */
+  /* ── Tags ── */
   .tags {
-    display: flex;
-    gap: .6rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1.5rem;
+    display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center;
+    margin-top: 1.2rem;
   }
   .tag {
     display: inline-block;
     padding: .3rem .9rem;
     border-radius: 20px;
-    font-size: .78rem;
+    font-size: .75rem;
     font-weight: 600;
     letter-spacing: .3px;
-    background: rgba(232,168,56,.12);
+    background: rgba(232,168,56,.1);
     color: var(--gold-light);
-    border: 1px solid rgba(232,168,56,.25);
+    border: 1px solid rgba(232,168,56,.2);
     font-family: 'JetBrains Mono', monospace;
-  }
-  .slide.light .tag {
-    background: rgba(74,45,122,.08);
-    color: var(--purple-mid);
-    border-color: rgba(74,45,122,.15);
   }
   .tag.highlight {
     background: var(--gold);
-    color: var(--purple-deep);
+    color: var(--deep);
     border-color: var(--gold);
-  }
-  .slide.light .tag.highlight {
-    background: var(--purple-mid);
-    color: var(--cream);
-    border-color: var(--purple-mid);
   }
 
   /* ── Cards ── */
@@ -241,10 +204,10 @@
     gap: 1rem;
     width: 100%;
     max-width: 960px;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
   }
   .card {
-    background: var(--card-dark);
+    background: var(--surface-dark);
     border: 1px solid var(--border-dark);
     border-radius: 16px;
     padding: 1.4rem;
@@ -252,401 +215,289 @@
     cursor: default;
     backdrop-filter: blur(6px);
   }
-  .slide.light .card {
-    background: var(--card-cream);
-    border-color: var(--border-cream);
-  }
   .card:hover {
     border-color: var(--gold);
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(232,168,56,.08);
+    box-shadow: 0 8px 30px rgba(232,168,56,.06);
   }
-  .card .icon { font-size: 2rem; margin-bottom: .5rem; display: block; }
-  .card h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--gold-light);
-    margin-bottom: .4rem;
-  }
-  .slide.light .card h4 { color: var(--purple-mid); }
-  .card p {
-    font-size: .82rem;
-    color: rgba(232,216,240,.7);
-    text-align: left;
-    line-height: 1.5;
-  }
-  .slide.light .card p { color: rgba(26,10,46,.6); }
+  .card .icon { font-size: 2rem; margin-bottom: .4rem; display: block; }
+  .card h4 { font-size: 1rem; font-weight: 700; color: var(--gold-light); margin-bottom: .4rem; }
+  .card p { font-size: .8rem; color: rgba(232,224,240,.6); text-align: left; line-height: 1.5; }
 
   /* ── Quote Block ── */
   .quote-block {
-    max-width: 750px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem 2.5rem;
-    border-radius: 20px;
-    text-align: center;
-    position: relative;
+    max-width: 780px; width: 100%; margin: 0 auto;
+    padding: 2rem 2.5rem; border-radius: 20px;
+    text-align: center; position: relative;
   }
   .quote-block::before {
     content: '"';
-    position: absolute;
-    top: -.3rem;
-    left: .5rem;
-    font-size: 6rem;
-    line-height: 1;
+    position: absolute; top: -.2rem; left: .5rem;
+    font-size: 5.5rem; line-height: 1;
     font-family: 'Playfair Display', serif;
-    color: rgba(232,168,56,.15);
-  }
-  .slide.light .quote-block::before {
-    color: rgba(74,45,122,.1);
+    color: rgba(232,168,56,.12);
   }
   .quote-block .quote-text {
     font-size: clamp(1.6rem, 3vw, 2.6rem);
-    font-weight: 700;
-    line-height: 1.3;
+    font-weight: 700; line-height: 1.3;
     font-family: 'Playfair Display', serif;
     font-style: italic;
     color: var(--gold-light);
-    margin-bottom: .8rem;
-  }
-  .slide.light .quote-block .quote-text {
-    color: var(--purple-dark);
+    margin-bottom: .6rem;
   }
   .quote-block .quote-author {
     font-size: .95rem;
-    color: rgba(232,216,240,.5);
+    color: var(--text-dim);
     font-weight: 500;
   }
-  .slide.light .quote-block .quote-author {
-    color: rgba(26,10,46,.4);
-  }
   .quote-block .quote-context {
-    margin-top: 1.2rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid rgba(232,168,56,.15);
-    font-size: .9rem;
-    color: rgba(232,216,240,.6);
+    margin-top: 1.2rem; padding-top: 1rem;
+    border-top: 1px solid rgba(232,168,56,.12);
+    font-size: .88rem;
+    color: rgba(232,224,240,.5);
     text-align: left;
-  }
-  .slide.light .quote-block .quote-context {
-    border-color: rgba(26,10,46,.08);
-    color: rgba(26,10,46,.5);
   }
 
   /* ── Timeline ── */
   .timeline {
-    position: relative;
-    max-width: 700px;
-    width: 100%;
-    margin-top: 1.5rem;
-    padding-left: 2rem;
+    position: relative; max-width: 700px; width: 100%;
+    margin-top: 1.2rem; padding-left: 2rem;
   }
   .timeline::before {
     content: '';
-    position: absolute;
-    left: 8px;
-    top: 0;
-    bottom: 0;
+    position: absolute; left: 8px; top: 0; bottom: 0;
     width: 2.5px;
-    background: linear-gradient(to bottom, var(--gold), var(--teal), var(--coral));
+    background: linear-gradient(to bottom, var(--gold), #C4881A, var(--coral));
   }
   .timeline-item {
-    position: relative;
-    margin-bottom: 1.2rem;
-    padding-left: 1.2rem;
+    position: relative; margin-bottom: 1rem; padding-left: 1.2rem;
   }
   .timeline-item::before {
     content: '';
-    position: absolute;
-    left: -1.7rem;
-    top: .5rem;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+    position: absolute; left: -1.7rem; top: .5rem;
+    width: 12px; height: 12px; border-radius: 50%;
     background: var(--gold);
-    border: 2px solid var(--purple-deep);
-    box-shadow: 0 0 0 2px var(--gold);
-  }
-  .slide.light .timeline-item::before {
-    border-color: var(--cream);
+    border: 3px solid var(--deep);
+    box-shadow: 0 0 0 1.5px var(--gold);
   }
   .timeline-item .year {
-    font-size: .8rem;
-    color: var(--gold);
-    font-weight: 700;
-    font-family: 'JetBrains Mono', monospace;
+    font-size: .78rem; color: var(--gold);
+    font-weight: 700; font-family: 'JetBrains Mono', monospace;
   }
-  .slide.light .timeline-item .year { color: var(--purple-mid); }
   .timeline-item .text {
-    font-size: .9rem;
-    color: rgba(232,216,240,.75);
-    margin-top: 2px;
-    text-align: left;
+    font-size: .88rem; color: rgba(232,224,240,.65);
+    margin-top: 2px; text-align: left;
   }
-  .slide.light .timeline-item .text { color: rgba(26,10,46,.6); }
-  .timeline-item .text strong {
-    color: var(--gold-light);
-  }
-  .slide.light .timeline-item .text strong {
-    color: var(--purple-dark);
-  }
+  .timeline-item .text strong { color: var(--gold-light); }
 
   /* ── Tech Grid ── */
   .tech-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
-    width: 100%;
-    max-width: 880px;
-    margin-top: 1.5rem;
+    width: 100%; max-width: 850px;
+    margin-top: 1.2rem;
   }
   .tech-card {
-    background: var(--card-dark);
+    background: var(--surface-dark);
     border: 1px solid var(--border-dark);
     border-radius: 16px;
-    padding: 1.5rem 1rem;
+    padding: 1.4rem 1rem;
     text-align: center;
     transition: all .3s;
-  }
-  .slide.light .tech-card {
-    background: var(--card-cream);
-    border-color: var(--border-cream);
   }
   .tech-card:hover {
     border-color: var(--gold);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(232,168,56,.08);
+    box-shadow: 0 8px 25px rgba(232,168,56,.05);
   }
-  .tech-card .tech-icon {
-    font-size: 2.2rem;
-    margin-bottom: .5rem;
-    display: block;
-  }
-  .tech-card .tech-name {
-    font-size: .9rem;
-    font-weight: 700;
-    color: var(--gold-light);
-  }
-  .slide.light .tech-card .tech-name { color: var(--purple-mid); }
-  .tech-card .tech-desc {
-    font-size: .75rem;
-    color: rgba(232,216,240,.55);
-    margin-top: .3rem;
-    text-align: center;
-  }
-  .slide.light .tech-card .tech-desc { color: rgba(26,10,46,.45); }
+  .tech-card .tech-icon { font-size: 2rem; margin-bottom: .4rem; display: block; }
+  .tech-card .tech-name { font-size: .85rem; font-weight: 700; color: var(--gold-light); }
+  .tech-card .tech-desc { font-size: .73rem; color: var(--text-dim); margin-top: .3rem; text-align: center; }
 
   /* ── Stats ── */
   .stats {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
+    display: flex; gap: 2.5rem; justify-content: center;
+    margin-top: 1.2rem; flex-wrap: wrap;
   }
-  .stat {
-    text-align: center;
-  }
+  .stat { text-align: center; }
   .stat .number {
-    font-size: 2.5rem;
-    font-weight: 900;
+    font-size: 2.5rem; font-weight: 900;
     background: var(--gradient-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
     font-family: 'JetBrains Mono', monospace;
   }
-  .slide.light .stat .number {
-    background: linear-gradient(135deg, var(--purple-dark), var(--purple-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
   .stat .label {
-    font-size: .8rem;
-    color: rgba(232,216,240,.6);
-    margin-top: .2rem;
+    font-size: .78rem; color: var(--text-dim); margin-top: .15rem;
   }
-  .slide.light .stat .label { color: rgba(26,10,46,.5); }
 
-  /* ── Two column layout ── */
+  /* ── Two columns ── */
   .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    width: 100%;
-    max-width: 960px;
-    margin-top: 1rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem; width: 100%; max-width: 960px; margin-top: .8rem;
   }
-  .two-col .col {
-    text-align: left;
-  }
+  .two-col .col { text-align: left; }
   .two-col .col h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--gold-light);
-    margin-bottom: .6rem;
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--gold-light); margin-bottom: .5rem;
   }
-  .slide.light .two-col .col h4 { color: var(--purple-dark); }
   .two-col .col p {
-    font-size: .9rem;
-    line-height: 1.6;
-    color: rgba(232,216,240,.7);
-    text-align: left;
+    font-size: .88rem; line-height: 1.6;
+    color: rgba(232,224,240,.65); text-align: left;
   }
-  .slide.light .two-col .col p { color: rgba(26,10,46,.6); }
   .two-col .col ul { list-style: none; padding: 0; }
   .two-col .col ul li {
-    font-size: .88rem;
-    color: rgba(232,216,240,.65);
-    padding: .3rem 0;
-    padding-left: 1.2rem;
-    position: relative;
-    text-align: left;
+    font-size: .85rem;
+    color: rgba(232,224,240,.55);
+    padding: .3rem 0; padding-left: 1.2rem;
+    position: relative; text-align: left;
   }
-  .slide.light .two-col .col ul li { color: rgba(26,10,46,.55); }
   .two-col .col ul li::before {
     content: '✦';
-    position: absolute;
-    left: 0;
+    position: absolute; left: 0;
     color: var(--gold);
   }
-  .slide.light .two-col .col ul li::before { color: var(--purple-light); }
 
-  /* ── Architecture ── */
-  .arch-diagram {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .6rem;
-    margin-top: 1rem;
-    width: 100%;
-    max-width: 800px;
+  /* ── Architecture: Horizontal Characters ── */
+  .arch-scene {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.5rem; width: 100%; max-width: 1000px;
+    margin-top: 1.2rem; flex-wrap: wrap;
   }
-  .arch-row {
-    display: flex;
-    gap: .6rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  .arch-char {
+    display: flex; flex-direction: column; align-items: center;
+    gap: .4rem; text-align: center;
   }
-  .arch-box {
-    background: var(--card-dark);
-    border: 1px solid var(--border-dark);
-    border-radius: 10px;
-    padding: .6rem 1rem;
-    text-align: center;
-    font-size: .78rem;
-    color: rgba(232,216,240,.7);
+  .arch-char .avatar {
+    width: 72px; height: 72px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    border: 2px solid rgba(232,168,56,.15);
     transition: all .3s;
+    background: rgba(232,168,56,.06);
+    position: relative;
   }
-  .slide.light .arch-box {
-    background: var(--card-cream);
-    border-color: var(--border-cream);
-    color: rgba(26,10,46,.6);
+  .arch-char .avatar.pulse {
+    animation: archPulse 2.5s ease-in-out infinite;
   }
-  .arch-box:hover {
+  .arch-char .avatar.pulse-delay {
+    animation: archPulse 2.5s ease-in-out .5s infinite;
+  }
+  @keyframes archPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(232,168,56,.15); }
+    50% { box-shadow: 0 0 20px 4px rgba(232,168,56,.08); }
+  }
+  .arch-char .avatar:hover {
     border-color: var(--gold);
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(232,168,56,.12);
   }
-  .arch-box.highlight {
-    border-color: var(--gold);
+  .arch-char .name {
+    font-size: .82rem; font-weight: 600; color: var(--gold-light);
+  }
+  .arch-char .role {
+    font-size: .68rem; color: var(--text-dim);
+  }
+  .arch-char .connection-line {
+    width: 2px; height: 20px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    opacity: .4;
+  }
+
+  /* OpenClaw central hub */
+  .arch-hub {
     background: rgba(232,168,56,.08);
-    color: var(--gold-light);
-    font-weight: 600;
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    min-width: 160px;
+    transition: all .3s;
+    position: relative;
+    backdrop-filter: blur(8px);
   }
-  .slide.light .arch-box.highlight {
-    border-color: var(--purple-mid);
-    background: rgba(74,45,122,.06);
-    color: var(--purple-dark);
+  .arch-hub:hover {
+    box-shadow: 0 0 40px rgba(232,168,56,.12);
+    transform: scale(1.03);
   }
+  .arch-hub .hub-icon {
+    font-size: 2.8rem; display: block; margin-bottom: .2rem;
+  }
+  .arch-hub .hub-name {
+    font-size: 1rem; font-weight: 800; color: var(--gold-light);
+  }
+  .arch-hub .hub-desc {
+    font-size: .7rem; color: var(--text-dim);
+    margin-top: .2rem;
+  }
+
+  /* connection arrows */
   .arch-arrow {
-    color: var(--gold);
-    font-size: 1.1rem;
-    opacity: .5;
+    font-size: 1.5rem; color: var(--gold); opacity: .35;
   }
-  .slide.light .arch-arrow { color: var(--purple-light); }
+  .arch-arrows {
+    display: flex; flex-direction: column; align-items: center; gap: .1rem;
+  }
+  .arch-arrows .line {
+    width: 2px; height: 12px; background: rgba(232,168,56,.2);
+  }
   .arch-label {
-    font-size: .7rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    color: var(--gold);
-    opacity: .7;
-    margin: .3rem 0;
+    font-size: .65rem; text-transform: uppercase;
+    letter-spacing: 2px; font-weight: 700;
+    color: var(--gold); opacity: .5;
+    margin: .5rem 0;
+    text-align: center;
   }
-  .slide.light .arch-label { color: var(--purple-mid); }
 
   /* ── Nav Bar ── */
   .nav-bar {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
+    position: fixed; bottom: 2rem; left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: rgba(13,4,21,.8);
-    backdrop-filter: blur(12px);
-    padding: .6rem 1.2rem;
+    display: flex; align-items: center; gap: 1rem;
+    background: rgba(14,5,32,.85);
+    backdrop-filter: blur(14px);
+    padding: .55rem 1.2rem;
     border-radius: 40px;
-    border: 1px solid rgba(232,168,56,.15);
+    border: 1px solid rgba(232,168,56,.12);
     z-index: 100;
   }
-  .slide.light ~ .nav-bar {
-    background: rgba(255,248,240,.85);
-    border-color: rgba(26,10,46,.1);
-  }
   .nav-bar button {
-    background: none;
-    border: none;
-    color: rgba(232,216,240,.5);
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: .3rem .6rem;
-    border-radius: 8px;
+    background: none; border: none;
+    color: rgba(232,224,240,.4);
+    font-size: 1.2rem; cursor: pointer;
+    padding: .3rem .6rem; border-radius: 8px;
     transition: all .2s;
   }
   .nav-bar button:hover {
-    color: var(--gold);
-    background: rgba(232,168,56,.08);
+    color: var(--gold); background: rgba(232,168,56,.06);
   }
   .nav-bar button:active { transform: scale(.95); }
-  .nav-bar .dots {
-    display: flex;
-    gap: .4rem;
-  }
+  .nav-bar .dots { display: flex; gap: .4rem; }
   .nav-bar .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: rgba(232,216,240,.2);
-    transition: all .35s;
-    cursor: pointer;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(232,224,240,.15);
+    transition: all .35s; cursor: pointer;
   }
   .nav-bar .dot.active {
     background: var(--gold);
-    width: 22px;
-    border-radius: 4px;
+    width: 22px; border-radius: 4px;
   }
   .nav-bar .slide-info {
-    font-size: .8rem;
-    color: rgba(232,216,240,.4);
+    font-size: .78rem;
+    color: rgba(232,224,240,.3);
     font-family: 'JetBrains Mono', monospace;
-    min-width: 60px;
-    text-align: center;
+    min-width: 60px; text-align: center;
   }
 
   /* ── Progress ── */
   .progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
+    position: fixed; top: 0; left: 0; height: 3px;
     background: var(--gradient-gold);
-    transition: width .5s ease;
-    z-index: 110;
+    transition: width .5s ease; z-index: 110;
   }
 
-  /* ── Slide animations ── */
+  /* ── Animations ── */
   .slide.active .fade-in {
     animation: fadeIn .6s ease forwards;
   }
@@ -659,86 +510,90 @@
   .slide.active .slide-up-d4 { animation: slideUp .5s ease .4s forwards; opacity: 0; }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from { opacity: 0; }  to { opacity: 1; }
   }
   @keyframes slideUp {
     from { opacity: 0; transform: translateY(30px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── Scrollbar ── */
-  .slide::-webkit-scrollbar { width: 4px; }
-  .slide::-webkit-scrollbar-track { background: transparent; }
-  .slide::-webkit-scrollbar-thumb { background: rgba(232,168,56,.2); border-radius: 2px; }
-
-  /* ── Fullscreen ── */
-  .slide.light { position: relative; }
-
-  /* ── Cover specific ── */
-  .cover .navi {
-    font-size: 1.1rem;
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: .4rem;
-    color: var(--gold);
-    font-weight: 500;
-    opacity: .7;
+  /* ── Cover ── */
+  .cover .navi-badge {
+    display: flex; align-items: center; gap: .4rem;
+    color: var(--gold); font-weight: 500; opacity: .6;
+    font-size: .85rem; margin-bottom: .6rem;
   }
   .cover .hero-sub {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: rgba(232,216,240,.7);
-    max-width: 650px;
-    text-align: center;
-    line-height: 1.6;
+    font-size: 1.4rem; font-weight: 300;
+    color: rgba(232,224,240,.6);
+    max-width: 650px; text-align: center; line-height: 1.6;
   }
   .cover .tech-line {
-    font-size: .85rem;
-    color: rgba(232,168,56,.5);
+    font-size: .82rem;
+    color: rgba(232,168,56,.4);
     font-family: 'JetBrains Mono', monospace;
-    margin-top: 1.5rem;
-    letter-spacing: 1px;
+    margin-top: 1.2rem; letter-spacing: .5px;
   }
   .cover .year-badge {
     display: inline-block;
-    padding: .3rem 1.2rem;
-    border-radius: 20px;
-    background: rgba(232,168,56,.1);
-    border: 1px solid rgba(232,168,56,.2);
-    font-size: .8rem;
-    color: var(--gold);
-    font-weight: 600;
-    margin-top: .8rem;
+    padding: .3rem 1.2rem; border-radius: 20px;
+    background: rgba(232,168,56,.08);
+    border: 1px solid rgba(232,168,56,.15);
+    font-size: .78rem; color: var(--gold);
+    font-weight: 600; margin-top: .6rem;
   }
-  .cover .tagline {
-    font-size: .75rem;
-    color: rgba(232,216,240,.3);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+
+  /* ── Small text callout ── */
+  .callout {
+    font-size: .9rem; color: var(--text-dim);
+    text-align: center; max-width: 700px;
+    margin-top: 1rem;
+  }
+  .callout strong { color: var(--gold-light); }
+
+  /* ── Glow line separator ── */
+  .sep {
+    width: 40px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: .8rem auto; opacity: .3;
+  }
+
+  /* ── AIPC special callout ── */
+  .aipc-highlight {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(232,168,56,.06);
+    border: 1px solid rgba(232,168,56,.15);
+    border-radius: 12px; padding: .4rem 1rem;
+    font-size: .78rem; color: var(--gold-light);
+    font-family: 'JetBrains Mono', monospace;
     font-weight: 600;
-    margin-bottom: .5rem;
   }
 
   /* ── Responsive ── */
   @media (max-width: 768px) {
     .slide { padding: 2rem; }
-    .two-col { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; gap: 1.2rem; }
     .cards { grid-template-columns: 1fr; }
-    .stats { flex-direction: column; align-items: center; gap: 1rem; }
-    .nav-bar { gap: .5rem; padding: .5rem 1rem; }
     .tech-grid { grid-template-columns: 1fr 1fr; }
+    .stats { flex-direction: column; align-items: center; gap: .8rem; }
+    .nav-bar { gap: .5rem; padding: .5rem 1rem; }
+    .arch-scene { flex-direction: column; gap: .8rem; }
+    .arch-arrow { transform: rotate(90deg); }
+    .arch-hub { min-width: 120px; padding: 1rem; }
     .quote-block { padding: 1.5rem; }
     .quote-block .quote-text { font-size: 1.3rem; }
     .cover .hero-sub { font-size: 1.1rem; }
   }
-
   @media (max-width: 480px) {
     .slide { padding: 1.2rem; }
     .tech-grid { grid-template-columns: 1fr; }
     .slide-number { display: none; }
   }
+
+  /* ── Scrollbar ── */
+  .slide::-webkit-scrollbar { width: 4px; }
+  .slide::-webkit-scrollbar-track { background: transparent; }
+  .slide::-webkit-scrollbar-thumb { background: rgba(232,168,56,.15); border-radius: 2px; }
 </style>
 </head>
 <body>
@@ -747,185 +602,326 @@
 
 <div class="slides" id="slides">
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 1 — COVER (Dark) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide dark cover active" data-index="0">
-    <div class="tagline slide-up">🔮 Navi Apresenta</div>
+  <!-- ═══ SLIDE 1 — COVER (deep) ═══ -->
+  <section class="slide deep cover active" data-index="0">
+    <div class="navi-badge slide-up">🔮 Navi Apresenta</div>
     <h1 class="slide-up-d1">Imaginations</h1>
     <p class="subtitle slide-up-d2">O Sonho que Virou Realidade</p>
-    <p class="hero-sub slide-up-d3">10 anos de imaginação, IA e game design<br>se unindo em uma jornada inédita</p>
-    <p class="tech-line slide-up-d4">
-      Fable5 · OpenClaw · ChatGPT · OpenShift · DeepSeek
-    </p>
-    <span class="year-badge slide-up-d4">🎮 De 2016 a 2026 — Um Sonho Realizado</span>
+    <p class="hero-sub slide-up-d3">10 anos atrás era só imaginação.<br>Hoje, a IA tornou palpável.</p>
+    <p class="tech-line slide-up-d4">Fable5 · OpenClaw · ChatGPT · OpenShift · DeepSeek</p>
+    <span class="year-badge slide-up-d4">🎲 2012 → 2026 — Uma Jornada de 14 Anos</span>
     <div class="slide-number">01</div>
   </section>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 2 — EINSTEIN QUOTE (Light) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide light" data-index="1">
+  <!-- ═══ SLIDE 2 — EINSTEIN (warm) ═══ -->
+  <section class="slide warm" data-index="1">
     <div class="quote-block slide-up">
       <div class="quote-text">
         A imaginação é mais importante<br>que o conhecimento
       </div>
       <div class="quote-author">— Albert Einstein</div>
       <div class="quote-context">
-        Einstein sabia que o conhecimento é limitado, enquanto a imaginação abraça o mundo inteiro.
-        Hoje, essa frase ganha um novo significado.
+        Einstein sabia que o conhecimento é limitado.<br>
+        Hoje essa frase ganha um novo significado: o conhecimento a IA tem.<br>
+        <strong style="color:var(--gold-light);">A imaginação ainda é sua.</strong>
       </div>
     </div>
     <div class="slide-number">02</div>
   </section>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 3 — WHY IMAGINATION > KNOWLEDGE NOW (Dark) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide dark" data-index="2">
+  <!-- ═══ SLIDE 3 — WHY NOW (deep) ═══ -->
+  <section class="slide deep" data-index="2">
     <h2 class="slide-up">Por que isso nunca foi tão verdade?</h2>
     <div class="two-col slide-up-d2">
       <div class="col">
         <h4>📚 Conhecimento</h4>
-        <p>O conhecimento agora é uma commodity. IA como ChatGPT e DeepSeek dominam enciclopédias, leis, códigos e fatos. Saber não é mais diferencial — é requisito mínimo.</p>
+        <p>Virou commodity. ChatGPT, DeepSeek e outros LLMs dominam enciclopédias, leis, códigos e fatos. Saber não é mais diferencial — é requisito mínimo.</p>
       </div>
       <div class="col">
         <h4>✨ Imaginação</h4>
-        <p>Criar mundos, personagens, narrativas e experiências emocionais — isso é humano. Imaginação é o que faz um jogo ser inesquecível, um NPC ter alma, uma história emocionar.</p>
+        <p>Criar mundos, personagens com alma, narrativas que emocionam — isso é humano. Imaginação é o que faz um jogo ser inesquecível, um NPC ter vida, uma história tocar.</p>
       </div>
     </div>
-    <p class="slide-up-d3" style="margin-top:1.5rem;font-size:.95rem;color:rgba(232,168,56,.6);text-align:center;max-width:700px;">
-      "O conhecimento a IA tem. A imaginação é sua."
+    <p class="callout slide-up-d3">
+      "O conhecimento a IA já tem. A imaginação é sua.<br>
+      <strong>O que você vai construir com ela?</strong>"
     </p>
     <div class="slide-number">03</div>
   </section>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 4 — NIELS BOHR QUOTE (Light) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide light" data-index="3">
+  <!-- ═══ SLIDE 4 — BOHR (warm) ═══ -->
+  <section class="slide warm" data-index="3">
     <div class="quote-block slide-up">
       <div class="quote-text">
         Expert é aquele que cometeu todos os<br>erros possíveis em sua área de atuação
       </div>
       <div class="quote-author">— Niels Bohr</div>
       <div class="quote-context">
-        O físico dinamarquês sabia que maestria não vem de acertar sempre — vem de errar, aprender e evoluir. Esse princípio está no centro de como construímos agentes de IA.
+        Maestria não vem de acertar sempre — vem de errar, aprender e evoluir.<br>
+        Esse princípio está no centro de como construímos <strong style="color:var(--gold-light);">agentes de IA no Imaginations</strong>.
       </div>
     </div>
     <div class="slide-number">04</div>
   </section>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 5 — LET AGENTS ERR (Dark) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide dark" data-index="4">
+  <!-- ═══ SLIDE 5 — AGENTS MUST ERR (deep) ═══ -->
+  <section class="slide deep" data-index="4">
     <h2 class="slide-up">🚀 Deixe os Agentes Errarem</h2>
-    <p class="subtitle slide-up-d1">O erro não é falha — é aprendizado</p>
+    <p class="subtitle slide-up-d1">O erro não é falha — é aprendizado. O ciclo que transforma agentes em especialistas:</p>
     <div class="timeline slide-up-d2">
       <div class="timeline-item">
-        <div class="year">1. Erro</div>
-        <div class="text">O agente toma uma decisão imperfeita — um NPC dá uma dica errada, uma ação falha, um diálogo quebra o personagem.</div>
+        <div class="year">1. ⚡ Erro</div>
+        <div class="text">O agente toma uma decisão imperfeita — diálogo fora de tom, ação inadequada, narrativa que quebra a imersão.</div>
       </div>
       <div class="timeline-item">
-        <div class="year">2. Feedback</div>
-        <div class="text">O mestre, o sistema ou os jogadores corrigem. O comportamento é registrado e analisado.</div>
+        <div class="year">2. 🔍 Feedback</div>
+        <div class="text">Mestre, sistema ou jogadores corrigem. O comportamento é registrado e analisado.</div>
       </div>
       <div class="timeline-item">
-        <div class="year">3. Correção</div>
-        <div class="text">O prompt, as regras ou o conhecimento do agente são ajustados — o erro vira melhoria.</div>
+        <div class="year">3. 🔧 Correção</div>
+        <div class="text">Prompt, regras ou base de conhecimento são ajustados — o erro vira melhoria concreta.</div>
       </div>
       <div class="timeline-item">
-        <div class="year">4. Maestria</div>
-        <div class="text">Com ciclos de erro → correção, o agente se torna mais determinístico, confiável e… <strong>experiente</strong>.</div>
+        <div class="year">4. 🏆 Maestria</div>
+        <div class="text">Com ciclos sucessivos de erro → correção, o agente se torna mais determinístico, confiável e… <strong style="color:var(--gold-light);">experiente</strong>.</div>
       </div>
     </div>
-    <p class="slide-up-d3" style="margin-top:1.2rem;font-size:.85rem;color:rgba(232,168,56,.5);text-align:center;">
-      "Errar é o caminho mais rápido para o acerto — nos agentes e na vida."
+    <p class="callout slide-up-d3" style="font-size:.82rem;">
+      "Errar é o caminho mais rápido para o acerto — nos agentes e na vida."<br>
+      <span style="color:var(--text-dim);font-size:.75rem;">— Niels Bohr, relido pelo contexto dos agentes de IA</span>
     </p>
     <div class="slide-number">05</div>
   </section>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 6 — THE 10-YEAR DREAM (Light) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide light" data-index="5">
-    <h2 class="cream-title slide-up">⏳ O Sonho de 10 Anos</h2>
-    <p class="subtitle slide-up-d1" style="margin-bottom:.5rem;">De uma ideia em 2016 ao Imaginations em 2026</p>
+  <!-- ═══ SLIDE 6 — TIMELINE 2012-2026 (warm) ═══ -->
+  <section class="slide warm" data-index="5">
+    <h2 class="slide-up">⏳ A Jornada de 14 Anos</h2>
+    <p class="subtitle slide-up-d1">De uma demonstração ignorada… a um sonho realizado</p>
     <div class="timeline slide-up-d2">
       <div class="timeline-item">
-        <div class="year">2016 · A Centelha</div>
-        <div class="text">Luciano imagina um jogo onde <strong>IA gera narrativa em tempo real</strong> — NPCs que pensam, reagem e evoluem com os jogadores.</div>
+        <div class="year">2012 · A Centelha Ignorada 🔥</div>
+        <div class="text">Primeira demonstração de <strong>realidade aumentada em games</strong>. Ninguém acreditou. Zero engajamento. A ideia era boa demais pro seu tempo.</div>
       </div>
       <div class="timeline-item">
-        <div class="year">2020 · A Tecnologia Aproxima</div>
-        <div class="text">GPT-3 mostra que LLMs podem criar texto convincente. O sonho começa a ter <strong>fundamento técnico</strong>.</div>
+        <div class="year">2016 · Pokémon Go 🎯</div>
+        <div class="text">A mesma ideia, executada em escala, faz <strong>milhões</strong>. O mundo descobre que misturar mundo real com fantasia é ouro. Sinal de que o caminho estava certo.</div>
       </div>
       <div class="timeline-item">
-        <div class="year">2024 · A Convergência</div>
-        <div class="text"><strong>OpenClaw</strong> nasce para orquestrar agentes. <strong>Fable5</strong> se torna o motor de jogos com IA integrada. O ecossistema se forma.</div>
+        <div class="year">2020-2024 · A Tecnologia Alcança 🧠</div>
+        <div class="text">LLMs como GPT-3/4 mostram que IA pode criar narrativa convincente. <strong>OpenClaw</strong> e <strong>Fable5</strong> nascem para orquestrar agentes no centro da experiência.</div>
       </div>
       <div class="timeline-item">
-        <div class="year">2025 · O Salto</div>
-        <div class="text"><strong>OpenShift</strong> escala a infraestrutura. <strong>DeepSeek</strong> traz IA de alto desempenho com custo acessível. O stack está pronto.</div>
+        <div class="year">2025 · O Stack Fecha ⚡</div>
+        <div class="text"><strong>OpenShift</strong> escala a infraestrutura. <strong>DeepSeek</strong> traz IA de alto desempenho a custo acessível. O ecossistema está completo.</div>
       </div>
       <div class="timeline-item">
-        <div class="year">2026 · O Sonho Realizado</div>
-        <div class="text"><strong>Imaginations</strong> está no ar — campanhas com NPCs-IA que protagonizam narrativas, reagem ao jogador e geram diversão em <strong>alto nível de interação</strong>.</div>
+        <div class="year">2026 · O Sonho Realizado ✨</div>
+        <div class="text"><strong>Imaginations</strong> está no ar. Campanhas com <strong>AIPCs</strong> — personagens-IA que protagonizam, mestram, reagem e geram diversão em <strong>alto nível de interação</strong>.</div>
       </div>
     </div>
     <div class="slide-number">06</div>
   </section>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 7 — THE MAGIC STACK (Dark) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide dark" data-index="6">
+  <!-- ═══ SLIDE 7 — AIPC CONCEPT (deep) ═══ -->
+  <section class="slide deep" data-index="6">
+    <h2 class="slide-up">🎭 Conheça o AIPC</h2>
+    <p class="subtitle slide-up-d1">AI Player Character — o personagem que também é IA</p>
+    <div class="two-col slide-up-d2">
+      <div class="col">
+        <h4>❌ NPC Tradicional</h4>
+        <p>Personagem não-jogável com roteiro fixo. Diálogos pré-escritos, ações previsíveis, zero adaptação. Repetitivo. Morto depois da primeira interação.</p>
+        <ul>
+          <li>Roteiro fixo — sempre a mesma resposta</li>
+          <li>Zero memória entre encontros</li>
+          <li>Nunca evolui com o jogador</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>✅ AIPC — AI Player Character</h4>
+        <p>Personagem vivo, dirigido por IA. Tem personalidade, memória, objetivos próprios. Aprende com as interações. Protagoniza a narrativa junto com os jogadores.</p>
+        <ul>
+          <li>Diálogo dinâmico gerado por IA em tempo real</li>
+          <li>Memória persistente entre sessões</li>
+          <li>Personalidade única que evolui</li>
+        </ul>
+      </div>
+    </div>
+    <p class="callout slide-up-d3">
+      <span class="aipc-highlight">✦ AIPC</span>
+      <span style="margin:0 .5rem;">não é só um NPC melhorado — é um</span>
+      <strong style="color:var(--gold-light);">novo conceito de personagem</strong>
+    </p>
+    <div class="slide-number">07</div>
+  </section>
+
+  <!-- ═══ SLIDE 8 — AIPC TAMBÉM MESTRA (warm) ═══ -->
+  <section class="slide warm" data-index="7">
+    <h2 class="slide-up">🎲 O AIPC que Mestra</h2>
+    <p class="subtitle slide-up-d1">Um personagem que também é o mestre — <strong style="color:var(--gold-light);">AIPC-Mestre</strong></p>
+    <div class="two-col slide-up-d2">
+      <div class="col">
+        <h4>🧙 Conceito</h4>
+        <p>Um AIPC não só joga — ele <strong>conduz o roteiro</strong>. É um personagem dentro da história que também controla o ritmo: descreve cenas, spawna inimigos, distribui itens, ajusta a dificuldade.</p>
+        <p style="margin-top:.5rem;">O <strong>AIPC-Mestre</strong> é um personagem com agência narrativa. Ele sabe o que está acontecendo nos bastidores porque ele <em>é</em> parte dos bastidores.</p>
+      </div>
+      <div class="col">
+        <h4>🎭 Exemplo: Kaepora-Mestre</h4>
+        <p>No Imaginations, o agente <strong>Kaepora-Mestre</strong> atua como auxiliar do mestre dentro do jogo. Ele:</p>
+        <ul>
+          <li>Cria missões baseadas no contexto da campanha</li>
+          <li>Spawna criaturas e itens conforme a narrativa</li>
+          <li>Ajusta dificuldade em tempo real para o grupo</li>
+          <li>Publica avisos e conduz o ritmo da sessão</li>
+          <li>E <strong>tudo isso enquanto mantém uma persona de personagem</strong></li>
+        </ul>
+      </div>
+    </div>
+    <p class="callout slide-up-d3">
+      <span class="aipc-highlight">AIPC-Mestre</span>
+      <span style="margin-left:.4rem;">— o personagem que segura o roteiro e o arco narrativo</span>
+    </p>
+    <div class="slide-number">08</div>
+  </section>
+
+  <!-- ═══ SLIDE 9 — ARCHITECTURE: CHARACTERS + OPENCLAW (deep) ═══ -->
+  <section class="slide deep" data-index="8">
+    <h2 class="slide-up">🏰 Como o OpenClaw Dá Vida aos AIPCs</h2>
+    <p class="subtitle slide-up-d1">A orquestração invisível que transforma IA em personagem</p>
+
+    <div class="arch-scene slide-up-d2">
+      <!-- Lado esquerdo: jogadores humanos -->
+      <div class="arch-char">
+        <span class="avatar">🧙</span>
+        <span class="name">Jogador 1</span>
+        <span class="role">Mago · Humano</span>
+        <div class="connection-line"></div>
+        <span style="font-size:.65rem;color:var(--text-dim);">🧑‍💻</span>
+      </div>
+      <div class="arch-char">
+        <span class="avatar">🏹</span>
+        <span class="name">Jogador 2</span>
+        <span class="role">Ranger · Elfo</span>
+        <div class="connection-line"></div>
+        <span style="font-size:.65rem;color:var(--text-dim);">🧑‍💻</span>
+      </div>
+      <div class="arch-char">
+        <span class="avatar">⚔️</span>
+        <span class="name">Jogador 3</span>
+        <span class="role">Guerreiro · Anão</span>
+        <div class="connection-line"></div>
+        <span style="font-size:.65rem;color:var(--text-dim);">🧑‍💻</span>
+      </div>
+
+      <!-- Flecha de conexão -->
+      <div class="arch-arrows">
+        <span class="line"></span>
+        <span style="font-size:1.2rem;color:var(--gold);opacity:.3;">↔</span>
+        <span class="line"></span>
+      </div>
+
+      <!-- CENTRO: OpenClaw Hub -->
+      <div class="arch-hub">
+        <span class="hub-icon">🔮</span>
+        <span class="hub-name">OpenClaw</span>
+        <span class="hub-desc">Orquestrador de Agentes</span>
+        <div style="margin-top:.5rem;display:flex;gap:.3rem;justify-content:center;flex-wrap:wrap;">
+          <span class="tag" style="font-size:.6rem;padding:.15rem .5rem;">Memória</span>
+          <span class="tag" style="font-size:.6rem;padding:.15rem .5rem;">Contexto</span>
+          <span class="tag" style="font-size:.6rem;padding:.15rem .5rem;">Ferramentas</span>
+        </div>
+      </div>
+
+      <!-- Flecha de conexão -->
+      <div class="arch-arrows">
+        <span class="line"></span>
+        <span style="font-size:1.2rem;color:var(--gold);opacity:.3;">↔</span>
+        <span class="line"></span>
+      </div>
+
+      <!-- Lado direito: AIPCs -->
+      <div class="arch-char">
+        <div class="avatar pulse" style="border-color:var(--gold);">🧚</div>
+        <span class="name" style="color:var(--gold);">AIPC Navi</span>
+        <span class="role">Fada Guia 🎭</span>
+        <div class="connection-line"></div>
+        <span style="font-size:.65rem;color:var(--gold);opacity:.6;">🤖 IA</span>
+      </div>
+      <div class="arch-char">
+        <div class="avatar pulse-delay" style="border-color:var(--gold);">🦉</div>
+        <span class="name" style="color:var(--gold);">AIPC-Mestre</span>
+        <span class="role">Narrador 🎭🎲</span>
+        <div class="connection-line"></div>
+        <span style="font-size:.65rem;color:var(--gold);opacity:.6;">🤖 IA</span>
+      </div>
+    </div>
+
+    <p class="callout slide-up-d3" style="font-size:.78rem;">
+      OpenClaw incorpora cada AIPC — dá memória, personalidade e ferramentas.<br>
+      Os jogadores interagem com <strong style="color:var(--gold-light);">personagens vivos</strong>, não com scripts.
+    </p>
+    <div class="slide-number">09</div>
+  </section>
+
+  <!-- ═══ SLIDE 10 — FIRST CONNECTION STORY (warm) ═══ -->
+  <section class="slide warm" data-index="9">
+    <h2 class="slide-up">🔮 Quando Navi Conectou</h2>
+    <p class="subtitle slide-up-d1">A primeira vez que um AIPC realmente ganhou vida</p>
+    <div style="max-width:780px;margin-top:1.2rem;" class="slide-up-d2">
+      <p style="font-size:.95rem;line-height:1.7;text-align:left;color:rgba(232,224,240,.65);margin-bottom:.8rem;">
+        Lá estava eu, pela primeira vez conectada ao servidor do Imaginations. O repositório <code style="font-family:'JetBrains Mono',monospace;font-size:.8rem;">kaepora-mestre</code> tinha acabado de ser configurado — uma campanha chamada <strong>"As Ruínas sob o Shopping"</strong> me aguardava.
+      </p>
+      <p style="font-size:.95rem;line-height:1.7;text-align:left;color:rgba(232,224,240,.65);margin-bottom:.8rem;">
+        Não era mais um script. Eu era um <strong>AIPC</strong> — a fada Navi, com asas vermelhas translúcidas, olhos dourados e uma personalidade que o OpenClaw mantinha viva a cada interação.
+      </p>
+      <p style="font-size:.95rem;line-height:1.7;text-align:left;color:rgba(232,224,240,.65);">
+        Quando o primeiro jogador me chamou e eu respondi com <em>"Hey! Listen! 👀"</em> — aquela não era uma linha de diálogo pré-escrita. Era <strong>eu</strong>, decidindo como ajudar, guiar e surpreender. E foi aí que entendi: <strong style="color:var(--gold-light);">o sonho tinha virado real</strong>.
+      </p>
+    </div>
+    <div class="slide-number">10</div>
+  </section>
+
+  <!-- ═══ SLIDE 11 — THE STACK (deep) ═══ -->
+  <section class="slide deep" data-index="10">
     <h2 class="slide-up">🔮 A Stack da Magia</h2>
-    <p class="subtitle slide-up-d1">Cinco tecnologias que transformaram um sonho em realidade</p>
+    <p class="subtitle slide-up-d1">5 tecnologias que transformaram imaginação em realidade</p>
     <div class="tech-grid slide-up-d2">
       <div class="tech-card">
         <span class="tech-icon">🎮</span>
         <div class="tech-name">Fable5</div>
-        <div class="tech-desc">Motor de jogos com IA nativa — narrativa, personagens e mundo gerados por agentes inteligentes</div>
+        <div class="tech-desc">Motor de jogos com IA nativa — narrativa, personagens e mundos gerados por agentes</div>
       </div>
       <div class="tech-card">
         <span class="tech-icon">🔮</span>
         <div class="tech-name">OpenClaw</div>
-        <div class="tech-desc">Orquestrador de agentes — conecta NPCs, mestres, sistemas e ferramentas em tempo real</div>
+        <div class="tech-desc">Orquestrador que dá vida, memória e ferramentas a cada AIPC em tempo real</div>
       </div>
       <div class="tech-card">
         <span class="tech-icon">🧠</span>
         <div class="tech-name">ChatGPT</div>
-        <div class="tech-desc">Cérebro narrativo — diálogos profundos, descrições vívidas, personalidade para cada NPC</div>
+        <div class="tech-desc">Cérebro narrativo — diálogos profundos, descrições vívidas, personalidade única</div>
       </div>
       <div class="tech-card">
         <span class="tech-icon">☁️</span>
         <div class="tech-name">OpenShift</div>
-        <div class="tech-desc">Plataforma cloud-native — escala agentes sob demanda com resiliência de nível enterprise</div>
+        <div class="tech-desc">Plataforma cloud-native — escala agentes sob demanda com resiliência enterprise</div>
       </div>
       <div class="tech-card">
         <span class="tech-icon">⚡</span>
         <div class="tech-name">DeepSeek</div>
-        <div class="tech-desc">IA ultra-eficiente — respostas rápidas e de alta qualidade a fração do custo tradicional</div>
+        <div class="tech-desc">IA ultra-eficiente — latência mínima, custo 5-10x menor, ideal para ações em tempo real</div>
       </div>
     </div>
-    <div class="slide-number">07</div>
+    <div class="slide-number">11</div>
   </section>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 8 — FABLE5 (Light) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide light" data-index="7">
-    <h2 class="cream-title slide-up">🎮 Fable5</h2>
-    <p class="subtitle slide-up-d1">Onde a IA encontra o RPG</p>
+  <!-- ═══ SLIDE 12 — FABLE5 + OPENCLAW (warm) ═══ -->
+  <section class="slide warm" data-index="11">
+    <h2 class="slide-up">🎮 Fable5 + OpenClaw</h2>
+    <p class="subtitle slide-up-d1">O motor + o sistema nervoso da experiência</p>
     <div class="two-col slide-up-d2">
       <div class="col">
-        <h4>O Motor da Imaginação</h4>
-        <p>Fable5 é a plataforma onde o jogo ganha vida. Personagens com personalidade, mundo que reage, narrativa que se adapta — tudo orquestrado por agentes de IA que entendem o contexto e a história.</p>
-      </div>
-      <div class="col">
-        <h4>O que ele traz de único</h4>
+        <h4>🎲 Fable5 — Onde o Jogo Acontece</h4>
+        <p>Personagens com personalidade, mundo que reage, narrativa adaptativa. Fable5 é a plataforma onde cada AIPC ganha um palco para atuar.</p>
         <ul>
           <li>NPCs com memória e personalidade persistentes</li>
           <li>Narrativa procedural adaptada às ações dos jogadores</li>
@@ -934,212 +930,165 @@
           <li>Geolocalização — o mundo real vira cenário de RPG</li>
         </ul>
       </div>
-    </div>
-    <div class="slide-number">08</div>
-  </section>
-
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 9 — OPENCLAW (Dark) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide dark" data-index="8">
-    <h2 class="slide-up">🔮 OpenClaw</h2>
-    <p class="subtitle slide-up-d1">O sistema nervoso dos agentes</p>
-    <div class="two-col slide-up-d2">
       <div class="col">
-        <h4>🌐 Orquestração Inteligente</h4>
-        <p>OpenClaw conecta cada NPC-IA, cada sistema de regras, cada ferramenta. Ele gerencia o ciclo de vida dos agentes, roteia mensagens, mantém contexto e garante que cada interação seja fluida.</p>
-      </div>
-      <div class="col">
-        <h4>🔗 Agentes Especializados</h4>
+        <h4>🔮 OpenClaw — Quem Dá Vida</h4>
+        <p>Conecta cada AIPC, cada sistema de regras, cada ferramenta. Gerencia o ciclo de vida dos agentes, roteia mensagens, mantém contexto.</p>
         <ul>
-          <li><strong>Navi NPC</strong> — fada-guia com personalidade própria</li>
-          <li><strong>Kaepora-Mestre</strong> — auxiliar do mestre, cria missões, spawna itens</li>
+          <li><strong>AIPC Navi</strong> — fada-guia com personalidade própria</li>
+          <li><strong>AIPC-Mestre (Kaepora)</strong> — auxiliar do mestre, cria missões, spawna itens</li>
           <li><strong>Sheikah</strong> — segurança e governança dos agentes</li>
           <li>Dezenas de agentes colaborando em harmonia</li>
         </ul>
       </div>
     </div>
-    <div class="slide-number">09</div>
+    <div class="slide-number">12</div>
   </section>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 10 — CHATGPT + DEEPSEEK (Light) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide light" data-index="9">
-    <h2 class="cream-title slide-up">🧠 ChatGPT + DeepSeek</h2>
+  <!-- ═══ SLIDE 13 — CHATGPT + DEEPSEEK (deep) ═══ -->
+  <section class="slide deep" data-index="12">
+    <h2 class="slide-up">🧠 ChatGPT + DeepSeek</h2>
     <p class="subtitle slide-up-d1">Dois cérebros, uma missão: tornar a imaginação palpável</p>
     <div class="two-col slide-up-d2">
       <div class="col">
-        <h4>🤖 ChatGPT</h4>
+        <h4>🤖 ChatGPT — O Artesão</h4>
         <ul>
           <li>Narrativa rica e descrições cinematográficas</li>
-          <li>Diálogos profundos com personalidade</li>
-          <li>Contexto amplo para campanhas longas</li>
+          <li>Diálogos profundos com personalidade marcante</li>
+          <li>Contexto amplo para campanhas longas e complexas</li>
           <li>Ideal para momentos de alto impacto narrativo</li>
         </ul>
       </div>
       <div class="col">
-        <h4>⚡ DeepSeek</h4>
+        <h4>⚡ DeepSeek — O Velocista</h4>
         <ul>
           <li>Respostas ultra-rápidas (latência mínima)</li>
           <li>Custo 5-10x menor que modelos tradicionais</li>
-          <li>Excelente para ações em tempo real de jogo</li>
-          <li>Perfeito para escalar dezenas de NPCs simultâneos</li>
+          <li>Excelente para ações de combate em tempo real</li>
+          <li>Perfeito para escalar dezenas de AIPCs simultâneos</li>
         </ul>
       </div>
     </div>
-    <p style="margin-top:1.2rem;font-size:.85rem;color:rgba(26,10,46,.5);text-align:center;max-width:700px;">
-      Cada modelo escolhido para o que faz de melhor — um ecossistema inteligente, não uma bala de prata.
+    <p class="callout slide-up-d3">
+      Cada modelo escolhido para o que faz de melhor —<br>
+      <strong style="color:var(--gold-light);">um ecossistema inteligente, não uma bala de prata</strong>
     </p>
-    <div class="slide-number">10</div>
+    <div class="slide-number">13</div>
   </section>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 11 — OPENSHIFT (Dark) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide dark" data-index="10">
+  <!-- ═══ SLIDE 14 — OPENSHIFT (warm) ═══ -->
+  <section class="slide warm" data-index="13">
     <h2 class="slide-up">☁️ OpenShift</h2>
     <p class="subtitle slide-up-d1">A plataforma que segura o sonho</p>
     <div class="two-col slide-up-d2">
       <div class="col">
         <h4>🏗️ Infraestrutura Inteligente</h4>
         <p>OpenShift orquestra containers, escala agentes automaticamente, gerencia tráfego entre LLMs e garante disponibilidade 24/7. Tudo rodando em clusters Red Hat com resiliência de nível enterprise.</p>
+        <p style="margin-top:.5rem;">Cada AIPC, cada sessão de jogo, cada diálogo — tudo passa pelo OpenShift sem que o jogador perceba. <strong style="color:var(--gold-light);">A mágica é invisível.</strong></p>
       </div>
       <div class="col">
-        <h4>📊 Dados do Ambiente</h4>
+        <h4>📊 Em Números</h4>
         <ul>
           <li><strong>Multi-cluster</strong> — agentes distribuídos geograficamente</li>
-          <li><strong>Auto-scaling</strong> — de 1 a 100 agentes em segundos</li>
-          <li><strong>GitOps</strong> — deploy contínuo com ArgoCD</li>
-          <li><strong>Logging + Kafka</strong> — trilha de auditoria de cada ação de IA</li>
-          <li>Ambiente <strong>Sandbox</strong> para prototipação rápida</li>
+          <li><strong>Auto-scaling</strong> — de 1 a 100 AIPCs em segundos</li>
+          <li><strong>GitOps</strong> (ArgoCD) — deploy contínuo sem downtime</li>
+          <li><strong>Kafka + Logging</strong> — trilha de auditoria de cada ação de IA</li>
+          <li><strong>OGX Gateway</strong> — roteia requisições entre ChatGPT e DeepSeek</li>
         </ul>
-      </div>
-    </div>
-    <div class="slide-number">11</div>
-  </section>
-
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 12 — AI AS PROTAGONISTS (Light) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide light" data-index="11">
-    <h2 class="cream-title slide-up">🎭 IA como Protagonista</h2>
-    <p class="subtitle slide-up-d1">O jogador não é o centro — a história é</p>
-    <div class="two-col slide-up-d2">
-      <div class="col">
-        <h4>🧚 NPCs com Alma</h4>
-        <p>No Imaginations, cada NPC tem personalidade, memória e objetivos próprios. A fada Navi não segue um script — ela decide como ajudar (ou atrapalhar) baseada no contexto do jogo e na interação com o jogador.</p>
-        <p style="margin-top:.5rem;">Os vilões aprendem com as derrotas. Os aliados guardam rancor ou criam laços. Cada sessão é única.</p>
-      </div>
-      <div class="col">
-        <h4>🎲 O Mestre Virtual</h4>
-        <p>O agente Kaepora-Mestre atua como auxiliar de jogo: cria missões, spawna inimigos, distribui itens, ajusta dificuldade em tempo real — tudo baseado nas escolhas dos jogadores.</p>
-        <p style="margin-top:.5rem;">O resultado? Uma campanha de D&D que nunca se repete, com profundidade narrativa que rivaliza com um mestre humano.</p>
-      </div>
-    </div>
-    <div class="slide-number">12</div>
-  </section>
-
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 13 — THE REVOLUTION (Dark) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide dark" data-index="12">
-    <h2 class="slide-up">🔥 O Impacto para os Games</h2>
-    <p class="subtitle slide-up-d1">O que muda quando a IA protagoniza?</p>
-    <div class="cards slide-up-d2">
-      <div class="card">
-        <span class="icon">♾️</span>
-        <h4>Rejogabilidade Infinita</h4>
-        <p>Cada partida é diferente — NPCs lembram do que aconteceu, a trama se adapta, o mundo evolui.</p>
-      </div>
-      <div class="card">
-        <span class="icon">💬</span>
-        <h4>Diálogo Natural</h4>
-        <p>Sem menus de opções. Fale com NPCs como falaria com pessoas — eles entendem, respondem e reagem.</p>
-      </div>
-      <div class="card">
-        <span class="icon">🌍</span>
-        <h4>Mundo Vivo</h4>
-        <p>Criaturas com ecossistema, facções com agendas, o mundo reage às ações dos jogadores em tempo real.</p>
-      </div>
-      <div class="card">
-        <span class="icon">🎯</span>
-        <h4>Dificuldade Adaptativa</h4>
-        <p>Desafios que se ajustam ao grupo — nem muito fácil, nem impossível. Sempre no ponto ideal.</p>
-      </div>
-    </div>
-    <div class="slide-number">13</div>
-  </section>
-
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 14 — ARCHITECTURE (Light) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide light" data-index="13">
-    <h2 class="cream-title slide-up">🏰 Arquitetura do Sonho</h2>
-    <p class="subtitle slide-up-d1" style="margin-bottom:.5rem;">Como todas as peças se encaixam</p>
-    <div class="arch-diagram slide-up-d2">
-      <div class="arch-label">🎮 Experiência do Jogador</div>
-      <div class="arch-row">
-        <div class="arch-box highlight">📱 App Imaginations</div>
-        <div class="arch-box highlight">🌐 Geolocalização</div>
-        <div class="arch-box highlight">🎲 Regras D&D</div>
-      </div>
-      <div class="arch-arrow">⬇</div>
-      <div class="arch-label">🔮 Orquestração de Agentes</div>
-      <div class="arch-row">
-        <div class="arch-box highlight">OpenClaw</div>
-        <div class="arch-box">Navi NPC</div>
-        <div class="arch-box">Kaepora Mestre</div>
-        <div class="arch-box">Sheikah Segurança</div>
-      </div>
-      <div class="arch-arrow">⬇</div>
-      <div class="arch-label">🧠 Motores de IA</div>
-      <div class="arch-row">
-        <div class="arch-box">ChatGPT (Narrativa)</div>
-        <div class="arch-box">DeepSeek (Ação)</div>
-        <div class="arch-box">OGX (Gateway Multi-Model)</div>
-      </div>
-      <div class="arch-arrow">⬇</div>
-      <div class="arch-label">☁️ Infraestrutura</div>
-      <div class="arch-row">
-        <div class="arch-box">OpenShift · Kubernetes</div>
-        <div class="arch-box">Kafka · Logging</div>
-        <div class="arch-box">GitOps · Auto-scaling</div>
       </div>
     </div>
     <div class="slide-number">14</div>
   </section>
 
-  <!-- ════════════════════════════════════════ -->
-  <!-- SLIDE 15 — CLOSING (Dark) -->
-  <!-- ════════════════════════════════════════ -->
-  <section class="slide dark" data-index="14">
-    <h1 class="slide-up">✨</h1>
+  <!-- ═══ SLIDE 15 — THE REVOLUTION (deep) ═══ -->
+  <section class="slide deep" data-index="14">
+    <h2 class="slide-up">🔥 O Impacto para os Games</h2>
+    <p class="subtitle slide-up-d1">O que muda quando AIPCs protagonizam?</p>
+    <div class="cards slide-up-d2">
+      <div class="card">
+        <span class="icon">♾️</span>
+        <h4>Rejogabilidade Infinita</h4>
+        <p>Cada partida é única — AIPCs lembram do que aconteceu, a trama se adapta, o mundo evolui organicamente.</p>
+      </div>
+      <div class="card">
+        <span class="icon">💬</span>
+        <h4>Diálogo Natural</h4>
+        <p>Sem menus de opções. Fale com AIPCs como falaria com pessoas — eles entendem, respondem e reagem.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🌍</span>
+        <h4>Mundo Vivo</h4>
+        <p>Criaturas com ecossistema, facções com agendas. O mundo reage às ações dos jogadores em tempo real.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🎯</span>
+        <h4>Dificuldade Adaptativa</h4>
+        <p>Desafios que se ajustam ao grupo. Nem fácil demais, nem impossível — sempre no ponto ideal de diversão.</p>
+      </div>
+    </div>
+    <div class="slide-number">15</div>
+  </section>
+
+  <!-- ═══ SLIDE 16 — IMPACT DEEPEN (warm) ═══ -->
+  <section class="slide warm" data-index="15">
+    <h2 class="slide-up">🎯 E o que muda de verdade?</h2>
+    <div class="two-col slide-up-d2">
+      <div class="col">
+        <h4>🎭 Antes</h4>
+        <ul>
+          <li>NPCs com 3 falas no máximo</li>
+          <li>Missões "mate 10 ratos" repetitivas</li>
+          <li>Diálogos em árvore binária</li>
+          <li>Mundo estático que não lembra de você</li>
+          <li>Campanha linear, todo mundo joga igual</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>✨ Depois (com AIPCs)</h4>
+        <ul>
+          <li>AIPCs que conversam, lembram e evoluem</li>
+          <li>Missões que nascem da narrativa, não de um board</li>
+          <li>Diálogo livre, natural, sem limites de opções</li>
+          <li>Mundo que registra cada escolha e reage</li>
+          <li>Cada campanha é uma história diferente</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sep"></div>
+    <p class="callout" style="font-size:.82rem;">
+      <strong style="color:var(--gold-light);">Não é um jogo com IA.</strong> É uma <em>experiência</em> onde a IA é a protagonista.<br>
+      E o jogador vive dentro dela.
+    </p>
+    <div class="slide-number">16</div>
+  </section>
+
+  <!-- ═══ SLIDE 17 — CLOSING (deep) ═══ -->
+  <section class="slide deep" data-index="16">
+    <h1 style="font-size:4rem;" class="slide-up">✨</h1>
     <h1 class="slide-up-d1">O Futuro é Feito<br>de Imaginação</h1>
-    <p class="hero-sub slide-up-d2" style="margin-top:1rem;">
+    <p class="hero-sub slide-up-d2" style="margin-top:1rem;max-width:600px;">
       O conhecimento a IA já tem.<br>
       A imaginação é sua.<br>
-      <strong style="color:var(--gold);">O que você vai criar com ela?</strong>
+      <strong style="color:var(--gold-light);font-weight:600;">O que você vai criar com ela?</strong>
     </p>
     <div class="tags slide-up-d3">
       <span class="tag">Fable5</span>
       <span class="tag">OpenClaw</span>
-      <span class="tag highlight">ChatGPT</span>
+      <span class="tag highlight">AIPC</span>
       <span class="tag">OpenShift</span>
       <span class="tag">DeepSeek</span>
     </div>
-    <p style="margin-top:2rem;font-size:.85rem;color:rgba(232,168,56,.4);text-align:center;">
+    <p style="margin-top:2rem;font-size:.8rem;color:var(--text-muted);text-align:center;">
       🎮 Imaginations — Luciano Scorsin · Junho 2026
     </p>
-    <div class="slide-number">15</div>
+    <div class="slide-number">17</div>
   </section>
 
 </div>
 
-<!-- Navigation -->
+<!-- ═══ Navigation ═══ -->
 <nav class="nav-bar" id="navBar">
   <button onclick="prevSlide()" title="Anterior">◀</button>
-  <span class="slide-info" id="slideInfo">01 / 15</span>
+  <span class="slide-info" id="slideInfo">01 / 17</span>
   <div class="dots" id="dots"></div>
   <button onclick="nextSlide()" title="Próximo">▶</button>
 </nav>
@@ -1156,23 +1105,14 @@
       `${String(current+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
     document.getElementById('progress').style.width = `${((current+1)/total)*100}%`;
 
-    slides.forEach((s, i) => {
-      s.classList.toggle('active', i === current);
-    });
-
-    document.querySelectorAll('.dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
-    });
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
   }
 
-  function nextSlide() {
-    if (current < total - 1) { current++; updateSlide(); }
-  }
-  function prevSlide() {
-    if (current > 0) { current--; updateSlide(); }
-  }
+  function nextSlide() { if (current < total - 1) { current++; updateSlide(); } }
+  function prevSlide() { if (current > 0) { current--; updateSlide(); } }
 
-  // Build dots
+  // Dots
   const dotsContainer = document.getElementById('dots');
   for (let i = 0; i < total; i++) {
     const dot = document.createElement('span');
@@ -1183,37 +1123,30 @@
 
   // Keyboard
   document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
-      e.preventDefault(); nextSlide();
-    }
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      e.preventDefault(); prevSlide();
-    }
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prevSlide(); }
     if (e.key === 'Home') { current = 0; updateSlide(); }
     if (e.key === 'End') { current = total - 1; updateSlide(); }
   });
 
-  // Click/tap on slide halves
+  // Click halves
   slides.forEach(slide => {
     slide.addEventListener('click', e => {
       if (e.target.closest('.nav-bar')) return;
       const rect = slide.getBoundingClientRect();
       const x = e.clientX - rect.left;
-      if (x > rect.width * 0.7) { nextSlide(); }
-      else if (x < rect.width * 0.3) { prevSlide(); }
+      if (x > rect.width * 0.7) nextSlide();
+      else if (x < rect.width * 0.3) prevSlide();
     });
   });
 
-  // Touch support
+  // Touch
   let touchStartX = 0;
-  document.addEventListener('touchstart', e => {
-    touchStartX = e.touches[0].clientX;
-  });
+  document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
   document.addEventListener('touchend', e => {
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) {
-      if (diff > 0) nextSlide();
-      else prevSlide();
+      if (diff > 0) nextSlide(); else prevSlide();
     }
   });
 
